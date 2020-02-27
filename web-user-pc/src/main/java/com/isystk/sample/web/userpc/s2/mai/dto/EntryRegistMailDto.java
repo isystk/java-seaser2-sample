@@ -10,7 +10,7 @@ import com.isystk.sample.common.s2.mai.dto.BaseMailDto;
 /**
  * 会員登録機能から送信するメール本文用Dto
  * 
- * @author uedakeita
+ * @author iseyoshitaka
  */
 public class EntryRegistMailDto extends BaseMailDto {
 

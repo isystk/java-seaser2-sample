@@ -1,4 +1,4 @@
-package com.isystk.sample.web.userpc.s2.action.member.people;
+package com.isystk.sample.web.userpc.s2.action.member.post;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -38,9 +38,9 @@ import com.isystk.sample.web.common.annotation.LoginCheck;
 import com.isystk.sample.web.common.annotation.SSL;
 import com.isystk.sample.web.common.util.CmnFunctions;
 import com.isystk.sample.web.common.util.ValidateUtil;
-import com.isystk.sample.web.userpc.s2.dto.member.people.PeopleUserTagDto;
-import com.isystk.sample.web.userpc.s2.form.member.people.PeopleIndexForm;
-import com.isystk.sample.web.userpc.s2.logic.MemberPeopleUserLogic;
+import com.isystk.sample.web.userpc.s2.dto.member.post.PostUserTagDto;
+import com.isystk.sample.web.userpc.s2.form.member.post.PostIndexForm;
+import com.isystk.sample.web.userpc.s2.logic.MemberPostLogic;
 import com.isystk.sample.web.userpc.s2.logic.PostCommonLogic;
 
 import net.sf.json.JSONObject;
@@ -56,7 +56,7 @@ public class IndexAction {
 
 	@Resource
 	@ActionForm
-	public PeopleIndexForm peopleIndexForm;
+	public PostIndexForm postIndexForm;
 
 	/** 投稿共通 ロジック */
 	@Resource
@@ -68,7 +68,7 @@ public class IndexAction {
 
 	/** 投稿のロジック */
 	@Resource
-	protected MemberPeopleUserLogic memberPeopleUserLogic;
+	protected MemberPostLogic memberPostLogic;
 
 	/** 先輩カップルNGワードタグ一覧 */
 	private static List<String> peopleTagNgWordList = PeopleTagNgWord.getAllList();
@@ -83,7 +83,7 @@ public class IndexAction {
 	@Execute(validator = false)
 	public String imageUpload() throws FileNotFoundException, IOException {
 
-		FormFile imageFile = peopleIndexForm.imageFile;
+		FormFile imageFile = postIndexForm.imageFile;
 
 		if (!checkLogicalUploadImage(imageFile)) {
 			return null;
@@ -188,7 +188,7 @@ public class IndexAction {
 		Map<String, Object> responseDataMap = new LinkedHashMap<String, Object>();
 
 		// すべてのタグの一覧を取得します。(承認済みのもののみ)
-		List<PeopleUserTagDto> allTagList = postCommonLogic.getPostTagList();
+		List<PostUserTagDto> allTagList = postCommonLogic.getPostTagList();
 		responseDataMap.put("allTagList", allTagList);
 
 		// タグのNGワードリストを取得します。
@@ -267,16 +267,16 @@ public class IndexAction {
 		});
 
 		// 新規に追加申請した予定のタグ
-		List<PeopleUserTagDto> appendTagList = memberPeopleUserLogic.addPostTag(firstTagList);
+		List<PostUserTagDto> appendTagList = memberPostLogic.addPostTag(firstTagList);
 		Map<String, Integer> appendTagMap = Maps.newHashMap();
-		for (PeopleUserTagDto appendTag : appendTagList) {
+		for (PostUserTagDto appendTag : appendTagList) {
 			appendTagMap.put(appendTag.name, appendTag.postTagId);
 		}
 
 		// 返却用のデータリストを生成
-		List<PeopleUserTagDto> setTagList = Lists.newArrayList();
+		List<PostUserTagDto> setTagList = Lists.newArrayList();
 		for (String selectTag : selectTagList) {
-			PeopleUserTagDto dto = new PeopleUserTagDto();
+			PostUserTagDto dto = new PostUserTagDto();
 			dto.name = selectTag;
 		    Integer tagId = allTagMap.get(selectTag);
 		    if (tagId == null) {

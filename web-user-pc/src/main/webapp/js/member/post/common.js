@@ -21,7 +21,7 @@ $(function() {
 		function openPreviewWindow() {
 			var formClone = $('form').clone();
 			formClone.attr('target', 'previewwindow')
-			formClone.attr('action', '/wedding/preview/peopleUser/')
+			formClone.attr('action', '/wedding/preview/post/')
 
 			$('body').append(formClone);
 

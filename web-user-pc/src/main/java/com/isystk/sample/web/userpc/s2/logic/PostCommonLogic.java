@@ -12,7 +12,7 @@ import com.google.inject.internal.Maps;
 import com.isystk.sample.common.s2.entity.MPostTag;
 import com.isystk.sample.common.s2.service.MPostTagService;
 import com.isystk.sample.common.util.BeanCopyUtil;
-import com.isystk.sample.web.userpc.s2.dto.member.people.PeopleUserTagDto;
+import com.isystk.sample.web.userpc.s2.dto.member.post.PostUserTagDto;
 
 /**
  * 投稿共通 ロジック。
@@ -68,13 +68,13 @@ public class PostCommonLogic {
 	 *
 	 * @return
 	 */
-	public List<PeopleUserTagDto> getPostTagList() {
+	public List<PostUserTagDto> getPostTagList() {
 
 		List<MPostTag> mPostTagList = mPostTagService.findByIdList();
 
-		List<PeopleUserTagDto> postTagList = Lists.newArrayList();
+		List<PostUserTagDto> postTagList = Lists.newArrayList();
 		for (MPostTag mPostTag : mPostTagList) {
-			postTagList.add(BeanCopyUtil.createAndCopy(PeopleUserTagDto.class, mPostTag).execute());
+			postTagList.add(BeanCopyUtil.createAndCopy(PostUserTagDto.class, mPostTag).execute());
 		}
 
 		return postTagList;

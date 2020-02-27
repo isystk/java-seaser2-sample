@@ -82,7 +82,7 @@ $(function() {
 			self.attr('disabled', 'disabled');
 
 			$.mynaviUpload({
-				uploadUrl: '/member/people/imageUpload/?dataType=' + dataType,
+				uploadUrl: '/member/post/imageUpload/?dataType=' + dataType,
 				successCallback : function(res) {
 
 					self.removeAttr('disabled');
@@ -124,7 +124,7 @@ $(function() {
 	});
 
 	// リアルタイムチェック
-	$.mynaviRealtimeCheck({'textselector': '.realtimecheck', 'url': '/member/people/regist/callRealtimeCheck/'});
+	$.mynaviRealtimeCheck({'textselector': '.realtimecheck', 'url': '/member/post/regist/callRealtimeCheck/'});
 
 
 });

@@ -25,7 +25,7 @@ Server:${ServiceCountForDebugActionInterceptor_TIME}(ms),
     <ul>
       <li><a href="${url:absolute(Url.userpcTop)}">トップ</a></li>
       <li class="page_item page-item-20"><a href="${url:absolute(Url.userpcMember)}">マイページ</a></li>
-      <li class="page_item page-item-19"><a href="${url:absolute(Url.userpcMemberPeopleRegist)}">投稿する</a></li>
+      <li class="page_item page-item-19"><a href="${url:absolute(Url.userpcMemberPostRegist)}">投稿する</a></li>
     </ul>
   </nav>
 </div>

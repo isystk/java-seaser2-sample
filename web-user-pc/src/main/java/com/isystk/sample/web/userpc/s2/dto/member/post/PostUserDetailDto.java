@@ -1,4 +1,4 @@
-package com.isystk.sample.web.userpc.s2.dto.member.people;
+package com.isystk.sample.web.userpc.s2.dto.member.post;
 
 import java.util.Date;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.List;
  * 投稿 詳細Dto
  *
  */
-public class PeopleUserDetailDto {
+public class PostUserDetailDto {
 
 	/** 投稿ID */
 	public Integer postId;
@@ -28,7 +28,7 @@ public class PeopleUserDetailDto {
 	public List<Integer> postImageIdList;
 
 	/** タグID */
-	public List<PeopleUserTagDto> postTagList;
+	public List<PostUserTagDto> postTagList;
 
 	/** 投稿日時 */
 	public Date reistDate;

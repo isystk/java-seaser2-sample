@@ -41,9 +41,9 @@ public enum Url {
 	/** トップ */
 	userpcTop("/"),
 	/** 投稿登録 */
-	userpcMemberPeopleRegist("/member/people/regist/"),
+	userpcMemberPostRegist("/member/post/regist/"),
 	/** 投稿修正 */
-	userpcMemberPeopleEdit("/member/people/edit/"),
+	userpcMemberPostEdit("/member/post/edit/"),
 	/** ログイン */
 	userpcLogin("/login/"),
 	/** ログアウト */

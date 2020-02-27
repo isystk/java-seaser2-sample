@@ -1,10 +1,10 @@
-package com.isystk.sample.web.userpc.s2.dto.member.people;
+package com.isystk.sample.web.userpc.s2.dto.member.post;
 
 /**
  * 先輩カップル(投稿型) 会場セレクトボックス用 Dto
  * 
  */
-public class PeopleUserWeddingDto {
+public class PostUserWeddingDto {
 
     /** 式場ID OR チャペルID */
     public Integer id;

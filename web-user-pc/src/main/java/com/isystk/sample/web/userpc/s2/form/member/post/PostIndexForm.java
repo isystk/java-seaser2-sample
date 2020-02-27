@@ -1,4 +1,4 @@
-package com.isystk.sample.web.userpc.s2.form.member.people;
+package com.isystk.sample.web.userpc.s2.form.member.post;
 
 import java.io.Serializable;
 import org.apache.struts.upload.FormFile;
@@ -8,7 +8,7 @@ import org.apache.struts.upload.FormFile;
  * 
  * @author iseyoshitaka
  */
-public class PeopleIndexForm implements Serializable {
+public class PostIndexForm implements Serializable {
 
     private static final long serialVersionUID = 1L;
     

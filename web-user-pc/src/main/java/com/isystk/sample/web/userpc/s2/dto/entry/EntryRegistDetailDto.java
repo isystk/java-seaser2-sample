@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * 会員登録詳細DTO
  * 
- * @author uedakeita
+ * @author iseyoshitaka
  */
 public class EntryRegistDetailDto {
 

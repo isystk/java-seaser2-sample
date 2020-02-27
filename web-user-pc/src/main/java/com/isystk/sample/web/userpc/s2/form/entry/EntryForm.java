@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 会員登録(予約フォームから受け継いだ会員情報)アクションフォーム
  * 
- * @author uedakeita
+ * @author iseyoshitaka
  */
 public class EntryForm implements Serializable {
 

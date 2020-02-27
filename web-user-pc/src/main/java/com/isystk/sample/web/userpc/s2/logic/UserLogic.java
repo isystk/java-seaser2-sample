@@ -12,7 +12,7 @@ import com.isystk.sample.web.userpc.s2.dto.member.UserDetailDto;
 /**
  * 会員データ処理のロジックを実装します。
  *
- * @author uedakeita
+ * @author iseyoshitaka
  */
 @Component
 public class UserLogic {

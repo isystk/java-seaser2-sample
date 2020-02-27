@@ -625,7 +625,7 @@ $.preventDoubleSubmit = function() {
 				}
 				loading = true;
 
-				var url = '/member/people/checkTagList/';
+				var url = '/member/post/checkTagList/';
 
 				var form = $('<form></form>');
 				form.append($(_.map(selectTags, function(data) {
@@ -698,7 +698,7 @@ $.preventDoubleSubmit = function() {
 				panel.addClass('open');
 				$('#dialog-overlay').fadeIn();
 
-				var url = '/member/people/tagList/';
+				var url = '/member/post/tagList/';
 
 				// Loading画像
 				$('<div id="site_loader_overlay"><div class="site_loader_spinner" ></div></div>').appendTo('body');

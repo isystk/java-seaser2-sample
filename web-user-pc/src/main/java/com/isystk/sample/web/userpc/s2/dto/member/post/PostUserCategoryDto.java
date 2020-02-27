@@ -1,4 +1,4 @@
-package com.isystk.sample.web.userpc.s2.dto.member.people;
+package com.isystk.sample.web.userpc.s2.dto.member.post;
 
 
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.List;
  * 先輩カップル(投稿型) タグDto
  * 
  */
-public class PeopleUserCategoryDto {
+public class PostUserCategoryDto {
 
     /** 先輩カップル(投稿型)カテゴリーID */
     public Integer peopleUserCategoryId;
@@ -31,5 +31,5 @@ public class PeopleUserCategoryDto {
     public Integer sort;
 
     /** タグのリスト */
-    public List<PeopleUserTagDto> categoryTagList;
+    public List<PostUserTagDto> categoryTagList;
 }

@@ -40,7 +40,6 @@ import com.isystk.sample.web.userpc.s2.dto.entry.EntryRegistDetailDto;
 import com.isystk.sample.web.userpc.s2.form.entry.EntryForm;
 import com.isystk.sample.web.userpc.s2.form.entry.EntryRegistForm;
 import com.isystk.sample.web.userpc.s2.logic.EntryRegistLogic;
-import com.isystk.sample.web.userpc.s2.logic.WeddingCommonLogic;
 
 import net.sf.json.JSONObject;
 
@@ -59,10 +58,6 @@ public class RegistAction {
 	/** 会員登録Logic */
 	@Resource
 	protected EntryRegistLogic entryRegistLogic;
-
-	/** フロントPC共通Logic */
-	@Resource
-	protected WeddingCommonLogic weddingCommonLogic;
 
 	/** 年Map */
 	public Map<String, String> yearMap;
@@ -142,7 +137,7 @@ public class RegistAction {
 
 		// 都道府県
 		// 存在チェック
-		if (!weddingCommonLogic.checkExistencePrefecture(entryRegistForm.prefectureId)) {
+		if (!entryRegistLogic.checkExistencePrefecture(entryRegistForm.prefectureId)) {
 			ValidateUtil.add("prefectureId", messages, AppMessageNames.ERRORS_INVALID.key, "都道府県");
 			exception.getMessages().add(messages);
 			throw exception;
@@ -239,13 +234,13 @@ public class RegistAction {
 	public String showIndex() {
 
 		// 生年月日の西暦を取得
-		listYyyy = weddingCommonLogic.getBirthdayYyyyList(entryRegistForm.birthdayYyyy);
+		listYyyy = entryRegistLogic.getBirthdayYyyyList(entryRegistForm.birthdayYyyy);
 
 		// 生年月日の月を取得
-		listMm = weddingCommonLogic.getBirthdayMmList(entryRegistForm.birthdayMm);
+		listMm = entryRegistLogic.getBirthdayMmList(entryRegistForm.birthdayMm);
 
 		// 生年月日の日を取得
-		listDd = weddingCommonLogic.getBirthdayDdList(entryRegistForm.birthdayDd);
+		listDd = entryRegistLogic.getBirthdayDdList(entryRegistForm.birthdayDd);
 
 		setCommonProperty();
 		return "regist_index.jsp";

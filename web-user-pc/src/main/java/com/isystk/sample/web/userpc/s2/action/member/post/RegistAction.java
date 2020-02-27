@@ -1,4 +1,4 @@
-package com.isystk.sample.web.userpc.s2.action.member.people;
+package com.isystk.sample.web.userpc.s2.action.member.post;
 
 import java.util.List;
 
@@ -29,9 +29,9 @@ import com.isystk.sample.web.common.annotation.SSL;
 import com.isystk.sample.web.common.sastruts.token.TokenCheck;
 import com.isystk.sample.web.common.sastruts.token.TokenSet;
 import com.isystk.sample.web.common.util.ValidateUtil;
-import com.isystk.sample.web.userpc.s2.dto.member.people.PeopleUserDetailDto;
-import com.isystk.sample.web.userpc.s2.form.member.people.PeopleRegistForm;
-import com.isystk.sample.web.userpc.s2.logic.MemberPeopleUserLogic;
+import com.isystk.sample.web.userpc.s2.dto.member.post.PostUserDetailDto;
+import com.isystk.sample.web.userpc.s2.form.member.post.PostRegistForm;
+import com.isystk.sample.web.userpc.s2.logic.MemberPostLogic;
 
 import net.sf.json.JSONObject;
 
@@ -46,18 +46,18 @@ public class RegistAction {
 
 	@Resource
 	@ActionForm
-	public PeopleRegistForm peopleRegistForm;
+	public PostRegistForm postRegistForm;
 
 	/** 投稿のロジック */
 	@Resource
-	protected MemberPeopleUserLogic memberPeopleUserLogic;
+	protected MemberPostLogic memberPostLogic;
 
 	/** 投稿サービス */
 	@Resource
 	protected TPostService tPostService;
 
 	/** 投稿詳細 DTO */
-	public PeopleUserDetailDto detailDto;
+	public PostUserDetailDto detailDto;
 
 	/** プレビュー表示フラグ */
 	public boolean isPreview = false;
@@ -134,11 +134,11 @@ public class RegistAction {
 		chkLogical();
 
 		// アクションフォームの変更内容を詳細Dtoに転送
-		PeopleUserDetailDto detailDto = transferToEditDto();
+		PostUserDetailDto detailDto = transferToEditDto();
 
 		try {
 			// 更新実行
-			memberPeopleUserLogic.regist(detailDto);
+			memberPostLogic.regist(detailDto);
 		} catch (SOptimisticLockException e) {
 			// 楽観的ロックにより他のユーザーの更新を検出した場合の例外
 			throw new ActionMessagesException(AppMessageNames.ERRORS_OPTIMISTICLOCK.key);
@@ -175,23 +175,23 @@ public class RegistAction {
 	 * アクションフォームの内容をDtoに転送する
 	 *
 	 */
-	private PeopleUserDetailDto transferToEditDto() {
+	private PostUserDetailDto transferToEditDto() {
 
-		final Integer postId = NumberUtil.toInteger(peopleRegistForm.postId);
+		final Integer postId = NumberUtil.toInteger(postRegistForm.postId);
 
 		TPost tPost = tPostService.findPostListByPostId(postId);
 		if (tPost != null) {
-			BeanCopyUtil.copy(peopleRegistForm, tPost).excludes("postImageId", "postTagId").execute();
+			BeanCopyUtil.copy(postRegistForm, tPost).excludes("postImageId", "postTagId").execute();
 		} else {
-			tPost = BeanCopyUtil.createAndCopy(TPost.class, peopleRegistForm).excludes("postImageId", "postTagId")
+			tPost = BeanCopyUtil.createAndCopy(TPost.class, postRegistForm).excludes("postImageId", "postTagId")
 					.execute();
 		}
 
 		// 投稿画像
-		if (peopleRegistForm.postImageId != null) {
+		if (postRegistForm.postImageId != null) {
 			tPost.TPostImageList = Lists.newArrayList();
 			tPost.TPostImageList.addAll(Lists.newArrayList(CollectionUtils.collect(
-					Lists.newArrayList(NumberUtil.toIntegerArray(peopleRegistForm.postImageId)), new Transformer() {
+					Lists.newArrayList(NumberUtil.toIntegerArray(postRegistForm.postImageId)), new Transformer() {
 						public Object transform(Object o) {
 							TPostImage dto = new TPostImage();
 							dto.postId = postId;
@@ -202,10 +202,10 @@ public class RegistAction {
 		}
 
 		// タグ
-		if (peopleRegistForm.postTagId != null) {
+		if (postRegistForm.postTagId != null) {
 			tPost.TPostTagList = Lists.newArrayList();
 			tPost.TPostTagList.addAll(Lists.newArrayList(CollectionUtils.collect(
-					Lists.newArrayList(NumberUtil.toIntegerArray(peopleRegistForm.postTagId)), new Transformer() {
+					Lists.newArrayList(NumberUtil.toIntegerArray(postRegistForm.postTagId)), new Transformer() {
 						public Object transform(Object o) {
 							TPostTag dto = new TPostTag();
 							dto.postId = postId;
@@ -216,7 +216,7 @@ public class RegistAction {
 		}
 
 		// 変更後のデータ
-		PeopleUserDetailDto detailDto = memberPeopleUserLogic.findPostDetailUser(tPost);
+		PostUserDetailDto detailDto = memberPostLogic.findPostDetailUser(tPost);
 
 		return detailDto;
 	}
@@ -231,13 +231,13 @@ public class RegistAction {
     public String callRealtimeCheck() {
 
 	String propertyName = StringUtils.defaultValue((String) RequestUtil.getRequest().getParameter("propertyName"), "");
-	peopleRegistForm.targetName = propertyName;
+	postRegistForm.targetName = propertyName;
 
 	// JSONオブジェクトを生成する
 	JSONObject json = new JSONObject();
 
 	// validateチェック
-	ActionMessages messages = peopleRegistForm.validateInput();
+	ActionMessages messages = postRegistForm.validateInput();
 
 	// ハッシュコード値よりメッセージ内容を取得
 	List<String> messageList = ValidateUtil.getMessageStrings(messages);

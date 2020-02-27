@@ -14,7 +14,7 @@ import com.isystk.sample.web.userpc.s2.form.member.MemberEditFormBase;
 /**
  * 会員登録アクションフォーム
  *
- * @author uedakeita
+ * @author iseyoshitaka
  */
 @Component(instance = InstanceType.SESSION)
 public class EntryRegistForm extends MemberEditFormBase implements Serializable {

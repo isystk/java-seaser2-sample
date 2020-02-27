@@ -1,10 +1,10 @@
-package com.isystk.sample.web.userpc.s2.dto.member.people;
+package com.isystk.sample.web.userpc.s2.dto.member.post;
 
 /**
  * 投稿 タグDto
  *
  */
-public class PeopleUserTagDto {
+public class PostUserTagDto {
 
 	/** タグID */
 	public Integer postTagId;

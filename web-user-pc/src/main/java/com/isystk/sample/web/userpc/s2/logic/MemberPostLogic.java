@@ -26,14 +26,14 @@ import com.isystk.sample.common.util.BeanCopyUtil;
 import com.isystk.sample.common.util.DateUtils;
 import com.isystk.sample.common.util.StringUtils;
 import com.isystk.sample.web.userpc.s2.dto.UserDto;
-import com.isystk.sample.web.userpc.s2.dto.member.people.PeopleUserDetailDto;
-import com.isystk.sample.web.userpc.s2.dto.member.people.PeopleUserTagDto;
+import com.isystk.sample.web.userpc.s2.dto.member.post.PostUserDetailDto;
+import com.isystk.sample.web.userpc.s2.dto.member.post.PostUserTagDto;
 
 /**
  * 投稿(ユーザー型)関連のロジック
  *
  */
-public class MemberPeopleUserLogic {
+public class MemberPostLogic {
 
 	/** 投稿サービス */
 	@Resource
@@ -64,13 +64,13 @@ public class MemberPeopleUserLogic {
 	 *
 	 * @return
 	 */
-	public PeopleUserDetailDto findPostDetailUser(TPost tPost) {
+	public PostUserDetailDto findPostDetailUser(TPost tPost) {
 		if (tPost == null) {
-			return new PeopleUserDetailDto();
+			return new PostUserDetailDto();
 		}
 
 		// 投稿テーブルの情報を転送
-		PeopleUserDetailDto result = BeanCopyUtil.createAndCopy(PeopleUserDetailDto.class, tPost).execute();
+		PostUserDetailDto result = BeanCopyUtil.createAndCopy(PostUserDetailDto.class, tPost).execute();
 
 		// 投稿画像テーブルの情報を転送
 		result.postImageIdList = Lists.newArrayList();
@@ -94,7 +94,7 @@ public class MemberPeopleUserLogic {
 		result.postTagList = Lists.newArrayList();
 		if (!CollectionUtils.isEmpty(tPost.TPostTagList)) {
 			for (TPostTag tag : tPost.TPostTagList) {
-				PeopleUserTagDto dto = new PeopleUserTagDto();
+				PostUserTagDto dto = new PostUserTagDto();
 				dto.postTagId = tag.postTagId;
 				dto.name = postTagMap.get(tag.postTagId).getName();
 				result.postTagList.add(dto);
@@ -116,7 +116,7 @@ public class MemberPeopleUserLogic {
 	 * @param detailDto
 	 * @param version
 	 */
-	public TPost regist(PeopleUserDetailDto detailDto) {
+	public TPost regist(PostUserDetailDto detailDto) {
 		if (detailDto == null) {
 			throw new IllegalArgumentException("引数不正");
 		}
@@ -170,7 +170,7 @@ public class MemberPeopleUserLogic {
 		{
 			tPostTagService.deleteByPostId(detailDto.postId);
 			if (!CollectionUtils.isEmpty(detailDto.postTagList)) {
-				for (PeopleUserTagDto tag : detailDto.postTagList) {
+				for (PostUserTagDto tag : detailDto.postTagList) {
 					TPostTag tPostTag = new TPostTag();
 					tPostTag.postId = detailDto.postId;
 					tPostTag.postTagId = tag.postTagId;
@@ -188,10 +188,10 @@ public class MemberPeopleUserLogic {
 	 * @param tagIdList
 	 * @return
 	 */
-	public List<PeopleUserTagDto> findPeopleUserTagDto(List<Integer> tagIdList) {
+	public List<PostUserTagDto> findPeopleUserTagDto(List<Integer> tagIdList) {
 		return Lists.newArrayList(CollectionUtils.collect(mPostTagService.findByIdList(tagIdList), new Transformer() {
 			public Object transform(Object o) {
-				PeopleUserTagDto dto = new PeopleUserTagDto();
+				PostUserTagDto dto = new PostUserTagDto();
 				dto.postTagId = ((MPostTag) o).postTagId;
 				dto.name = ((MPostTag) o).name;
 				return dto;
@@ -202,7 +202,7 @@ public class MemberPeopleUserLogic {
 	/**
 	 * タグを新規に追加申請します。
 	 */
-	public List<PeopleUserTagDto> addPostTag(List<String> tagNameList) {
+	public List<PostUserTagDto> addPostTag(List<String> tagNameList) {
 
 		// 既に登録済みのタグが含まれているかどうかをチェックします。
 		boolean exists = mPostTagService.existsByTagNameList(tagNameList);
@@ -211,7 +211,7 @@ public class MemberPeopleUserLogic {
 			throw new SystemException("既に存在するタグが追加申請されました。tagNameList:" + tagNameList + "]");
 		}
 
-		List<PeopleUserTagDto> mPostTagList = Lists.newArrayList();
+		List<PostUserTagDto> mPostTagList = Lists.newArrayList();
 		for (String tagName : tagNameList) {
 			MPostTag mPostTag = new MPostTag();
 			mPostTag.name = tagName;
@@ -220,7 +220,7 @@ public class MemberPeopleUserLogic {
 			mPostTag.deleteFlg = Flg.OFF.getValue();
 			mPostTagService.insert(mPostTag);
 
-			PeopleUserTagDto dto = new PeopleUserTagDto();
+			PostUserTagDto dto = new PostUserTagDto();
 			dto.postTagId = mPostTag.postTagId;
 			dto.name = mPostTag.name;
 			mPostTagList.add(dto);

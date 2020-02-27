@@ -1,4 +1,4 @@
-package com.isystk.sample.web.userpc.s2.form.member.people;
+package com.isystk.sample.web.userpc.s2.form.member.post;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,7 +19,7 @@ import com.isystk.sample.web.common.util.ValidateUtil;
  *
  * @author iseyoshitaka
  */
-public class PeopleRegistForm implements Serializable {
+public class PostRegistForm implements Serializable {
 
 	private static final long serialVersionUID = 5558052156052077219L;
 
