@@ -6,8 +6,6 @@ import java.util.List;
 import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -25,7 +23,6 @@ public class TImage implements Serializable {
 
     /** imageIdプロパティ */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(precision = 10, nullable = false, unique = true)
     public Integer imageId;
 

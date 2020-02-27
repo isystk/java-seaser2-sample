@@ -1,6 +1,6 @@
 /*
  * SlowMehtodLoggingInterceptor.java
- * 2011/06/20 hnagato
+ * 2011/06/20 iseyoshitaka
  */
 package com.isystk.sample.common.s2.interceptors;
 

@@ -1,7 +1,5 @@
 package com.isystk.sample.common.s2.entity.names;
 
-import javax.annotation.Generated;
-
 import com.isystk.sample.common.s2.entity.MPostTag;
 import com.isystk.sample.common.s2.entity.TImage;
 import com.isystk.sample.common.s2.entity.TPost;
@@ -18,6 +16,7 @@ import com.isystk.sample.common.s2.entity.names.TPostTagNames._TPostTagNames;
 import com.isystk.sample.common.s2.entity.names.TUserNames._TUserNames;
 import com.isystk.sample.common.s2.entity.names.TUserOnetimePassNames._TUserOnetimePassNames;
 import com.isystk.sample.common.s2.entity.names.TUserOnetimeValidNames._TUserOnetimeValidNames;
+import javax.annotation.Generated;
 
 /**
  * 名前クラスの集約です。

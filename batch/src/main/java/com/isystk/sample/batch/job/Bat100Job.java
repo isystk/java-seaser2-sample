@@ -5,36 +5,26 @@ import com.isystk.sample.batch.Status;
 import com.isystk.sample.batch.logic.Bat100Logic;
 
 /**
- * BAT100_掲載開始終了_全更新
- * 
+ * BAT100_インデックス_全更新
+ *
  * @author iseyoshitaka
- * 
+ *
  */
 public class Bat100Job extends BaseBatch {
 
     /**
      * コンストラクタ。
-     * 
+     *
      */
     public Bat100Job() {
 	super();
     }
 
-    /*
-     * (非 Javadoc)
-     * 
-     * @see com.isystk.sample.batch.BaseBatch#getBatchName()
-     */
     @Override
     protected String getBatchName() {
-	return "BAT100_掲載開始終了_全更新";
+	return "BAT100_インデックス_全更新";
     }
 
-    /*
-     * (非 Javadoc)
-     * 
-     * @see com.isystk.sample.batch.BaseBatch#execute()
-     */
     @Override
     protected void execute() {
 	Bat100Logic bat100Logic = getComponent(Bat100Logic.class);

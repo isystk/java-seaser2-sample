@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Map;
 import java.math.BigDecimal;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.MapUtils;
-
 import com.isystk.sample.common.s2.solr.QueryBuilder;
 import com.isystk.sample.common.s2.solr.dto.PostSearchDto;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.MapUtils;
 
 /**
  * Postの基本QueryBuilder
@@ -133,6 +133,19 @@ public class PostQueryBuilderBase {
 	}
 	if (CollectionUtils.isNotEmpty(searcherDto.postTagIdListBetweenOrList)) {
 		qb.mustBetweenIntegerList(PostSearchDto.Searcher.POST_TAG_ID_LIST, searcherDto.postTagIdListBetweenOrList, QueryBuilder.OR);
+	}
+  
+	if (searcherDto.postTagNameList != null) {
+		qb.mustMatch(PostSearchDto.Searcher.POST_TAG_NAME_LIST, searcherDto.postTagNameList);
+	}
+	if (CollectionUtils.isNotEmpty(searcherDto.postTagNameListAndList)) {
+		qb.mustStringList(PostSearchDto.Searcher.POST_TAG_NAME_LIST, searcherDto.postTagNameListAndList, QueryBuilder.AND);
+	}
+	if (CollectionUtils.isNotEmpty(searcherDto.postTagNameListOrList)) {
+		qb.mustStringList(PostSearchDto.Searcher.POST_TAG_NAME_LIST, searcherDto.postTagNameListOrList, QueryBuilder.OR);
+	}
+	if (CollectionUtils.isNotEmpty(searcherDto.postTagNameListNotList)) {
+		qb.mustNotStringList(PostSearchDto.Searcher.POST_TAG_NAME_LIST, searcherDto.postTagNameListNotList);
 	}
   
 	if (searcherDto.freeword != null) {

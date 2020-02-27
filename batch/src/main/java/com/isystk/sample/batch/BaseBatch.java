@@ -1,6 +1,3 @@
-/*
- * BaseBatch.java 2011/04/06 mnakamura
- */
 package com.isystk.sample.batch;
 
 import java.util.Date;
@@ -19,7 +16,7 @@ import com.isystk.sample.common.util.StringUtils;
 
 /**
  * crontab で起動される単位毎に、このクラスを継承したバッチクラスを作成し main メソッドと execute メソッドを実装してください.
- * 
+ *
  * @author iseyoshitaka
  */
 public abstract class BaseBatch {
@@ -34,7 +31,7 @@ public abstract class BaseBatch {
 
     /**
      * バッチ名を取得.
-     * 
+     *
      * @return バッチ名
      */
     protected abstract String getBatchName();
@@ -67,7 +64,7 @@ public abstract class BaseBatch {
 
     /**
      * service や logic のコンポーネントを取得
-     * 
+     *
      * @param <E> 型
      * @param clazz クラス
      * @return Component
@@ -79,7 +76,7 @@ public abstract class BaseBatch {
 
     /**
      * 各バッチから呼び出す
-     * 
+     *
      * @return 結果
      */
     protected final Status run() {

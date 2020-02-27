@@ -1,13 +1,9 @@
-/*
- * Status.java
- * 2011/04/06 hnagato
- */
 package com.isystk.sample.batch;
 
 /**
  * バッチ終了ステータス.
- * 
- * @author hnagato
+ *
+ * @author iseyoshitaka
  */
 public enum Status {
 

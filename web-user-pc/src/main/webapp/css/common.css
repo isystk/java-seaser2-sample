@@ -2,13 +2,13 @@
 
 /*--------------------------------------------------------------------
 
-  1 汎用設定
+1 汎用設定
 
 --------------------------------------------------------------------*/
 
 * {
-	margin:0;
-	padding:0;
+margin:0;
+padding:0;
 }
 
 *, *:before, *:after {
@@ -503,10 +503,10 @@ input[type="submit"] {
 cursor: pointer;
 }
 input.size_m {
-    width: 232px;
+width: 232px;
 }
 input.size_l {
-    width: 464px;
+width: 464px;
 }
 
 .selectedPhotoList li {
@@ -534,71 +534,72 @@ font-size:.8rem;
 
 
 .photogallery {
-  display: flex;
-  display: -webkit-flex;
-  flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  }
-  .photogallery .photo {
-  position: relative;
-  width: 100%;
-  height: auto;
-  margin: 1%;
-  overflow: hidden;
-  }
-  .photogallery .photo:before {
-  content: "";
-  display: block;
-  padding-top: 100%;
-  }
-  .photogallery .inner {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  }
-  .photogallery .square {
-  width: 100%;
-  position: relative;
-  }
-  .photogallery .square::before {
-  content: "";
-  display: block;
-  padding-top: 100%;
-  }
-  .photogallery .square img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  object-fit: cover;
-  }
-  .photogallery .txt {
-  position: absolute;
-  background-color: #fff;
-  bottom: 0px;
-  opacity: 0.8;
-  padding: 5px;
-  font-size: 0.8em;
-  }
+display: flex;
+display: -webkit-flex;
+flex-wrap: wrap;
+-webkit-flex-wrap: wrap;
+}
+.photogallery .photo {
+position: relative;
+width: 100%;
+height: auto;
+margin: 1%;
+overflow: hidden;
+}
+.photogallery .photo:before {
+content: "";
+display: block;
+padding-top: 100%;
+}
+.photogallery .inner {
+position: absolute;
+top: 0; left: 0;
+width: 100%;
+height: 100%;
+}
+.photogallery .square {
+width: 100%;
+position: relative;
+}
+.photogallery .square::before {
+content: "";
+display: block;
+padding-top: 100%;
+}
+.photogallery .square img {
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0;
+object-fit: cover;
+}
+.photogallery .txt {
+position: absolute;
+background-color: #fff;
+bottom: 0px;
+opacity: 0.8;
+padding: 5px;
+font-size: 0.8em;
+width: 100%;
+}
 
- /* 環境表示用ヘッダー */
+/* 環境表示用ヘッダー */
 .headerSt {
-    position: fixed;
-    z-index: 9999;
-    margin: 0;
-    background: #ff0048;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 0.8em;
-    line-height: 1.6;
-    color: #fff;
+position: fixed;
+z-index: 9999;
+margin: 0;
+background: #ff0048;
+width: 100%;
+text-align: center;
+font-weight: bold;
+font-size: 0.8em;
+line-height: 1.6;
+color: #fff;
 }
 
 .errortxt {
-    font-size: 12px;
-    color: #f36;
+font-size: 12px;
+color: #f36;
 }
 
 
@@ -622,15 +623,15 @@ visibility: visible;
 animation: dialogAnimate .5s ease 0s 1 forwards;
 }
 @keyframes dialogAnimate {
-  0% {
-    transform: scaleY(.1) scaleX(.1);
-  }
-  50% {
-    transform: scaleY(1) scaleX(.1);
-  }
-  100% {
-    transform: scaleY(1) scaleX(1);
-  }
+0% {
+transform: scaleY(.1) scaleX(.1);
+}
+50% {
+transform: scaleY(1) scaleX(.1);
+}
+100% {
+transform: scaleY(1) scaleX(1);
+}
 }
 #dialogPeopleTag .box{
 margin-top: 24px;
@@ -689,33 +690,33 @@ right: -10px;
 }
 
 .selectedPhotoList {
-  margin: 15px 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
+margin: 15px 0;
+padding: 0;
+display: flex;
+flex-wrap: wrap;
 }
 .selectedPhotoList li {
-  width: 22%;
-  margin: 1.5%;
-  list-style-type: none;
+width: 22%;
+margin: 1.5%;
+list-style-type: none;
 }
 .selectedPhotoList li img {
-  width: 100%;
+width: 100%;
 }
 .selectedPhotoList li a {
-  display: block;
-  position: relative;
+display: block;
+position: relative;
 }
 .selectedPhotoList li a.close:after {
-  content: "";
-  background: url(../images/close.png) no-repeat;
-  background-size: 25px auto;
-  width: 25px;
-  height: 25px;
-  display: block;
-  position: absolute;
-  right: -12px;
-  top: -12px;
+content: "";
+background: url(../images/close.png) no-repeat;
+background-size: 25px auto;
+width: 25px;
+height: 25px;
+display: block;
+position: absolute;
+right: -12px;
+top: -12px;
 }
 
 /* TOPへ戻る */
@@ -749,37 +750,37 @@ margin: 0;
 margin: 0;
 }
 .searchBoxElement{
-  background-color: white;
-  border: 1px solid #aaa;
-  position: absolute;
-  max-height: 114px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  margin: 0;
-  padding: 0;
-  line-height: 23px;
-  list-style: none;
-  z-index: 1;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+background-color: white;
+border: 1px solid #aaa;
+position: absolute;
+max-height: 114px;
+overflow-x: hidden;
+overflow-y: auto;
+margin: 0;
+padding: 0;
+line-height: 23px;
+list-style: none;
+z-index: 1;
+-ms-overflow-style: none;
+scrollbar-width: none;
 }
 .searchBoxElement span{
-  padding: 0 5px;
+padding: 0 5px;
 }
 .searchBoxElement::-webkit-scrollbar {
-  display:none;
+display:none;
 }
 .searchBoxElement li{
-  background-color: white;
-  color: black;
+background-color: white;
+color: black;
 }
 .searchBoxElement li:hover{
-  background-color: #50a0ff;
-  color: white;
+background-color: #50a0ff;
+color: white;
 }
 .searchBoxElement li.selected{
-  background-color: #50a0ff;
-  color: white;
+background-color: #50a0ff;
+color: white;
 }
 
 /* オーバーレイ */
@@ -810,15 +811,15 @@ visibility: visible;
 animation: dialogAnimate .5s ease 0s 1 forwards;
 }
 @keyframes dialogAnimate {
-  0% {
-    transform: scaleY(.1) scaleX(.1);
-  }
-  50% {
-    transform: scaleY(1) scaleX(.1);
-  }
-  100% {
-    transform: scaleY(1) scaleX(1);
-  }
+0% {
+transform: scaleY(.1) scaleX(.1);
+}
+50% {
+transform: scaleY(1) scaleX(.1);
+}
+100% {
+transform: scaleY(1) scaleX(1);
+}
 }
 
 /* ローディング */
@@ -862,112 +863,112 @@ padding: 15px 0;
 
 /* ハッシュタグ */
 .HotHashTag_area_list li {
-  display: inline-block;
+display: inline-block;
 }
 .btn_hotHashTag{
-  height: 30px;
-  line-height: 30px;
-  border: 1px solid #d5d5d5;
-  border-radius: 30px;
-  padding: 3px 12px;
-  font-size: 12px;
-  color: #454545;
-  background: #fff;
-  margin-right: 2px;
-  text-decoration: none;
+height: 30px;
+line-height: 30px;
+border: 1px solid #d5d5d5;
+border-radius: 30px;
+padding: 3px 12px;
+font-size: 12px;
+color: #454545;
+background: #fff;
+margin-right: 2px;
+text-decoration: none;
 }
 .btn_hotHashTag:before {
-  content: "#";
-  display: inline-block;
-  padding-right: 1px;
+content: "#";
+display: inline-block;
+padding-right: 1px;
 }
 .btn_hotHashTag.selected {
-  background: #f8abb6;
-  color: #fff;
-  border: none;
+background: #f8abb6;
+color: #fff;
+border: none;
 }
 .btn_hotHashTag.with_crossBtn {
-  position: relative;
-  padding-right: 30px;
+position: relative;
+padding-right: 30px;
 }
 .btn_hotHashTag.with_crossBtn:after {
-  content: "";
-  background: url(../images/close.png) no-repeat;
-  background-size: 20px auto;
-  width: 20px;
-  height: 20px;
-  display: block;
-  position: absolute;
-  right: 5px;
-  top: 5px;
+content: "";
+background: url(../images/close.png) no-repeat;
+background-size: 20px auto;
+width: 20px;
+height: 20px;
+display: block;
+position: absolute;
+right: 5px;
+top: 5px;
 }
 .btn_hotHashTag.with_crossBtn_over {
-  background: url(../images/close.png) no-repeat right 5px center;
-  background-size: 15px auto;
-  padding-right: 30px;
-  color: #454545;
+background: url(../images/close.png) no-repeat right 5px center;
+background-size: 15px auto;
+padding-right: 30px;
+color: #454545;
 }
 
 /* 画面サイズが640pxより大きい場合に以下を適用 */
 @media screen and (min-width:640px){
 
-  .photogallery .photo {
-    width: 48%;
-    margin: 1%;
-  }
+.photogallery .photo {
+width: 48%;
+margin: 1%;
+}
 
 }
 
 /* 画面サイズが760pxより大きい場合に以下を適用 */
 @media screen and (min-width:760px){
 
-  .photogallery .photo {
-    width: 31%;
-    margin: 1%;
-  }
+.photogallery .photo {
+width: 31%;
+margin: 1%;
+}
 
 }
 
 /* 画面サイズが992pxより大きい場合に以下を適用 */
 @media screen and (min-width:992px){
 
-  .photogallery .photo {
-    width: 23%;
-    margin: 1%;
-  }
+.photogallery .photo {
+width: 23%;
+margin: 1%;
+}
 
-  .header .logo {
-  font-size: 1.8em;
-  }
-  .header .search {
-  display: block;
-  float: right;
-  color: #666;
-  font-size: 0.8em;
-  margin: 6px 12px 6px 6px;
-  }
-  .header #menu-btn {
-  display: none;
-  }
+.header .logo {
+font-size: 1.8em;
+}
+.header .search {
+display: block;
+float: right;
+color: #666;
+font-size: 0.8em;
+margin: 6px 12px 6px 6px;
+}
+.header #menu-btn {
+display: none;
+}
 
-  #pc-menu {
-  display: block;
-  background:#222;
-  padding:0 16px 0 16px;
-  text-align: center;
-  font-size: 1em;
-  line-height: 32px;
-  }
-  #pc-menu nav {
-  width:100%;
-  display: inline-block;
-  margin: 0 auto;
-  }
-  #pc-menu a {
-  color:#fff;
-  }
-  #pc-menu ul li{
-  display: inline;
-  margin-right: 25px;
-  }
+#pc-menu {
+display: block;
+background:#222;
+padding:0 16px 0 16px;
+text-align: center;
+font-size: 1em;
+line-height: 32px;
+}
+#pc-menu nav {
+width:100%;
+display: inline-block;
+margin: 0 auto;
+}
+#pc-menu a {
+color:#fff;
+}
+#pc-menu ul li{
+display: inline;
+margin-right: 25px;
+}
 }

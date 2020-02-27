@@ -1,6 +1,6 @@
 /*
  * ExternalAPIFailureException.java
- * 2011/02/01 hnagato
+ * 2011/02/01 iseyoshitaka
  */
 package com.isystk.sample.common.exception;
 

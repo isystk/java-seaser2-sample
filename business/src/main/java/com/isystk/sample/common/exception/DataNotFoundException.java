@@ -1,6 +1,6 @@
 /*
  * DataNotFoundException.java
- * 2011/02/07 hnagato
+ * 2011/02/07 iseyoshitaka
  */
 package com.isystk.sample.common.exception;
 

@@ -5,9 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.math.BigDecimal;
 
-import org.apache.solr.client.solrj.beans.Field;
-
 import com.isystk.sample.common.s2.solr.QueryBuilder;
+import org.apache.solr.client.solrj.beans.Field;
 
 /**
  * PostのDto
@@ -43,6 +42,9 @@ public class PostSearchDto {
 
 	@Field("post_tag_id_list")
 	public List<Integer> postTagIdList;
+
+	@Field("post_tag_name_list")
+	public List<String> postTagNameList;
 
 	@Field("freeword")
 	public List<String> freeword;
@@ -106,6 +108,12 @@ public class PostSearchDto {
 		public List<QueryBuilder.BetweenIntegerDto> postTagIdListBetweenAndList;
 		public List<QueryBuilder.BetweenIntegerDto> postTagIdListBetweenOrList;
 		public static final String POST_TAG_ID_LIST = "post_tag_id_list";
+	
+		public String postTagNameList;
+		public List<String> postTagNameListAndList;
+		public List<String> postTagNameListOrList;
+		public List<String> postTagNameListNotList;
+		public static final String POST_TAG_NAME_LIST = "post_tag_name_list";
 	
 		public String freeword;
 		public List<String> freewordAndList;

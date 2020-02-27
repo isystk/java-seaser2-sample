@@ -98,8 +98,10 @@
 		<field name="text"                  		 type="string"  indexed="true" stored="true"  required="false" />
 		<!-- 投稿写真 -->
 		<field name="post_image_id_list"             type="int"   	indexed="true"  stored="true"  required="false" multiValued="true" />
-		<!-- 投稿タグ -->
-		<field name="post_tag_id_list"             type="int"   	indexed="true"  stored="true"  required="false" multiValued="true" />
+		<!-- 投稿タグID -->
+		<field name="post_tag_id_list"               type="int"   	indexed="true"  stored="true"  required="false" multiValued="true" />
+		<!-- 投稿タグ名 -->
+		<field name="post_tag_name_list"             type="string"   	indexed="true"  stored="true"  required="false" multiValued="true" />
 
 		<!-- フリーワード（共通＋屋号毎） -->
 		<field name="freeword"    		             type="text_ws" indexed="true"  stored="false"  required="false" multiValued="true"/>

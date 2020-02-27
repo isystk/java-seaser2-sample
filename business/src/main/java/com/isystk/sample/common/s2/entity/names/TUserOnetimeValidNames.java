@@ -1,12 +1,10 @@
 package com.isystk.sample.common.s2.entity.names;
 
-import java.util.Date;
-import javax.annotation.Generated;
-
-import org.seasar.extension.jdbc.name.PropertyName;
-
 import com.isystk.sample.common.s2.entity.TUserOnetimeValid;
 import com.isystk.sample.common.s2.entity.names.TUserNames._TUserNames;
+import java.util.Date;
+import javax.annotation.Generated;
+import org.seasar.extension.jdbc.name.PropertyName;
 
 /**
  * {@link TUserOnetimeValid}のプロパティ名の集合です。

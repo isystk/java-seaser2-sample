@@ -1,12 +1,10 @@
 package com.isystk.sample.common.s2.entity.names;
 
-import java.util.Date;
-import javax.annotation.Generated;
-
-import org.seasar.extension.jdbc.name.PropertyName;
-
 import com.isystk.sample.common.s2.entity.TImage;
 import com.isystk.sample.common.s2.entity.names.TPostImageNames._TPostImageNames;
+import java.util.Date;
+import javax.annotation.Generated;
+import org.seasar.extension.jdbc.name.PropertyName;
 
 /**
  * {@link TImage}のプロパティ名の集合です。

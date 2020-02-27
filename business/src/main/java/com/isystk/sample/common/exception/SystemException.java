@@ -1,6 +1,6 @@
 /*
  * SystemException.java
- * 2011/01/27 hnagato
+ * 2011/01/27 iseyoshitaka
  */
 package com.isystk.sample.common.exception;
 

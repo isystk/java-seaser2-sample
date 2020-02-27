@@ -9,91 +9,28 @@
 <tiles:put name="content" type="string">
 
 <div class="content">
-    <main class="photogallery">
+	<main class="photogallery">
 
-      <div class="photo">
-        <div class="inner">
-          <div class="square">
-            <img src="../images/sample1.jpg" alt="">
-          </div>
-          <div class="txt">
-            <p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXX&nbsp;(2/14)</p>
-            <span>タグA/タグB/タグC</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="photo">
-        <div class="inner">
-          <div class="square">
-            <img src="../images/sample1.jpg" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="photo">
-        <div class="inner">
-          <div class="square">
-            <img src="../images/sample1.jpg" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="photo">
-        <div class="inner">
-          <div class="square">
-            <img src="../images/sample1.jpg" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="photo">
-        <div class="inner">
-          <div class="square">
-            <img src="../images/sample1.jpg" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="photo">
-        <div class="inner">
-          <div class="square">
-            <img src="../images/sample1.jpg" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="photo">
-        <div class="inner">
-          <div class="square">
-            <img src="../images/sample1.jpg" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="photo">
-        <div class="inner">
-          <div class="square">
-            <img src="../images/sample1.jpg" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="photo">
-        <div class="inner">
-          <div class="square">
-            <img src="../images/sample1.jpg" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="photo">
-        <div class="inner">
-          <div class="square">
-            <img src="../images/sample1.jpg" alt="">
-          </div>
-        </div>
-      </div>
+		<c:forEach var="e" items="${searchResultDtoList}">
+			<div class="photo">
+				<div class="inner">
+					<div class="square">
+						<c:forEach var="e2" items="${e.postImageIdList}">
+							<cmn:imageThumb imageId="${f:h(e2)}" alt="" imageType="${ImageType.SQUARE_170}" styleClass="photo"/>
+			    		</c:forEach>
+					</div>
+			    	<div class="txt">
+			      		<p>${f:h(e.title)}&nbsp;<fmt:formatDate value="${e.registTime}" pattern="${Format.DATE_MMDDE}" /></p>
+			   			<span>
+							<c:forEach var="e2" items="${e.postTagNameList}" varStatus="s2">
+								<c:if test="${s2.index ne 0}">/</c:if>
+								${f:h(e2)}
+				    		</c:forEach>
+			   			</span>
+			    	</div>
+			  	</div>
+	      	</div>
+		</c:forEach>
 
     </main>
 </div>

@@ -1,6 +1,6 @@
 /**
  * ColorSpace.java
- * 2010/02/08 hnagato
+ * 2010/02/08 iseyoshitaka
  * Copyright (c) 2010 TEAM LAB Inc. All rights reserved.
  */
 package com.isystk.sample.common.image;
