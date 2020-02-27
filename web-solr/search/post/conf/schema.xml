@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="example" version="3.6">
+  <types>
+    <fieldType name="string" class="solr.StrField" sortMissingLast="true" omitNorms="true"/>
+    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true" omitNorms="true"/>
+    <fieldtype name="binary" class="solr.BinaryField"/>
+    <fieldType name="int" class="solr.TrieIntField" precisionStep="0" omitNorms="true" positionIncrementGap="0"/>
+    <fieldType name="float" class="solr.TrieFloatField" precisionStep="0" omitNorms="true" positionIncrementGap="0"/>
+    <fieldType name="long" class="solr.TrieLongField" precisionStep="0" omitNorms="true" positionIncrementGap="0"/>
+    <fieldType name="double" class="solr.TrieDoubleField" precisionStep="0" omitNorms="true" positionIncrementGap="0"/>
+    <fieldType name="tint" class="solr.TrieIntField" precisionStep="8" omitNorms="true" positionIncrementGap="0"/>
+    <fieldType name="tfloat" class="solr.TrieFloatField" precisionStep="8" omitNorms="true" positionIncrementGap="0"/>
+    <fieldType name="tlong" class="solr.TrieLongField" precisionStep="8" omitNorms="true" positionIncrementGap="0"/>
+    <fieldType name="tdouble" class="solr.TrieDoubleField" precisionStep="8" omitNorms="true" positionIncrementGap="0"/>
+    <fieldType name="date" class="solr.TrieDateField" omitNorms="true" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="tdate" class="solr.TrieDateField" omitNorms="true" precisionStep="6" positionIncrementGap="0"/>
+    <fieldType name="pint" class="solr.IntField" omitNorms="true"/>
+    <fieldType name="plong" class="solr.LongField" omitNorms="true"/>
+    <fieldType name="pfloat" class="solr.FloatField" omitNorms="true"/>
+    <fieldType name="pdouble" class="solr.DoubleField" omitNorms="true"/>
+    <fieldType name="pdate" class="solr.DateField" sortMissingLast="true" omitNorms="true"/>
+    <fieldType name="sint" class="solr.SortableIntField" sortMissingLast="true" omitNorms="true"/>
+    <fieldType name="slong" class="solr.SortableLongField" sortMissingLast="true" omitNorms="true"/>
+    <fieldType name="sfloat" class="solr.SortableFloatField" sortMissingLast="true" omitNorms="true"/>
+    <fieldType name="sdouble" class="solr.SortableDoubleField" sortMissingLast="true" omitNorms="true"/>
+    <fieldType name="random" class="solr.RandomSortField" indexed="true" />
+    <fieldType name="text_ws" class="solr.TextField" positionIncrementGap="100">
+      <analyzer >
+        <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+        <filter class="solr.CJKWidthFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ICUTransformFilterFactory" id="Hiragana-Katakana"/>
+		<charFilter class="solr.MappingCharFilterFactory" mapping="../../mapping.txt"/>
+      </analyzer>
+    </fieldType>
+
+    <fieldType name="text_ws2" class="solr.TextField" positionIncrementGap="100">
+      <analyzer >
+        <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+      </analyzer>
+    </fieldType>
+
+    <fieldtype name="ignored" stored="false" indexed="false" multiValued="true" class="solr.StrField" />
+    <fieldType name="point" class="solr.PointType" dimension="2" subFieldSuffix="_d"/>
+    <fieldType name="location" class="solr.LatLonType" subFieldSuffix="_loc"/>
+    <fieldtype name="geohash" class="solr.GeoHashField"/>
+    <fieldtype name="unigram" class="solr.TextField" omitNorms="false">
+      <analyzer>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <tokenizer class="solr.NGramTokenizerFactory" maxGramSize="1" minGramSize="1" />
+      </analyzer>
+    </fieldtype>
+    <fieldtype name="bigram" class="solr.TextField" omitNorms="false">
+      <analyzer>
+        <filter class="solr.JapaneseReadingFormFilterFactory" useRomaji="false" />
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <tokenizer class="solr.NGramTokenizerFactory" maxGramSize="2" minGramSize="2" />
+      </analyzer>
+    </fieldtype>
+
+    <fieldType name="text_ja" class="solr.TextField" positionIncrementGap="100" autoGeneratePhraseQueries="false">
+      <analyzer type="index">
+        <tokenizer class="solr.JapaneseTokenizerFactory" mode="search" userDictionary="../../userdict_ja.txt" />
+        <filter class="solr.SynonymFilterFactory" synonyms="../../synonyms.txt" ignoreCase="true" expand="true" tokenizerFactory="solr.JapaneseTokenizerFactory" userDictionary="../../userdict_ja.txt"/>
+        <filter class="solr.JapaneseBaseFormFilterFactory"/>
+        <filter class="solr.JapanesePartOfSpeechStopFilterFactory" tags="../../stoptags_ja.txt" enablePositionIncrements="true"/>
+        <filter class="solr.CJKWidthFilterFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="../../stopwords_ja.txt" enablePositionIncrements="true" />
+        <filter class="solr.JapaneseKatakanaStemFilterFactory" minimumLength="4"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.JapaneseTokenizerFactory" mode="search" userDictionary="../../userdict_ja.txt" />
+        <filter class="solr.SynonymFilterFactory" synonyms="../../synonyms.txt" ignoreCase="true" expand="true" tokenizerFactory="solr.JapaneseTokenizerFactory" userDictionary="../../userdict_ja.txt"/>
+        <filter class="solr.JapaneseBaseFormFilterFactory"/>
+        <filter class="solr.JapanesePartOfSpeechStopFilterFactory" tags="../../stoptags_ja.txt" enablePositionIncrements="true"/>
+        <filter class="solr.CJKWidthFilterFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="../../stopwords_ja.txt" enablePositionIncrements="true" />
+        <filter class="solr.JapaneseKatakanaStemFilterFactory" minimumLength="4"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
+
+ </types>
+
+
+ <fields>
+	<!-- 共通 -->
+		<!-- ユニークID -->
+		<field name="id"                         	 type="string" 	indexed="true"  stored="true"  required="true" />
+		<!-- 投稿ID -->
+		<field name="post_id"                        type="int"   	indexed="true"  stored="true"  required="true" />
+		<!-- 会員ID -->
+		<field name="user_id"                        type="int"   	indexed="true"  stored="true"  required="true" />
+		<!-- タイトル -->
+		<field name="title"                  		 type="string"  indexed="true" stored="true"  required="false" />
+		<!-- 本文-->
+		<field name="text"                  		 type="string"  indexed="true" stored="true"  required="false" />
+		<!-- 投稿写真 -->
+		<field name="post_image_id_list"             type="int"   	indexed="true"  stored="true"  required="false" multiValued="true" />
+		<!-- 投稿タグ -->
+		<field name="post_tag_id_list"             type="int"   	indexed="true"  stored="true"  required="false" multiValued="true" />
+
+		<!-- フリーワード（共通＋屋号毎） -->
+		<field name="freeword"    		             type="text_ws" indexed="true"  stored="false"  required="false" multiValued="true"/>
+
+		<!-- ソート用 -->
+		<!-- 新着情報更新順 ソート用 -->
+		<field name="regist_time" 	type="tdate" indexed="true" stored="true" required="false" />
+
+		<!-- ランダムソート用 -->
+		<dynamicField name="random*" type="random" indexed="true" stored="false"/>
+
+		<!-- その他 -->
+		<field name="index_update_time"          type="tdate"   indexed="true"  stored="true"  required="false" />
+ </fields>
+
+ <uniqueKey>id</uniqueKey>
+ <defaultSearchField>id</defaultSearchField>
+ <solrQueryParser defaultOperator="OR"/>
+
+</schema>

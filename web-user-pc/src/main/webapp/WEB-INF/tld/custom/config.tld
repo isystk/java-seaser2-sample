@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<description>ウエディング_プロパティーズタグライブラリ</description>
+	<display-name>JSTL functions</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>config</short-name>
+	<uri>http://java.sun.com/jsp/jstl/functions</uri>
+
+	<function>
+		<description>プロパティーズファイルの文字列取得</description>
+		<name>string</name>
+		<function-class>com.isystk.sample.common.config.Config</function-class>
+		<function-signature>java.lang.String getString(java.lang.String)</function-signature>
+		<example>
+			${config:string(key)}
+		</example>
+	</function>
+	
+	<function>
+		<description>プロパティーズファイルの数値取得</description>
+		<name>integer</name>
+		<function-class>com.isystk.sample.common.config.Config</function-class>
+		<function-signature>Integer getInteger(java.lang.String)</function-signature>
+		<example>
+			${config:integer(key)}
+		</example>
+	</function>
+	
+	<function>
+		<description>プロパティーズファイルの真偽値取得</description>
+		<name>boolean</name>
+		<function-class>com.isystk.sample.common.config.Config</function-class>
+		<function-signature>boolean getBoolean(java.lang.String)</function-signature>
+		<example>
+			${config:boolean(key)}
+		</example>
+	</function>
+</taglib>

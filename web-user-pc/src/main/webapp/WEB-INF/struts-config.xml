@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+    <form-beans>
+    </form-beans>
+
+<!-- ================================= Global Exception Definitions -->
+
+	<global-exceptions>
+   		<exception key="global.exception.message" type="com.isystk.sample.common.exception.NotFoundException"
+                   handler="com.isystk.sample.web.common.exception.OriginalExceptionHandler"
+                   path="/WEB-INF/view/error/404.jsp">
+        </exception>
+        <exception key="global.exception.message" type="com.isystk.sample.common.exception.AuthorityException"
+                   handler="com.isystk.sample.web.common.exception.OriginalExceptionHandler"
+                   path="/WEB-INF/view/error/500.jsp">
+        </exception>
+        <exception key="global.exception.message" type="com.isystk.sample.common.exception.DataUpdateFailureException"
+                   handler="com.isystk.sample.web.common.exception.OriginalExceptionHandler"
+                   path="/WEB-INF/view/error/500.jsp">
+        </exception>
+        <exception key="global.exception.message" type="com.isystk.sample.common.exception.StatusException"
+                   handler="com.isystk.sample.web.common.exception.OriginalExceptionHandler"
+                   path="/WEB-INF/view/error/500.jsp">
+        </exception>
+        <exception key="global.exception.message" type="java.lang.Exception"
+                   handler="com.isystk.sample.web.common.exception.OriginalExceptionHandler"
+                   path="/WEB-INF/view/error/500.jsp">
+        </exception>
+    </global-exceptions>
+
+<!-- =================================== Global Forward Definitions -->
+
+    <global-forwards>
+    </global-forwards>
+
+<!-- =================================== Action Mapping Definitions -->
+
+    <action-mappings>
+    </action-mappings>
+    
+
+<!-- ===================================== Controller Configuration -->
+
+    <controller
+    	maxFileSize="50M"
+        bufferSize="50M"
+        processorClass="com.isystk.sample.web.userpc.sastruts.UserPcRequestProcessor"
+        multipartClass="org.seasar.struts.upload.S2MultipartRequestHandler"/>
+
+
+<!-- ================================ Message Resources Definitions -->
+
+    <message-resources parameter="application-message"
+        factory="org.seasar.struts.util.S2PropertyMessageResourcesFactory"/>
+
+<!-- ======================================= Plug Ins Configuration -->
+
+    <plug-in className="org.seasar.struts.validator.S2ValidatorPlugIn">
+        <set-property
+          property="pathnames"
+          value="/WEB-INF/validator-rules.xml"/>
+    </plug-in>
+</struts-config>
+

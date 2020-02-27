@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<description>ウエディング共通タグライブラリ</description>
+	<display-name>JSTL functions</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>cmn</short-name>
+	<uri>http://java.sun.com/jsp/jstl/functions</uri>
+	
+	<tag>
+		<description>カセットのサムネイルを表示する</description>
+		<name>casetThumb</name>
+		<tag-class>com.isystk.sample.web.common.taglib.CasetThumbTag</tag-class>
+	    <body-content>empty</body-content>
+	    <attribute>
+			<name>casetId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>lazyLoading</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>zoomIn</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>sizeRatio</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	    <attribute>
+			<name>weddingId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+	    <attribute>
+			<name>gaaction</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+	    <attribute>
+			<name>galabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+
+	<tag>
+		<description>画像のサムネイルを表示する</description>
+		<name>imageThumb</name>
+		<tag-class>com.isystk.sample.web.common.taglib.ImageThumbTag</tag-class>
+	    <body-content>empty</body-content>
+	    <attribute>
+			<name>imageId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>styleId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>itemprop</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>alt</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>imageType</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>lazyLoading</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>playTime</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>gaaction</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>galabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<description>プレミアム画像のサムネイルを表示する</description>
+		<name>imagePremium</name>
+		<tag-class>com.isystk.sample.web.common.taglib.ImagePremiumTag</tag-class>
+	    <body-content>empty</body-content>
+	    <attribute>
+			<name>weddingId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+	    <attribute>
+			<name>imageName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>styleId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>alt</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>width</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>height</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>suffix</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+		<attribute>
+			<name>lazyLoading</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	</tag>
+
+	<tag>
+		<description>汎用カレンダーのカスタムタグ</description>
+	    <name>calendar</name>
+	    <tag-class>com.isystk.sample.web.common.taglib.CalendarTag</tag-class>
+	    <body-content>JSP</body-content>
+	    <attribute>
+			<name>year</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	    <attribute>
+			<name>month</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	    <attribute>
+			<name>dateLabelVar</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	    <attribute>
+			<name>dateValueVar</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	    <attribute>
+			<name>dateRokuyouVar</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	    <attribute>
+			<name>styleClass</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	    <attribute>
+			<name>dateVar</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	</tag>	
+	  
+	<tag>
+		<description>マルチボックス日付選択のカスタムタグ</description>
+	    <name>multiboxDatepicker</name>
+	    <tag-class>com.isystk.sample.web.common.taglib.MultiboxDatepickerTag</tag-class>
+	    <body-content>empty</body-content>
+	    <attribute>
+			<name>year</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	    <attribute>
+			<name>month</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	    <attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	</tag>	
+
+	<tag>
+		<description>価格のフォーマットを行う</description>
+		<name>formatPrice</name>
+		<tag-class>com.isystk.sample.web.common.taglib.FormatPriceTag</tag-class>
+	    <body-content>empty</body-content>
+	    <attribute>
+			<name>value</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	</tag>
+		  
+	<tag>
+		<description>郵便番号のフォーマットを行う</description>
+		<name>formatPostCode</name>
+		<tag-class>com.isystk.sample.web.common.taglib.FormatPostCodeTag</tag-class>
+	    <body-content>empty</body-content>
+	    <attribute>
+			<name>value</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	</tag>
+
+	<tag>
+		<description>ViewStateを埋め込むタグ</description>
+		<name>viewState</name>
+		<tag-class>com.isystk.sample.web.common.taglib.ViewStateTag</tag-class>
+	    <body-content>empty</body-content>
+	    <attribute>
+			<name>likeAsAdditionalUrlParameter</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>	    
+		</attribute>
+	</tag>
+			 
+	<tag>
+		<description>クイックヘルプタグ</description>
+	    <name>quickHelp</name>
+	    <tag-class>com.isystk.sample.web.common.taglib.QuickHelpTag</tag-class>
+	    <body-content>JSP</body-content>
+	    <attribute>
+			<name>code</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	    <attribute>
+			<name>left</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<description>静的ファイルを取得して表示する</description>
+		<name>static</name>
+		<tag-class>com.isystk.sample.web.common.taglib.StaticTag</tag-class>
+	    <body-content>empty</body-content>
+	    <attribute>
+			<name>path</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+
+	<tag>
+		<description>CMSニュース表示用のカスタムタグ</description>
+		<name>cmsNews</name>
+		<tag-class>com.isystk.sample.web.userpc.taglib.CmsNewsTag</tag-class>
+	    <body-content>empty</body-content>
+	    <attribute>
+			<name>weddingId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>	
+		</attribute>
+	</tag>
+	
+	<tag>
+		<description>レコメンドフェア表示用のカスタムタグ</description>
+		<name>recommendFair</name>
+		<tag-class>com.isystk.sample.web.userpc.taglib.RecommendFairTag</tag-class>
+	    <body-content>empty</body-content>
+	    <attribute>
+			<name>weddingId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	    <attribute>
+			<name>weddingName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>weddingDiv</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>target</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>limit</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<description>他の会場のオススメ先輩カップル表示用のカスタムタグ</description>
+		<name>recommendPeople</name>
+		<tag-class>com.isystk.sample.web.userpc.taglib.RecommendPeopleTag</tag-class>
+	    <body-content>empty</body-content>
+		<attribute>
+			<name>weddingDiv</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>receptionCnt</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>ceremonyStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>ownPeopleId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>limit</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<function>
+		<description>現在のユーザが、指定の権限を持っているかどうか</description>
+		<name>hasAuthority</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>boolean hasAuthority(com.isystk.sample.common.constants.authority.BaseAuthority)</function-signature>
+	</function>
+	<function>
+		<description>ログインしているかどうか</description>
+		<name>isLogined</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>boolean isLogined()</function-signature>
+		<example>${cmn:isLogined()}</example>
+	</function>
+	<function>
+		<description>変換画像URLの取得</description>
+		<name>imageUrl</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>String getImageUrl(java.lang.String, java.lang.String)</function-signature>
+		<example>${cmn:imageUrl("11111111", ImageType.SD_200.suffix)}</example>
+	</function>
+
+	<function>
+		<description>変換画像URLの取得（プロトコル付き）</description>
+		<name>imageUrlWithProtocol</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>String getImageUrlWithProtocol(java.lang.String, java.lang.String)</function-signature>
+		<example>${cmn:imageUrlWithProtocol("11111111", ImageType.SD_200.suffix)}</example>
+	</function>
+	
+	<function>
+		<description>変換画像URLの取得（プロトコル付き）</description>
+		<name>imageUrlWithSslProtocol</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>String getImageUrlWithSslProtocol(java.lang.String, java.lang.String)</function-signature>
+		<example>${cmn:imageUrlWithSslProtocol("11111111", ImageType.SD_200.suffix)}</example>
+	</function>
+
+	<function>
+		<description>文字列切り取り</description>
+		<name>substring</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>String substring(java.lang.String, int)</function-signature>
+		<example>${cmn:substring("あいうえおかきくけこ", 5)}</example>
+	</function>
+	
+	<function>
+		<description>渡された文字数から改行コードを取り除く</description>
+		<name>removeLineFeed</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>String removeLineFeed(java.lang.String)</function-signature>
+		<example>${cmn:trimLineFeed("あいうえ\nおかきくけこ")}</example>
+	</function>
+	
+	<function>
+		<description>JSON表示用にエスケープします。</description>
+		<name>jsonEscape</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>String jsonEscape(java.lang.String)</function-signature>
+		<example>${cmn:jsonEscape("\12,345")}</example>
+	</function>
+	
+	<function>
+		<description>地域・エリア一覧の取得</description>
+		<name>region</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>java.util.List getRegionList()</function-signature>
+		<example>
+			${cmn:region()}
+		</example>
+	</function>
+	
+	<function>
+		<description>実行環境がステージング環境かどうか</description>
+		<name>isEnvSt</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>boolean isEnvSt()</function-signature>
+		<example>
+			${cmn:isEnvSt()}
+		</example>
+	</function>
+	
+	<function>
+		<description>実行環境が単体テスト環境かどうか</description>
+		<name>isEnvUt</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>boolean isEnvUt()</function-signature>
+		<example>
+			${cmn:isEnvUt()}
+		</example>
+	</function>
+	
+	<function>
+		<description>実行環境が結合テスト環境かどうか</description>
+		<name>isEnvCt</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>boolean isEnvCt()</function-signature>
+		<example>
+			${cmn:isEnvCt()}
+		</example>
+	</function>
+	
+	<function>
+		<description>実行環境が本番環境かどうか</description>
+		<name>isEnvProduct</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>boolean isEnvProduct()</function-signature>
+		<example>
+			${cmn:isEnvProduct()}
+		</example>
+	</function>
+	
+	<function>
+		<description>HTTPSかどうか</description>
+		<name>isSecure</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>boolean isSecure()</function-signature>
+		<example>
+			${cmn:isSecure()}
+		</example>
+	</function>
+	
+	<function>
+		<description>マイポポイントサービスが有効に使用できる状態かどうか</description>
+		<name>isMypoPointServiceEnable</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>boolean isMypoPointServiceEnable()</function-signature>
+		<example>
+			${cmn:isMypoPointServiceEnable()}
+		</example>
+	</function>
+	
+	<function>
+		<description> 当該ユーザのマイポポイントを取得する</description>
+		<name>getMypoPoint</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>Integer getMypoPoint()</function-signature>
+		<example>
+			${cmn:getMypoPoint()}
+		</example>
+	</function>
+	
+	<function>
+		<description> 当該ユーザがマイポユーザかどうかを取得する</description>
+		<name>isMypoUser</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>boolean isMypoUser()</function-signature>
+		<example>
+			${cmn:isMypoUser()}
+		</example>
+	</function>
+	
+	<function>
+		<description>OEMかどうか</description>
+		<name>isOEM</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>boolean isOEM()</function-signature>
+		<example>
+			${cmn:isOEM()}
+		</example>
+	</function>
+	
+	<function>
+		<description>OEM(マイナビニュース)かどうか</description>
+		<name>isOEMNews</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>boolean isOEMNews()</function-signature>
+		<example>
+			${cmn:isOEMNews()}
+		</example>
+	</function>
+	
+	<function>
+		<description>OEM(マイナビウーマン)かどうか</description>
+		<name>isOEMWoman</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>boolean isOEMWoman()</function-signature>
+		<example>
+			${cmn:isOEMWoman()}
+		</example>
+	</function>
+	
+	<function>
+		<description>ログインユーザ名を取得</description>
+		<name>getLoginUserName</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>String getLoginUserName()</function-signature>
+		<example>${cmn:getLoginUserName()}</example>
+	</function>
+		
+	<function>
+		<description>UserIdを取得する</description>
+		<name>getUserId</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>Object getUserId()</function-signature>
+		<example>
+			${cmn:getUserId()}
+		</example>
+	</function>
+
+	<function>
+		<description>先輩カップル招待人数（披露宴人数）表示</description>
+		<name>peopleRcptCnt</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>String getPeopleRcptCnt(int)</function-signature>
+		<example>
+			${cmn:peopleRcptCnt(19)}
+		</example>
+	</function>
+	
+	<function>
+		<description>TPoint連携しているかどうか</description>
+		<name>isTPointUser</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>boolean isTPointUser()</function-signature>
+		<example>${cmn:isTPointUser()}</example>
+	</function>
+	
+	<function>
+		<description>祝日一覧をJSON形式で取得する</description>
+		<name>getHolidayJsonStr</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>String getHolidayJsonStr()</function-signature>
+		<example>
+			${cmn:getHolidayJsonStr()}
+		</example>
+	</function>
+	
+	<function>
+		<description>現在設定されている広域エリアID を取得します。</description>
+		<name>getWideRegionId</name>
+		<function-class>com.isystk.sample.web.common.util.CmnFunctions</function-class>
+		<function-signature>Integer getWideRegionId()</function-signature>
+		<example>${cmn:getWideRegionId()}</example>
+	</function>
+	
+</taglib>
