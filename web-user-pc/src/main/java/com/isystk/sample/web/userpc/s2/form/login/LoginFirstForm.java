@@ -14,7 +14,7 @@ import org.seasar.framework.container.annotation.tiger.InstanceType;
 /**
  * 初回ログイン入力　アクションフォーム
  * 
- * @author hayashitakehiko
+ * @author iseyoshitaka
  */
 @Component(instance = InstanceType.SESSION)
 public class LoginFirstForm extends LoginFirstFormBase implements Serializable {

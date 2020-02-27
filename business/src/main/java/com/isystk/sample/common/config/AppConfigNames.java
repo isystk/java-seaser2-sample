@@ -27,7 +27,7 @@ public enum AppConfigNames {
      * ---------------------------------
      */
     SYSTEM_WORKDIR("system.workdir"),
-    /** C:/teamlab/projects/docker-java7/public/ */
+    /** C:/isystk/docker-java/public/ */
     SYSTEM_HTDOCSDIR("system.htdocsdir"),
     /** 
      * ---------------------------------

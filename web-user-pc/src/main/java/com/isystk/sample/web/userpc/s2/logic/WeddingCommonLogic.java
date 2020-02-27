@@ -20,7 +20,7 @@ import com.isystk.sample.web.userpc.constants.Constants;
 /**
  * （フロントPC共通） ロジック
  *
- * @author hayashitakehiko
+ * @author iseyoshitaka
  */
 @Component
 public class WeddingCommonLogic {

@@ -12,7 +12,7 @@ public class GenerateSchemaDtoTask {
     public static void main(String[] args) {
 
 	GenerateSchemaCommand command = new GenerateSchemaCommand();
-	command.setSolrHomeDir("C:/teamlab/projects/docker-java7/src/web-solr/search");
+	command.setSolrHomeDir("C:/isystk/docker-java/src/web-solr/search");
 	command.setOutDir("src/main/java/com/isystk/sample/common/s2/solr/dto");
 	command.setFtlDir("src/test/java/com/isystk/sample/common/gen/solr");
 	command.setFtlName("schemaDto.ftl");

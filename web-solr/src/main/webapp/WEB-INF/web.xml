@@ -22,32 +22,11 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
     version="2.4">
 
-  <listener>
-    <display-name>solr.home configuration listener</display-name>
-    <listener-class>com.isystk.sample.solr.listener.SolrHomeConfigurationListener</listener-class>
-  </listener>
-  
-  <!-- Uncomment if you are trying to use a Resin version before 3.0.19.
-    Their XML implementation isn't entirely compatible with Xerces.
-    Below are the implementations to use with Sun's JVM.
-  <system-property javax.xml.xpath.XPathFactory=
-             "com.sun.org.apache.xpath.internal.jaxp.XPathFactoryImpl"/>
-  <system-property javax.xml.parsers.DocumentBuilderFactory=
-             "com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl"/>
-  <system-property javax.xml.parsers.SAXParserFactory=
-             "com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl"/>
-   -->
+	<listener>
+		<display-name>solr.home configuration listener</display-name>
+		<listener-class>com.isystk.sample.solr.listener.SolrHomeConfigurationListener</listener-class>
+	</listener>
 
-  <!-- People who want to hardcode their "Solr Home" directly into the
-       WAR File can set the JNDI property here...
-    <env-entry>
-       <env-entry-name>solr/home</env-entry-name>
-       <env-entry-type>java.lang.String</env-entry-type>
-       <env-entry-value>C:/teamlab/projects/mycom/data/solr</env-entry-value>
-    </env-entry>
-   -->
-	   
-   
 	<filter>
 		<filter-name>charset</filter-name>
 		<filter-class>com.isystk.sample.solr.filter.CharacterEncodingFilter</filter-class>
@@ -56,7 +35,7 @@
 			<param-value>UTF-8</param-value>
 		</init-param>
 	</filter>
-   
+
   <!-- Any path (name) registered in solrconfig.xml will be sent to that filter-->
   <filter>
     <filter-name>SolrRequestFilter</filter-name>
@@ -106,7 +85,7 @@
   </filter-mapping>
 
   <!-- Otherwise it will continue to the old servlets -->
-  
+
   <mime-mapping>
     <extension>.xsl</extension>
     <!-- per http://www.w3.org/TR/2006/PR-xslt20-20061121/ -->

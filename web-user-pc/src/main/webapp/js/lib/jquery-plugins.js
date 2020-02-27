@@ -3,7 +3,7 @@
 	/*
 	 * jKeyup
 	 *
-	 * Copyright (c) 2012 hisasann at teamLab
+	 * Copyright (c) 2012 iseyoshitaka at isystk.com
 	 *
 	 * Options:
 	 * 　callback
@@ -61,7 +61,7 @@
 	/*
 	 * textCounter
 	 *
-	 * Copyright (c) 2012 hisasann at teamLab
+	 * Copyright (c) 2012 iseyoshitaka at isystk.com
 	 *
 	 * Options:
 	 * selectors
@@ -104,16 +104,6 @@
 		return 0;
 	}
 
-	// 0.5カウントが必要な場合は以下を使用
-	// function getCountHalf(val) {
-	// 	if (val) {
-	// 		return val
-	// 				.replace(/(\r?\n)/g,".")
-	// 				.replace(/[^\x00-\x7F]/g, "..").length / 2;
-	// 	}
-	// 	return 0;
-	// }
-
 })(jQuery);
 
 
@@ -121,7 +111,7 @@
 	/*
 	 * popup
 	 *
-	 * Copyright (c) 2012 hisasann at teamLab
+	 * Copyright (c) 2012 iseyoshitaka at isystk.com
 	 *
 	 * Options:
 	 * url - URL
@@ -158,7 +148,7 @@
 /*
  * preventDoubleSubmit
  *
- * Copyright (c) 2017 oya at teamLab
+ * Copyright (c) 2017 iseyoshitaka at isystk.com
  *
  * Description:
  * 多重サブミットを防止したいときに使用します。
@@ -186,7 +176,7 @@ $.preventDoubleSubmit = function() {
 	/*
 	 * mynaviUpload
 	 *
-	 * Copyright (c) 2017 iseyoshitaka at teamLab
+	 * Copyright (c) 2017 iseyoshitaka at isystk.com
 	 *
 	 * Description:
 	 * ファイル非同期アップローダー
@@ -371,7 +361,7 @@ $.preventDoubleSubmit = function() {
 	/*
 	 * refineSelectBox
 	 *
-	 * Copyright (c) 2020 iseyoshitaka at teamLab
+	 * Copyright (c) 2020 iseyoshitaka at isystk.com
 	 *
 	 * Description:
 	 * セレクトボックスの絞り込み用
@@ -552,7 +542,7 @@ $.preventDoubleSubmit = function() {
 	/*
 	 * peopleTagSelect
 	 *
-	 * Copyright (c) 2018 iseyoshitaka at teamLab
+	 * Copyright (c) 2018 iseyoshitaka at isystk.com
 	 *
 	 * Description:
 	 * 先輩カップルタグ選択画面の表示
@@ -858,7 +848,7 @@ $.preventDoubleSubmit = function() {
 	/*
 	 * mynaviRealtimeCheck
 	 *
-	 * Copyright (c) 2012 hayashitakehiko at teamLab
+	 * Copyright (c) 2012 iseyoshitaka at isystk.com
 	 *
 	 * Description:
 	 * テキストボックスに入力された値をAjaxから呼出しでvalidateチェックする機能を提供します

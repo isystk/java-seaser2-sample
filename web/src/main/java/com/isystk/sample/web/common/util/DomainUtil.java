@@ -14,7 +14,7 @@ import javax.naming.directory.InitialDirContext;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * @author hayashitakehiko
+ * @author iseyoshitaka
  * 
  */
 public class DomainUtil {

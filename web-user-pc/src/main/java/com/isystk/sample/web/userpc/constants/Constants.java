@@ -3,7 +3,7 @@ package com.isystk.sample.web.userpc.constants;
 /**
  * フロントPC共通で使用される定数
  * 
- * @author hayashitakehiko
+ * @author iseyoshitaka
  * 
  */
 public class Constants {
