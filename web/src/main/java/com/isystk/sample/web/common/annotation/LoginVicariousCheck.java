@@ -1,5 +1,5 @@
 /**
- * Copyright(c) team-lab</br>
+ * Copyright(c) isystk.com</br>
  */
 package com.isystk.sample.web.common.annotation;
 

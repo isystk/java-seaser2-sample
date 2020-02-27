@@ -10,12 +10,11 @@ import org.apache.solr.client.solrj.response.FacetField;
 import org.apache.solr.client.solrj.response.QueryResponse;
 
 /**
- * 
+ *
  * LBHttpSolrServer の Wrapper Class です. Solrサーバへの検索インターフェースを提供します.
- * 
+ *
  * @author iseyoshitaka
- * @author iseyoshitaka
- * 
+ *
  */
 public class SolrSearcherServer {
 
@@ -30,7 +29,7 @@ public class SolrSearcherServer {
 
     /**
      * 検索を実行します.
-     * 
+     *
      * @param query {@link SolrQuery}
      * @param clazz 結果を格納するDTOのクラス
      * @return 検索結果が格納されたDTOのリスト
@@ -48,7 +47,7 @@ public class SolrSearcherServer {
 
     /**
      * facet検索を実行します.
-     * 
+     *
      * @param query {@link SolrQuery}
      * @param clazz 結果を格納するDTOのクラス
      * @return 検索結果が格納されたDTOのリスト
@@ -65,7 +64,7 @@ public class SolrSearcherServer {
     }
     /**
      * クエリに一致する検索結果の件数を取得します.
-     * 
+     *
      * @param query {@link SolrQuery}
      * @return クエリに一致する検索結果の件数
      */

@@ -30,7 +30,7 @@ import com.isystk.sample.common.exception.SystemException;
 /**
  * 暗号関連
  * 
- * @author haseko
+ * @author iseyoshitaka
  */
 public final class CipherUtils {
 

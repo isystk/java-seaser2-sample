@@ -6,7 +6,6 @@ import org.seasar.framework.container.SingletonS2Container;
 import org.seasar.framework.container.annotation.tiger.Component;
 import org.seasar.framework.container.annotation.tiger.InstanceType;
 
-import com.isystk.sample.common.constants.authority.AdminAuthority;
 import com.isystk.sample.common.s2.dto.BaseUserDto;
 
 /**
@@ -21,9 +20,6 @@ public class UserDto implements Serializable {
 
 	/** ユーザID */
 	public Integer userId;
-
-	/** 権限のリストを取得します */
-	public AdminAuthority[] authorityList;
 
 	/**
 	 * ログイン済みのユーザ情報かどうかを検証する
@@ -42,10 +38,6 @@ public class UserDto implements Serializable {
 	 */
 	public Integer getUserId() {
 		return userId;
-	}
-
-	public AdminAuthority[] getAuthorityList() {
-		return authorityList;
 	}
 
 	public static String getComponentName() {

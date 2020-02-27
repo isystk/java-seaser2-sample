@@ -1,5 +1,5 @@
 /**
- * Copyright(c) team-lab</br>
+ * Copyright(c) isystk.com</br>
  */
 package com.isystk.sample.common.util;
 
@@ -16,7 +16,7 @@ import com.isystk.sample.common.image.procedure.BasicImageProcedure;
 /**
  * シェルを実行するためのクラス。<br>
  * インスタンスは基本的に使い捨て。
- * @author kaneko
+ * @author iseyoshitaka
  */
 public class ShellExecutor {
     /** the logger. */

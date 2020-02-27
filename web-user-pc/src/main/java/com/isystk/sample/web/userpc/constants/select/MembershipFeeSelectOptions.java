@@ -5,7 +5,7 @@ import com.isystk.sample.common.util.NumberUtil;
 /**
  * 会費
  *
- * @author moriyataeko
+ * @author iseyoshitaka
  *
  */
 public enum MembershipFeeSelectOptions {

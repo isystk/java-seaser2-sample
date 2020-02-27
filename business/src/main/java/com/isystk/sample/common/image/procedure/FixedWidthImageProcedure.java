@@ -18,7 +18,7 @@ import com.isystk.sample.common.image.ImageSuffix;
 import net.coobird.thumbnailator.Thumbnails;
 
 /**
- * @author nkawamata
+ * @author iseyoshitaka
  *
  */
 public class FixedWidthImageProcedure extends BasicImageProcedure {

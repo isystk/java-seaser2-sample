@@ -8,9 +8,6 @@
 </c:choose>
 Server:${ServiceCountForDebugActionInterceptor_TIME}(ms),
 <span id="serviceCallCount" data-count="${ServiceCountForDebugActionInterceptor_COUNT}">ServiceCall:${ServiceCountForDebugActionInterceptor_COUNT}回</span>,
-DomReady:<span id="domready"></span>(ms),
-<span class="display-none">Onload:<span id="onload"></span>(ms), </span>
-JSSpeed:<span id="jsSpeed"></span>(ms)
 <span style="float: right;" onclick="javascript:$(this).closest('p').remove();">非表示</span>
 </p>
 </c:if>

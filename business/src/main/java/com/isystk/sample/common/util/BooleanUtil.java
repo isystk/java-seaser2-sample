@@ -6,14 +6,14 @@ package com.isystk.sample.common.util;
 
 
 /**
- * @author mmatsumoto
+ * @author iseyoshitaka
  *
  */
 public class BooleanUtil {
 
     /**
      * フラグ（0 or 1 or true or false）からbooleanへ変換
-     * 
+     *
      * @param value 値
      * @return true / false
      */
@@ -23,7 +23,7 @@ public class BooleanUtil {
 
     /**
      * フラグ（0 or 1 or true or false）からbooleanへ変換
-     * 
+     *
      * @param value 値
      * @return true / false
      */
@@ -36,7 +36,7 @@ public class BooleanUtil {
 
     /**
      * フラグ（0 or 1 or true or false）からbooleanへ変換
-     * 
+     *
      * @param value 値
      * @return true / false
      */
@@ -53,7 +53,7 @@ public class BooleanUtil {
 
     /**
      * booleanへ変換可能かどうか
-     * 
+     *
      * @param value 値
      * @return true / false
      */
@@ -64,7 +64,7 @@ public class BooleanUtil {
 
     /**
      * フラグ（0 or 1 or true or false）からbooleanへ変換
-     * 
+     *
      * @param value 値
      * @return true / false
      */

@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import com.isystk.sample.common.constants.Flg;
 import com.isystk.sample.common.constants.ImageType;
 import com.isystk.sample.common.constants.entity.MaxLength;
-import com.isystk.sample.common.image.ImageDiv;
 import com.isystk.sample.common.image.ImageInfo;
 import com.isystk.sample.common.image.ImageManager;
 import com.isystk.sample.common.image.ImageRegisterType;
@@ -24,7 +23,7 @@ import com.isystk.sample.common.util.DateUtils;
 /**
  * 画像ロジック （共通）
  *
- * @author suzukiyohei
+ * @author iseyoshitaka
  */
 public class ImageCommonLogic {
 
@@ -81,7 +80,7 @@ public class ImageCommonLogic {
 	public void cropDefaultImage(Integer imageId, ImageType imageType, int aspectX, int aspectY) {
 
 		// オリジナル画像
-		BufferedImage image = ImageManager.getImageInfo(imageId, ImageDiv.ORIGINAL);
+		BufferedImage image = ImageManager.getImageInfo(imageId);
 
 		int x1 = 0;
 		int y1 = 0;
@@ -133,8 +132,7 @@ public class ImageCommonLogic {
 		}
 
 		// 画像トリミング処理の実装
-		ImageManager.cropZoomImageFile(imageId, x1, y1, x2, y2, outputWidth, outputHeight, imageType,
-				ImageDiv.ORIGINAL);
+		ImageManager.cropZoomImageFile(imageId, x1, y1, x2, y2, outputWidth, outputHeight, imageType);
 
 	}
 

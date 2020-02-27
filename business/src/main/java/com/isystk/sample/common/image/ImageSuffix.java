@@ -2,18 +2,9 @@ package com.isystk.sample.common.image;
 
 /**
  * @author iseyoshitaka
- * 
+ *
  */
 public enum ImageSuffix {
-
-    // アップロードされたそのままのファイル
-    UNTOUCHED(1, "_ut"),
-
-    // アップロードされたそのままの品質を維持したファイル(M)
-    UNTOUCHED_M(2, "_ut_m"),
-
-    // アップロードされたそのままの品質を維持したファイル(M)
-    UNTOUCHED_S(3, "_ut_s"),
 
     // オリジナル
     ORIGINAL(11, ""),

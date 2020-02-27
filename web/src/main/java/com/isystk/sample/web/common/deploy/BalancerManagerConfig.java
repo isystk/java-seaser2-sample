@@ -6,9 +6,9 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * バランサマネージャ設定を取り込み
- * 
- * @author sou
- * 
+ *
+ * @author iseyoshitaka
+ *
  */
 public class BalancerManagerConfig {
     public final String name;

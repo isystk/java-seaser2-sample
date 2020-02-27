@@ -29,7 +29,7 @@ import com.isystk.sample.common.exception.SystemException;
 /**
  * FTP 送信なクラス<br>
  * 
- * @author haseko
+ * @author iseyoshitaka
  */
 public class Ftp {
 
@@ -605,7 +605,7 @@ public class Ftp {
     /**
      * 読めるファイルだけフィルター
      * 
-     * @author haseko
+     * @author iseyoshitaka
      */
     static class ValidFileFilter implements FileFilter {
 	public boolean accept(File pathname) {

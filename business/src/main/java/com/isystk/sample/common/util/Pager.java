@@ -1,14 +1,14 @@
 /*
  * Pager.java
  * 
- * 2011/03/30 mnakamura
+ * 2011/03/30 iseyoshitaka
  */
 package com.isystk.sample.common.util;
 
 import java.io.Serializable;
 
 /**
- * @author mnakamura
+ * @author iseyoshitaka
  * 
  */
 public class Pager implements Serializable {

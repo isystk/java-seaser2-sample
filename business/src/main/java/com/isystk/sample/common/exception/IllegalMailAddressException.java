@@ -11,7 +11,7 @@ import com.isystk.sample.common.config.Message;
 /**
  * メール送信実行時にメールアドレスが不正な場合に発生する例外
  * 
- * @author moriyataeko
+ * @author iseyoshitaka
  * 
  */
 public class IllegalMailAddressException extends SystemException {

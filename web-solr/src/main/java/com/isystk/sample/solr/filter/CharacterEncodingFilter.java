@@ -1,5 +1,5 @@
 /**
- * Copyright(c) team-lab</br>
+ * Copyright(c) isystk.com</br>
  */
 package com.isystk.sample.solr.filter;
 
@@ -17,7 +17,7 @@ public class CharacterEncodingFilter implements Filter {
     /**
      * {@inheritDoc}
      * @see javax.servlet.Filter#destroy()
-     * @author nkawamata
+     * @author iseyoshitaka
      */
     public void destroy() {
         // nop
@@ -29,7 +29,7 @@ public class CharacterEncodingFilter implements Filter {
     /**
      * {@inheritDoc}
      * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
-     * @author nkawamata
+     * @author iseyoshitaka
      */
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
@@ -45,7 +45,7 @@ public class CharacterEncodingFilter implements Filter {
     /**
      * {@inheritDoc}
      * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
-     * @author nkawamata
+     * @author iseyoshitaka
      */
     public void init(FilterConfig filterConfig) throws ServletException {
         charset = filterConfig.getInitParameter("charset");

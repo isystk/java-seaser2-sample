@@ -1,5 +1,5 @@
 /*
- * NumberUtil.java 2011/03/28 mnakamura
+ * NumberUtil.java 2011/03/28 iseyoshitaka
  */
 package com.isystk.sample.common.util;
 

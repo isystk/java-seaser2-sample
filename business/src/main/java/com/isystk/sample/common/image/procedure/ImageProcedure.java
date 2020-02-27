@@ -9,7 +9,7 @@ import com.isystk.sample.common.image.ImageInfo;
 
 /**
  * 画像変換プロシージャのインターフェース
- * @author nkawamata
+ * @author iseyoshitaka
  */
 public interface ImageProcedure {
 

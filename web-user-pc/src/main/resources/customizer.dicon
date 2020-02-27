@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN" 
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN"
     "http://www.seasar.org/dtd/components24.dtd">
 <components>
     <include path="default-customizer.dicon"/>
-	
+
     <component name="actionCustomizer"
         class="org.seasar.framework.container.customizer.CustomizerChain">
         <initMethod name="addAspectCustomizer">
@@ -29,34 +29,12 @@
                 <component class="com.isystk.sample.web.common.interceptors.ServiceCountForDebugActionCustomizer"/>
             </arg>
         </initMethod>
-		<initMethod name="addCustomizer">
-			<arg>
-				<component class="org.seasar.framework.container.customizer.AspectCustomizer">
-					<property name="interceptorName">"inputValidateLogPcInterceptor"</property>
-					<initMethod name="addClassPattern">
-						<arg>"com.isystk.sample.web.userpc.s2.action.wedding.inquiry"</arg>
-						<arg>"CommonAction,DocumentAction,FairAction,VisitAction"</arg>
-					</initMethod>
-				</component>
-			</arg>
-		</initMethod>
-		<initMethod name="addCustomizer">
-			<arg>
-				<component class="org.seasar.framework.container.customizer.AspectCustomizer">
-					<property name="interceptorName">"conversionSlowMehtodLoggingInterceptor"</property>
-					<initMethod name="addClassPattern">
-						<arg>"com.isystk.sample.web.userpc.s2.action.wedding.inquiry"</arg>
-						<arg>"CommonAction,DocumentAction,FairAction,VisitAction"</arg>
-					</initMethod>
-				</component>
-			</arg>
-		</initMethod>
     </component>
-    
+
     <component name="formCustomizer"
         class="org.seasar.framework.container.customizer.CustomizerChain">
     </component>
-	
+
     <component name="serviceCustomizer"
         class="org.seasar.framework.container.customizer.CustomizerChain">
         <initMethod name="addAspectCustomizer">
@@ -105,7 +83,7 @@
             </arg>
         </initMethod>
     </component>
-    
+
 	<component name="maiAspectCustomizer" class="org.seasar.framework.container.customizer.AspectCustomizer">
     	<property name="interceptorName">"s2mai.s2MaiInterceptor"</property>
   	</component>
@@ -114,5 +92,5 @@
     		<arg>maiAspectCustomizer</arg>
     	</initMethod>
   	</component>
-    
+
 </components>

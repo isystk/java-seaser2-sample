@@ -10,7 +10,7 @@ import com.isystk.sample.common.config.Message;
 /**
  * 復号化失敗
  * 
- * @author haseko
+ * @author iseyoshitaka
  */
 public class FailsDecryptException extends SystemException {
 

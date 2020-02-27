@@ -18,8 +18,7 @@ import org.apache.lucene.search.TermRangeQuery;
 
 /**
  * QueryBuilder
- * 
- * @author iseyoshitaka
+ *
  * @author iseyoshitaka
  */
 public class QueryBuilder implements Serializable {
@@ -28,12 +27,12 @@ public class QueryBuilder implements Serializable {
 
 	public static final String OR = " OR ";
 	public static final String AND = " AND ";
-	
+
     /**
      * 範囲検索用Integer型Dto
-     * 
+     *
      * @author iseyoshitaka
-     * 
+     *
      */
     public static class BetweenIntegerDto {
 	public Integer from;
@@ -43,9 +42,9 @@ public class QueryBuilder implements Serializable {
 
     /**
      * 範囲検索用Date型Dto
-     * 
+     *
      * @author iseyoshitaka
-     * 
+     *
      */
     public static class BetweenDateDto {
 	public Date from;
@@ -88,7 +87,7 @@ public class QueryBuilder implements Serializable {
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * <p>
 	 * クエリ全体に適用するオペレータ({@link #toQueryString()} または {@link #toString()} で
 	 * 使用される)を指定します.
@@ -101,7 +100,7 @@ public class QueryBuilder implements Serializable {
 	 * MUST_NOT -> -(a:"xxx" +b:"aaa")
 	 * +()
 	 * </pre>
-	 * 
+	 *
 	 * @param wrapOperation クエリ全体に適用される条件(SHOULD, MUST, MUST_NOT).
 	 */
 	public QueryBuilder(WrapOperation wrapOperation) {
@@ -111,7 +110,7 @@ public class QueryBuilder implements Serializable {
     /**
      * String型のフィールドに対する完全一致または部分一致クエリ(AND)を追加します. value に * や ?
      * が含まれている場合は、部分一致(partial match)クエリとなります.
-     * 
+     *
      * @param field フィールド
      * @param value 値
      * @return {@link QueryBuilder}
@@ -123,7 +122,7 @@ public class QueryBuilder implements Serializable {
     /**
      * String型のフィールドに対する完全一致または部分一致クエリ(NOT)を追加します. value に * や ?
      * が含まれている場合は、部分一致(partial match)クエリとなります.
-     * 
+     *
      * @param field フィールド
      * @param value 値
      * @return {@link QueryBuilder}
@@ -135,7 +134,7 @@ public class QueryBuilder implements Serializable {
     /**
      * String型のフィールドに対する完全一致または部分一致クエリ(OR)を追加します. value に * や ?
      * が含まれている場合は、部分一致(partial match)クエリとなります.
-     * 
+     *
      * @param field フィールド
      * @param value 値
      * @return {@link QueryBuilder}
@@ -147,7 +146,7 @@ public class QueryBuilder implements Serializable {
     /**
      * Number型(byte, short, int, long, float, double, BigInteger,
      * BigDecimal)のフィールドに対する完全一致クエリ(AND)を追加します.
-     * 
+     *
      * @param field フィールド
      * @param value 値
      * @return {@link QueryBuilder}
@@ -159,7 +158,7 @@ public class QueryBuilder implements Serializable {
     /**
      * Number型(byte, short, int, long, float, double, BigInteger,
      * BigDecimal)のフィールドに対する完全一致否定クエリ(NOT)を追加します.
-     * 
+     *
      * @param field フィールド
      * @param value 値
      * @return {@link QueryBuilder}
@@ -171,7 +170,7 @@ public class QueryBuilder implements Serializable {
     /**
      * Number型(byte, short, int, long, float, double, BigInteger,
      * BigDecimal)のフィールドに対する完全一致クエリ(OR)を追加します.
-     * 
+     *
      * @param field フィールド
      * @param value 値
      * @return {@link QueryBuilder}
@@ -182,7 +181,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * Boolean のフィールドに対する完全一致クエリ(AND)を追加します.
-     * 
+     *
      * @param field フィールド
      * @param bool 値(true / false)
      * @return {@link QueryBuilder}
@@ -193,7 +192,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * Boolean のフィールドに対する完全一致否定クエリ(NOT)を追加します.
-     * 
+     *
      * @param field フィールド
      * @param bool 値(true / false)
      * @return {@link QueryBuilder}
@@ -204,7 +203,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * Booleanのフィールドに対する完全一致クエリ(OR)を追加します.
-     * 
+     *
      * @param field フィールド
      * @param bool 値(true / false)
      * @return {@link QueryBuilder}
@@ -215,7 +214,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * Date のフィールドに対する完全一致クエリ(AND)を追加します.
-     * 
+     *
      * @param field フィールド
      * @param date 値
      * @return {@link QueryBuilder}
@@ -226,7 +225,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * Date のフィールドに対する完全一致否定クエリ(NOT)を追加します.
-     * 
+     *
      * @param field フィールド
      * @param date 値
      * @return {@link QueryBuilder}
@@ -237,7 +236,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * Dateのフィールドに対する完全一致クエリ(OR)を追加します.
-     * 
+     *
      * @param field フィールド
      * @param date 値
      * @return {@link QueryBuilder}
@@ -267,7 +266,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * 形態素解析済みフィールドに対する全文検索クエリ(AND)を追加します.
-     * 
+     *
      * @param field フィールド名
      * @param words 検索ワード
      * @return {@link QueryBuilder}
@@ -278,7 +277,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * 形態素解析済みフィールドに対する全文検索クエリ(AND)を追加します.
-     * 
+     *
      * @param field フィールド名
      * @param words 検索ワード
      * @return {@link QueryBuilder}
@@ -289,7 +288,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * 形態素解析済みフィールドに対する全文検索クエリ(OR)を追加します.
-     * 
+     *
      * @param field フィールド名
      * @param words 検索ワード
      * @return {@link QueryBuilder}
@@ -318,7 +317,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * 範囲指定のクエリ(AND)を追加します.
-     * 
+     *
      * @param field フィールド名
      * @param dto 範囲検索用DTO
      * @return {@link QueryBuilder}
@@ -329,7 +328,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * 範囲指定のクエリ(NOT)を追加します.
-     * 
+     *
      * @param field フィールド名
      * @param dto 範囲検索用DTO
      * @return {@link QueryBuilder}
@@ -340,7 +339,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * 範囲指定のクエリ(OR)を追加します.
-     * 
+     *
      * @param field フィールド名
      * @param dto 範囲検索用DTO
      * @return {@link QueryBuilder}
@@ -351,7 +350,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * 範囲指定のクエリ(AND)を追加します.
-     * 
+     *
      * @param field フィールド名
      * @param dto 範囲検索用DTO
      * @return {@link QueryBuilder}
@@ -362,7 +361,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * 範囲指定のクエリ(NOT)を追加します.
-     * 
+     *
      * @param field フィールド名
      * @param dto 範囲検索用DTO
      * @return {@link QueryBuilder}
@@ -373,7 +372,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * 範囲指定のクエリ(OR)を追加します.
-     * 
+     *
      * @param field フィールド名
      * @param dto 範囲検索用DTO
      * @return {@link QueryBuilder}
@@ -383,7 +382,7 @@ public class QueryBuilder implements Serializable {
     }
 
     /**
-     * 
+     *
      * @param field フィールド名
      * @param from 最小値
      * @param to 最大値
@@ -423,7 +422,7 @@ public class QueryBuilder implements Serializable {
     // mIto Listを入れ子にした検索条件の生成方法はもっと良いやり方があるはず
     /**
      * List<String>型を繋いだクエリ（AND or OR）を追加します
-     * 
+     *
      * @param field フィールド名
      * @param list リスト
      * @param type AND or OR
@@ -439,7 +438,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * List<Integer>型を繋いだクエリ（AND or OR）を追加します
-     * 
+     *
      * @param field フィールド名
      * @param list リスト
      * @param type AND or OR
@@ -455,7 +454,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * List<Date>型を繋いだクエリ（AND or OR）を追加します
-     * 
+     *
      * @param field フィールド名
      * @param list リスト
      * @param type AND or OR
@@ -471,7 +470,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * List<String>型を繋いだクエリ（NOT）を追加します
-     * 
+     *
      * @param field フィールド名
      * @param list リスト
      * @return {@link QueryBuilder}
@@ -486,7 +485,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * List<Integer>型を繋いだクエリ（NOT）を追加します
-     * 
+     *
      * @param field フィールド名
      * @param list リスト
      * @return {@link QueryBuilder}
@@ -501,7 +500,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * List<Date>型を繋いだクエリ（NOT）を追加します
-     * 
+     *
      * @param field フィールド名
      * @param list リスト
      * @return {@link QueryBuilder}
@@ -516,7 +515,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * List<BigDecimal>型を繋いだクエリ（NOT）を追加します
-     * 
+     *
      * @param field フィールド名
      * @param list リスト
      * @return {@link QueryBuilder}
@@ -531,7 +530,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * List<BetweenIntegerDto>型を繋いだクエリ（AND or OR）を追加します
-     * 
+     *
      * @param field フィールド名
      * @param list リスト
      * @param type AND or OR
@@ -547,7 +546,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * List<BigDecimal>型を繋いだクエリ（AND or OR）を追加します
-     * 
+     *
      * @param field フィールド名
      * @param list リスト
      * @param type AND or OR
@@ -563,7 +562,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * List<BetweenDateDto>型を繋いだクエリ（AND or OR）を追加します
-     * 
+     *
      * @param field フィールド名
      * @param list リスト
      * @param type AND or OR
@@ -647,7 +646,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * クエリを結合します
-     * 
+     *
      * @param list
      * @param type
      * @return {@link QueryBuilder}
@@ -669,7 +668,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * dynamicFieldのクエリを追加します
-     * 
+     *
      * @param map
      * @return {@link QueryBuilder}
      */
@@ -692,7 +691,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * dynamicFieldのクエリを追加します
-     * 
+     *
      * @param map
      * @return {@link QueryBuilder}
      */
@@ -733,7 +732,7 @@ public class QueryBuilder implements Serializable {
 
     /**
      * すでに整形済みのqueryを設定します
-     * 
+     *
      * @param queryList
      */
     public void addQueryString(List<String> queryList) {
@@ -742,9 +741,9 @@ public class QueryBuilder implements Serializable {
 
     /**
      * クエリ文字列を返します.
-     * 
+     *
      * 何も指定されていない状態で実行した場合は 全件検索クエリ *:* を返します.
-     * 
+     *
      * @return クエリ文字列.
      */
     public String toQueryString() {
@@ -799,7 +798,7 @@ public class QueryBuilder implements Serializable {
 	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z-9HOUR'");
 	    return escape(sdf.format(date), false);
 	}
-	
+
 	/**
 	 * 特殊文字をエスケープします.
 	 * @param word 対象文字列

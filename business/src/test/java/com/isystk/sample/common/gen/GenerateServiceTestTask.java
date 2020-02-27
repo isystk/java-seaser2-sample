@@ -1,5 +1,5 @@
 /**
- * Copyright(c) team-lab</br>
+ * Copyright(c) isystk.com</br>
  */
 package com.isystk.sample.common.gen;
 
@@ -22,7 +22,7 @@ public class GenerateServiceTestTask {
 	command.setIgnoreEntityClassNamePattern("^(?!.*GaReportSearch)(?=.*Ga).*");
 	File dir = new File("target/classes");
 	command.setClasspathDir(dir);
-	command.setTemplateFileName("java/wedding-servicetest.ftl");
+	command.setTemplateFileName("java/servicetest.ftl");
 	// 上書きしない場合はfalseに
 	command.setOverwrite(true);
 	command.setUseS2junit4(true);

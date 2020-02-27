@@ -17,13 +17,11 @@ import org.seasar.struts.util.S2ActionMappingUtil;
 import com.isystk.sample.common.config.AppMessageNames;
 import com.isystk.sample.common.constants.Constants;
 import com.isystk.sample.common.exception.NotFoundException;
-import com.isystk.sample.common.util.AgentCipher;
 import com.isystk.sample.common.util.StringUtils;
 import com.isystk.sample.web.common.annotation.NoAllowDirectAccessCheck;
 import com.isystk.sample.web.common.annotation.SSL;
 import com.isystk.sample.web.common.sastruts.token.TokenCheck;
 import com.isystk.sample.web.common.sastruts.token.TokenSet;
-import com.isystk.sample.web.common.util.CookieUtil;
 import com.isystk.sample.web.common.util.ValidateUtil;
 import com.isystk.sample.web.userpc.constants.Url;
 import com.isystk.sample.web.userpc.s2.form.entry.EntryRemindForm;
@@ -126,12 +124,7 @@ public class RemindAction {
 			session.invalidate();
 		}
 
-		String cookieRingKey = CookieUtil.getValue(com.isystk.sample.common.constants.Constants.Ring.COOKIE_PC);
-		String decodeCookieRingkey = AgentCipher.decodeByDefaultKey(cookieRingKey);
-		RequestUtil.getRequest().getSession().getServletContext().removeAttribute(decodeCookieRingkey);
-
-		return Url.ringuserpcLogout.getAbsolute() + "?returnUrl=" + Url.userpcEntyRemind.getAbsolute()
-				+ "showConfig/?onetimeKey=" + entryRemindForm.onetimeKey + "&redirect=true";
+		return Url.userpcTop.getAbsolute() + "&redirect=true";
 
 	}
 

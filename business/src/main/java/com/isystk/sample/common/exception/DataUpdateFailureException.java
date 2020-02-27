@@ -1,5 +1,5 @@
 /*
- * DataUpdateFailureException.java 2011/04/18 mnakamura
+ * DataUpdateFailureException.java 2011/04/18 iseyoshitaka
  */
 package com.isystk.sample.common.exception;
 
@@ -10,7 +10,7 @@ import com.isystk.sample.common.config.Message;
 /**
  * DBへの挿入や更新で失敗した場合に使用します。 500エラー例外をthrowします。
  * 
- * @author mnakamura
+ * @author iseyoshitaka
  * 
  */
 public class DataUpdateFailureException extends StatusException {

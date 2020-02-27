@@ -25,8 +25,8 @@ import com.isystk.sample.common.exception.SystemException;
 
 /**
  * 文字列に関するユーティリティ。<br>
- * 
- * @author kaneko
+ *
+ * @author iseyoshitaka
  */
 public final class StringUtils {
 
@@ -77,12 +77,9 @@ public final class StringUtils {
 
     /** URL */
     public static final Pattern MATCH_URL = Pattern.compile("^(https?|ftp)(:\\/\\/[-_.!~*\\'()a-zA-Z0-9;\\/?:\\@&=+\\$,%#]+)$");
-    
-    /** 制御文字・改行コード・タブ文字 */    
-    private static final Pattern CONTROL_CHARACTER = Pattern.compile("[\r\n|\t|\u0000-\u0008|\u000b-\u000c|\u000e-\u001f|\ufdd0-\ufdef|\ufffe|\uffff]");
 
-    /** 有効文字一覧 */
-    private static final ValidCharHolder VALID_CHARS = ValidCharHolder.getInstance();
+    /** 制御文字・改行コード・タブ文字 */
+    private static final Pattern CONTROL_CHARACTER = Pattern.compile("[\r\n|\t|\u0000-\u0008|\u000b-\u000c|\u000e-\u001f|\ufdd0-\ufdef|\ufffe|\uffff]");
 
     /** 共有空配列 */
     private static final Integer[] EMPTY_INT_ARR = new Integer[0];
@@ -97,7 +94,7 @@ public final class StringUtils {
      * <pre>
      * 電話番号検索用に全角半角互換でハイフンみたいなのを除去します.
      * </pre>
-     * 
+     *
      * @param str 文字列
      * @return 除去後文字列
      */
@@ -123,7 +120,7 @@ public final class StringUtils {
 
     /**
      * 文字列をBigDecimalに変換する。
-     * 
+     *
      * @param str 変換する文字列
      * @return 文字列をBigDecimalに変換したもの。変換に失敗したらnull。
      */
@@ -139,7 +136,7 @@ public final class StringUtils {
      * <pre>
      * 先頭を大文字にします.
      * </pre>
-     * 
+     *
      * @see org.apache.commons.lang.StringUtils#capitalize(String)
      * @param str 変換前文字列
      * @return 変換後文字列
@@ -152,7 +149,7 @@ public final class StringUtils {
      * <pre>
      * チェックボックスの値がチェックされているかどうかを検証します.
      * </pre>
-     * 
+     *
      * @param cb チェックボックスの値
      * @return onが含まれているときtrue;
      */
@@ -173,7 +170,7 @@ public final class StringUtils {
 
     /**
      * 文字列の長さが指定範囲かどうかをチェックする
-     * 
+     *
      * @param str 検査文字列
      * @param min 最小文字数
      * @param max 最大文字数
@@ -199,7 +196,7 @@ public final class StringUtils {
 
     /**
      * 文字の最大長をチェックする
-     * 
+     *
      * @param str 検査文字列
      * @param len 最大文字数
      * @return true: 範囲内（OK）; false: 範囲外（NG）
@@ -214,7 +211,7 @@ public final class StringUtils {
      * 半角を0.5文字と数える最大桁数チェック.
      * X.5のために文字列に1を足してから計算
      * </pre>
-     * 
+     *
      * @param str 文字列
      * @param len 最大桁数
      * @return 文字列が最大桁数以下のときtrue, そうでなければfalse
@@ -228,7 +225,7 @@ public final class StringUtils {
      * 半角を0.5文字と数える最大桁数チェック.
      * X.5のために文字列に1を足してから計算
      * </pre>
-     * 
+     *
      * @param str 文字列
      * @param len 最大桁数
      * @return 文字列が最大桁数以下のときtrue, そうでなければfalse
@@ -246,7 +243,7 @@ public final class StringUtils {
      * 半角を0.5文字と数える.
      * X.5のために文字列に1を足してから計算
      * </pre>
-     * 
+     *
      * @param str 文字列
      * @return 桁数
      */
@@ -256,7 +253,7 @@ public final class StringUtils {
 
     /**
      * 文字の最大長をチェックする
-     * 
+     *
      * @param str 検査文字列
      * @param len 最小文字数
      * @return true: 範囲内（OK）; false: 範囲外（NG）
@@ -268,7 +265,7 @@ public final class StringUtils {
 
     /**
      * URLかどうかをチェックする
-     * 
+     *
      * @param str チェックする文字列
      * @return URLのとき＆空白のときTRUE 違うとき
      */
@@ -285,7 +282,7 @@ public final class StringUtils {
      * <pre>
      * 文字列同士を比較する。nullなら空文字にして比較する。
      * </pre>
-     * 
+     *
      * @param str1 比較対象文字列
      * @param str2 比較対象文字列
      * @return 差異がなければtrue 差異があればfalse
@@ -317,7 +314,7 @@ public final class StringUtils {
 
     /**
      * wave dash の置換など
-     * 
+     *
      * @param target 対象
      * @return 置換された文字列
      */
@@ -341,7 +338,7 @@ public final class StringUtils {
 
     /**
      * wave dash の逆置換など
-     * 
+     *
      * @param target 対象
      * @return 逆置換された文字列
      */
@@ -365,7 +362,7 @@ public final class StringUtils {
 
     /**
      * wave dash の置換など
-     * 
+     *
      * @param target 対象
      * @return 置換された文字列
      */
@@ -389,7 +386,7 @@ public final class StringUtils {
 
     /**
      * 空文字の場合にNULLに置き換える
-     * 
+     *
      * @param str 文字列
      * @return strが空文字の場合にNULL。そうでなければstr
      */
@@ -402,7 +399,7 @@ public final class StringUtils {
 
     /**
      * 空文字の場合に空文字に置き換える
-     * 
+     *
      * @param str 文字列
      * @return strが空文字の場合にNULL。そうでなければstr
      */
@@ -417,7 +414,7 @@ public final class StringUtils {
      * <pre>
      * LIKE用のエスケープをします.
      * </pre>
-     * 
+     *
      * @param list 文字列リスト
      * @return エスケープされたリスト
      */
@@ -438,7 +435,7 @@ public final class StringUtils {
 
     /**
      * LIKE検索用に文字列をエスケープする
-     * 
+     *
      * @param likeStr エスケープする文字列
      * @return エスケープされた文字列
      */
@@ -451,7 +448,7 @@ public final class StringUtils {
 
     /**
      * 文字列をIntegerに変換する。
-     * 
+     *
      * @param obj 変換する文字列
      * @return 文字列をIntegerに変換したもの。変換に失敗したらnull。
      */
@@ -467,7 +464,7 @@ public final class StringUtils {
 
     /**
      * 文字列をLongに変換する。
-     * 
+     *
      * @param str 変換する文字列
      * @return 文字列をLongに変換したもの。変換に失敗したらnull。
      */
@@ -481,7 +478,7 @@ public final class StringUtils {
 
     /**
      * String配列をInteger配列に変換する。
-     * 
+     *
      * @param strArray 変換する文字列
      * @return 文字列をIntegerに変換したもの。変換に失敗したら空配列。
      */
@@ -499,7 +496,7 @@ public final class StringUtils {
 
     /**
      * 文字列をIntegerに変換する。
-     * 
+     *
      * @param str 変換する文字列
      * @return 文字列をIntegerに変換したもの。変換に失敗したら0。
      */
@@ -515,7 +512,7 @@ public final class StringUtils {
      * <pre>
      * スペース文字のみで構成されているかチェックします.
      * </pre>
-     * 
+     *
      * @param str 文字列
      * @return 空かスペース構成文字のみのときtrue
      */
@@ -533,7 +530,7 @@ public final class StringUtils {
      * <pre>
      * スペース文字以外で構成されているかチェックします.
      * </pre>
-     * 
+     *
      * @param str 文字列
      * @return 空かスペース構成文字のみ以外のときtrue
      */
@@ -545,7 +542,7 @@ public final class StringUtils {
      * <pre>
      * すべての値が、スペース文字のみで構成されているかチェックします.
      * </pre>
-     * 
+     *
      * @param str 文字列
      * @return すべての値が、空かスペース構成文字のみのときtrue
      */
@@ -567,7 +564,7 @@ public final class StringUtils {
 
     /**
      * ホワイトスペースのみで構成されているかをチェックします。
-     * 
+     *
      * @param str 文字列
      * @return ホワイトスペースのみで構成されている場合のみ true。それ以外の場合は false
      */
@@ -600,42 +597,8 @@ public final class StringUtils {
     }
 
     /**
-     * 有効な文字で構成された文字列かどうかをチェックします。
-     * 
-     * @param str チェックする文字列
-     * @return 有効な文字で構成された文字列or空文字の場合は true。それ以外は false
-     */
-    public static boolean isValidChars(String str) {
-
-	// 空文字の場合
-	if (isNullOrEmpty(str)) {
-
-	    // 有効とする
-	    return true;
-
-	}
-
-	// 有効な文字列かどうかチェックする
-	for (final char strChar : str.toCharArray()) {
-
-	    // 無効な文字列の場合
-	    if (!VALID_CHARS.contains(strChar)) {
-
-		// 無効とする
-		return false;
-
-	    }
-
-	}
-
-	// 有効とする
-	return true;
-
-    }
-
-    /**
      * プロトコル(http, https)のみのURL表記かどうかを取得する。
-     * 
+     *
      * @param str チェックする文字列
      * @return プロトコル(http, https)のみのURL表記の場合は true。それ以外は false
      */
@@ -656,9 +619,9 @@ public final class StringUtils {
 
     /**
      * 有効な電話番号表記かどうかを取得する。
-     * 
+     *
      * 電話番号はハイフン付き電話番号を指定すること。
-     * 
+     *
      * @param str チェックする文字列
      * @return 有効な電話番号表記の場合は true。それ以外は false
      */
@@ -679,7 +642,7 @@ public final class StringUtils {
 
     /**
      * 文字列が数値変換可能か判断する
-     * 
+     *
      * @param str 変換する文字列
      * @return 変換できた場合true.出来なかった場合false.
      */
@@ -694,7 +657,7 @@ public final class StringUtils {
 
     /**
      * 英数記号か判定する
-     * 
+     *
      * @param target 対象文字列
      * @return 英数記号であれば true
      */
@@ -704,7 +667,7 @@ public final class StringUtils {
 
     /**
      * 英字以外の文字かを判定する
-     * 
+     *
      * @param target 対象文字列
      * @return すべて英字以外の文字の場合true.そうでなければfalse.
      */
@@ -714,7 +677,7 @@ public final class StringUtils {
 
     /**
      * 半角全角数字以外か判定する
-     * 
+     *
      * @param target 対象文字列
      * @return true 半角カタカナ以外
      */
@@ -724,7 +687,7 @@ public final class StringUtils {
 
     /**
      * 半角カタカナ以外か判定する
-     * 
+     *
      * @param target 対象文字列
      * @return true 半角カタカナ以外
      */
@@ -734,7 +697,7 @@ public final class StringUtils {
 
     /**
      * 全て全角文字か判定する
-     * 
+     *
      * @param target 対象文字列
      * @return true 全て全角文字列
      */
@@ -744,7 +707,7 @@ public final class StringUtils {
 
     /**
      * 全て全角カタカナか判定する
-     * 
+     *
      * @param target 対象文字列
      * @return true 全て全角カタカナ
      */
@@ -754,7 +717,7 @@ public final class StringUtils {
 
     /**
      * 半角英数字か判定する
-     * 
+     *
      * @param target 対象文字列
      * @return true 全て半角英数字
      */
@@ -764,7 +727,7 @@ public final class StringUtils {
 
     /**
      * 小数か判定する
-     * 
+     *
      * @param target 対象文字列
      * @return true 全て半角英数字
      */
@@ -774,7 +737,7 @@ public final class StringUtils {
 
     /**
      * 小数か判定する
-     * 
+     *
      * @param target 対象文字列
      * @return true 全て半角英数字
      */
@@ -784,7 +747,7 @@ public final class StringUtils {
 
     /**
      * 半角数字か判定する
-     * 
+     *
      * @param target 対象文字列
      * @return true 全て半角数字
      */
@@ -794,7 +757,7 @@ public final class StringUtils {
 
     /**
      * 整数か判定する
-     * 
+     *
      * @param target 対象文字列
      * @return true 全て半角英数字
      */
@@ -804,7 +767,7 @@ public final class StringUtils {
 
     /**
      * 全て半角カタカナか判定する
-     * 
+     *
      * @param target 対象文字列
      * @return true 全て半角カタカナ
      */
@@ -814,7 +777,7 @@ public final class StringUtils {
 
     /**
      * 全てひらがなか判定する
-     * 
+     *
      * @param target 対象文字列
      * @return true 全てひらがな
      */
@@ -824,7 +787,7 @@ public final class StringUtils {
 
     /**
      * 文字列に指定した文字が含まれるか判定する。
-     * 
+     *
      * @param target 対象文字列
      * @param str 含まれる文字
      * @return 指定した文字が含まれる場合true.そうでなければfalse.
@@ -835,7 +798,7 @@ public final class StringUtils {
 
     /**
      * 指定した文字列がnullまたは空文字列であるか否かを取得する。
-     * 
+     *
      * @param string 対象文字列
      * @return 文字列がnullまたは空文字列の場合true.そうでなければfalse.
      */
@@ -845,7 +808,7 @@ public final class StringUtils {
 
     /**
      * 指定した文字列がnullまたは空文字列ではないか否かを取得する。
-     * 
+     *
      * @param string 対象文字列
      * @return 文字列がnullまたは空文字列ではない場合true.そうでなければfalse.
      */
@@ -855,7 +818,7 @@ public final class StringUtils {
 
     /**
      * 文字を連結する
-     * 
+     *
      * @param separator 分割文字列
      * @param objects Stringの集合
      * @return 連結後の文字列
@@ -878,11 +841,11 @@ public final class StringUtils {
 
     /**
      * 配列の文字列を連結する
-     * 
+     *
      * @param array 文字列の配列
      * @param separator 区切り文字
      * @return 区切り文字で区切って連結した文字列(NULLや空配列の場合は空文字)
-     * 
+     *
      * @author kawamata
      */
     public static String joinArray(String[] array, String separator) {
@@ -907,7 +870,7 @@ public final class StringUtils {
 
     /**
      * Listの文字列を連結する
-     * 
+     *
      * @param list List
      * @param separator 区切り文字
      * @return 区切り文字で区切って連結した文字列(NULLや空配列の場合は空文字)
@@ -918,7 +881,7 @@ public final class StringUtils {
 
     /**
      * フリーワード用文字列をスペース区切りの部分検索用トークンに分割します
-     * 
+     *
      * @param string 検索文字列
      * @return List
      */
@@ -939,7 +902,7 @@ public final class StringUtils {
      * <pre>
      * 左トリミングします.
      * </pre>
-     * 
+     *
      * @param str 右トリミングされる文字列
      * @param trim トリミングする文字列
      * @return 右トリミングされた文字列
@@ -953,7 +916,7 @@ public final class StringUtils {
 
     /**
      * 正規表現にマッチしているかを判定する
-     * 
+     *
      * @param value 検査対象文字列
      * @param pattern 正規表現文字列
      * @return true:マッチ, false:アンマッチ
@@ -972,7 +935,7 @@ public final class StringUtils {
 
     /**
      * nullの場合空文字列に変換する。そうでなければそのままtoString.valueOf()
-     * 
+     *
      * @param o 値
      * @return oがnullの場合空文字列。そうでなければString.valueOf(o)
      */
@@ -988,7 +951,7 @@ public final class StringUtils {
 
     /**
      * 10000以上の場合X万円に変換する。10000以下の場合はX円を返す。
-     * 
+     *
      * @param target 対象数値
      * @return targetが10000以上の場合万に変換する。
      */
@@ -1019,7 +982,7 @@ public final class StringUtils {
 
     /**
      * <i>target</i>を1,234,567円の形式でフォーマットする
-     * 
+     *
      * @param target 金額
      * @return フォーマットされた値
      */
@@ -1035,7 +998,7 @@ public final class StringUtils {
 
     /**
      * <i>target</i>を1,234,567円の形式でフォーマットする(long用)
-     * 
+     *
      * @param target 金額
      * @return フォーマットされた値
      */
@@ -1051,7 +1014,7 @@ public final class StringUtils {
 
     /**
      * <i>target</i>を1,234,567円の形式でフォーマットする
-     * 
+     *
      * @param target 金額
      * @return フォーマットされた値
      */
@@ -1067,7 +1030,7 @@ public final class StringUtils {
 
     /**
      * <i>target</i>を1,234,567円の形式でフォーマットする(long用)
-     * 
+     *
      * @param target 金額
      * @return フォーマットされた値
      */
@@ -1083,7 +1046,7 @@ public final class StringUtils {
 
     /**
      * 最後のデリミタ削除
-     * 
+     *
      * @param org 対象
      * @param delimiter 区切り文字
      * @return 最後のデリミタ削除文字列
@@ -1100,7 +1063,7 @@ public final class StringUtils {
      * <pre>
      * 右トリミングします.
      * </pre>
-     * 
+     *
      * @param str 右トリミングされる文字列
      * @param trim トリミングする文字列
      * @return 右トリミングされた文字列
@@ -1114,7 +1077,7 @@ public final class StringUtils {
 
     /**
      * valueをスペース(半角・全角)で区切り、String型の配列で返す
-     * 
+     *
      * @param value split対象文字列
      * @return String型配列 valueが存在しない場合、nullを返却
      * @author kamoshita
@@ -1131,7 +1094,7 @@ public final class StringUtils {
 
     /**
      * {@link String#substring(int)}のバグ回避策。
-     * 
+     *
      * @param str 基文字列
      * @param beginIndex はじめ
      * @param endIndex おわり
@@ -1143,7 +1106,7 @@ public final class StringUtils {
 
     /**
      * {@link String#substring(int, int)}のバグ回避策。
-     * 
+     *
      * @param str 基文字列
      * @param beginIndex はじめ
      * @param endIndex おわり
@@ -1157,7 +1120,7 @@ public final class StringUtils {
      * <pre>
      * トリミングします.
      * </pre>
-     * 
+     *
      * @param str トリミングされる文字列
      * @param trim トリミングする文字列
      * @return トリミングされた文字列
@@ -1169,7 +1132,7 @@ public final class StringUtils {
 
     /**
      * Trim
-     * 
+     *
      * @param str the String to be trimmed, may be null
      * @return the trimmed string, {@code null} if null String input
      */
@@ -1179,7 +1142,7 @@ public final class StringUtils {
 
     /**
      * SubStringBefore
-     * 
+     *
      * @param str the String to get a substring from, may be null
      * @param separator the String to search for, may be null
      * @return the substring before the first occurrence of the separator,
@@ -1191,7 +1154,7 @@ public final class StringUtils {
 
     /**
      * 文字列を一定長にまるめる
-     * 
+     *
      * @param string 対象の文字列
      * @param len 丸める長さ
      * @return まるめた文字列
@@ -1202,7 +1165,7 @@ public final class StringUtils {
 
     /**
      * 文字列を一定長にまるめる
-     * 
+     *
      * @param string 対象の文字列
      * @param len 丸める長さ
      * @param padding まるめた際にあとにつける文字列
@@ -1218,7 +1181,7 @@ public final class StringUtils {
 
     /**
      * URLデコードを行います.
-     * 
+     *
      * @param s 変換対象
      * @return 変換結果
      */
@@ -1235,7 +1198,7 @@ public final class StringUtils {
 
     /**
      * URLエンコードを行います.
-     * 
+     *
      * @param s 変換対象
      * @return 変換結果
      */
@@ -1252,7 +1215,7 @@ public final class StringUtils {
 
     /**
      * null じゃなかったら toString
-     * 
+     *
      * @param i
      * @return
      */
@@ -1266,7 +1229,7 @@ public final class StringUtils {
 
     /**
      * null じゃなかったら default
-     * 
+     *
      * @param i
      * @return
      */
@@ -1280,7 +1243,7 @@ public final class StringUtils {
 
     /**
      * 先頭に文字列を足しこみます.
-     * 
+     *
      * @param body 足されるもの
      * @param str 足すもの
      * @param maxlen 最大桁数
@@ -1305,7 +1268,7 @@ public final class StringUtils {
 
     /**
      * 文字列内のtabを削除する.
-     * 
+     *
      * @param str 文字列
      * @return tabが削除された文字列
      */
@@ -1323,7 +1286,7 @@ public final class StringUtils {
 
     /**
      * 指定文字列を繰り返し表示する。
-     * 
+     *
      * @param str 文字列
      * @param repeat 繰り返し回数
      * @return 繰り返し回数分の文字列
@@ -1340,7 +1303,7 @@ public final class StringUtils {
 
     /**
      * 文字列内の改行を削除する.
-     * 
+     *
      * @param str 文字列
      * @return 改行が削除された文字列
      */
@@ -1353,7 +1316,7 @@ public final class StringUtils {
 
     /**
      * 文字列内の改行を半角スペースに変換する.
-     * 
+     *
      * @param str 文字列
      * @return 改行を半角スペースに変換した文字列
      */
@@ -1366,7 +1329,7 @@ public final class StringUtils {
 
     /**
      * 文字列内の指定した正規表現にマッチする文字列を削除する.
-     * 
+     *
      * @param str 文字列
      * @return 削除したい対象となる正規表現
      */
@@ -1379,7 +1342,7 @@ public final class StringUtils {
 
     /**
      * URL表記かどうかを取得する。
-     * 
+     *
      * @param str チェックする文字列
      * @return URL表記の場合は true。それ以外は false
      */
@@ -1395,7 +1358,7 @@ public final class StringUtils {
 
     /**
      * 標準デリミタ文字カンマで分割する。
-     * 
+     *
      * @param str
      * @return
      */
@@ -1405,7 +1368,7 @@ public final class StringUtils {
 
     /**
      * 指定デリミタ文字で分割する。
-     * 
+     *
      * @param str
      * @param deli
      * @return 空の配列を返す
@@ -1419,7 +1382,7 @@ public final class StringUtils {
 
     /**
      * 圧縮ファイル名形式を取得する。
-     * 
+     *
      * @param fileName ファイル名
      * @return 圧縮ファイル名
      */
@@ -1437,7 +1400,7 @@ public final class StringUtils {
 
     /**
      * ファイル名から拡張子を返す。
-     * 
+     *
      * @param fileName ファイル名
      * @return ファイルの拡張子
      */
@@ -1454,7 +1417,7 @@ public final class StringUtils {
 
     /**
      * サロゲートペアを考慮した文字数を取得する
-     * 
+     *
      * @param value
      * @return 文字数
      */
@@ -1474,7 +1437,7 @@ public final class StringUtils {
 
     /**
      * 再生時間を「時分秒」で表示します。
-     * 
+     *
      * @param playTime
      * @return
      */
@@ -1498,7 +1461,7 @@ public final class StringUtils {
 
     /**
      * 文字内が、改行・半角スペース・全角スペース・タブのみの場合、空にして返す
-     * 
+     *
      * @param String
      * @return String
      */
@@ -1514,7 +1477,7 @@ public final class StringUtils {
 
     /**
      * 引数で渡したDTOで文字内が、改行・半角スペース・全角スペース・タブのみの場合、空にする
-     * 
+     *
      * @param src
      */
     public static void excludesWhitespace(Object src) {
@@ -1569,7 +1532,7 @@ public final class StringUtils {
 
     /**
      * 指定された文字列がIPアドレスフォーマットか判定する
-     * 
+     *
      * @param src
      */
     public static boolean isIpv4Address(String str) {
@@ -1579,36 +1542,36 @@ public final class StringUtils {
 
     /**
      * 入力文字列から制御文字を排除する
-     * 
+     *
      * @param src
      */
     public static String replaceControlCharacter(String str) {
-	
+
 	if (isNullOrEmpty(str)) {
 	    return str;
 	}
-	
+
 	return CONTROL_CHARACTER.matcher(str).replaceAll("");
     }
-    
+
     /**
      * 文字列ひらがなを文字列カタカナにして返す
-     * 
+     *
      * @param s 変換前文字列
      * @return 変換後文字列
      */
     public static String zenkakuHiraganaToZenkakuKatakana(String s) {
 
 	StringBuffer sb = new StringBuffer(s);
-	
+
 	for (int i = 0; i < sb.length(); i++) {
 	    char c = sb.charAt(i);
 	    if (c >= 'ぁ' && c <= 'ん') {
 		sb.setCharAt(i, (char)(c - 'ぁ' + 'ァ'));
 	    }
 	}
-	
+
 	return sb.toString();
-	
+
     }
 }

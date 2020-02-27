@@ -12,8 +12,6 @@
 	<component name="slowMehtodLoggingInterceptor" class="com.isystk.sample.common.s2.interceptors.SlowMehtodLoggingInterceptor"/>
 	<component name="actionMessagesThrowsInterceptor" class="org.seasar.struts.interceptor.ActionMessagesThrowsInterceptor"/>
 	<component name="tokenSetInterceptor" class="com.isystk.sample.web.common.sastruts.token.TokenInterceptor"/>
-	<component name="inputValidateLogPcInterceptor" class="com.isystk.sample.web.common.interceptors.InputValidateLogPcInterceptor"/>
-	<component name="conversionSlowMehtodLoggingInterceptor" class="com.isystk.sample.web.common.interceptors.ConversionSlowMehtodLoggingInterceptor"/>
 
 	<!-- ConstantsRegister登録 -->
 	<component class="com.isystk.sample.web.common.util.ConstantsRegister">

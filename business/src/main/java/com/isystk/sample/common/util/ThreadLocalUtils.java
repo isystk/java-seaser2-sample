@@ -1,5 +1,5 @@
 /**
- * Copyright(c) team-lab</br>
+ * Copyright(c) isystk.com</br>
  */
 package com.isystk.sample.common.util;
 
@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
  * ThreadLocalに関するユーティリティ。<br>
  * ソフトウェアのレイヤ構造を無視しかねないので扱いには注意すること。
  * 
- * @author kaneko, nkawamata
+ * @author iseyoshitaka, nkawamata
  */
 public final class ThreadLocalUtils {
 

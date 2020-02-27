@@ -1,5 +1,5 @@
 /*
- * NumberUtil.java 2011/03/28 mnakamura
+ * NumberUtil.java 2011/03/28 iseyoshitaka
  */
 package com.isystk.sample.common.util;
 
@@ -11,7 +11,7 @@ import java.util.List;
 import org.apache.commons.lang3.math.NumberUtils;
 
 /**
- * @author mnakamura
+ * @author iseyoshitaka
  *
  */
 public class NumberUtil {

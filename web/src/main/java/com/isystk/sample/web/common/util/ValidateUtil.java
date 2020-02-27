@@ -1,6 +1,3 @@
-/*
- * ValidateUtil.java 2011/03/28 mnakamura
- */
 package com.isystk.sample.web.common.util;
 
 import java.awt.image.BufferedImage;
@@ -39,7 +36,7 @@ import com.isystk.sample.common.util.DateUtils;
 import com.isystk.sample.common.util.FileUtil;
 
 /**
- * @author mnakamura
+ * @author iseyoshitaka
  *
  */
 public class ValidateUtil {
@@ -1485,24 +1482,6 @@ public class ValidateUtil {
 		if (matchesPhoneSevere(value) == false) {
 			add(propertyName, messages, AppMessageNames.ERRORS_PHONE.key, params);
 		}
-	}
-
-	/**
-	 * WEBコールで使用出来る番号にマッチするかどうか</br>
-	 * 前提条件：WEBコール使用「有」 であることがチェック済みであること
-	 *
-	 * @param value
-	 *            値
-	 * @return 使用出来る番号ならtrue
-	 */
-	public static boolean matchesWebCallTargetTel(String value) {
-		if (StringUtils.isEmpty(value)) {
-			return true;
-		}
-		String regex = "^050";
-		Pattern ptn = Pattern.compile(regex);
-		Matcher mtc = ptn.matcher(value.replaceAll("-", ""));
-		return !mtc.find();
 	}
 
 	/**

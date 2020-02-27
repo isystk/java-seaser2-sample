@@ -1,5 +1,5 @@
 /**
- * Copyright(c) team-lab</br>
+ * Copyright(c) isystk.com</br>
  */
 package com.isystk.sample.common.gen;
 
@@ -19,7 +19,7 @@ public class GenerateMaxLengthTask {
 	command.setApplyDbCommentToJava(true);
 	// 上書きしない場合はfalseに
 	command.setUseTemporalType(true);
-	command.setEntityTemplateFileName("java/wedding-entity-maxlength.ftl");
+	command.setEntityTemplateFileName("java/entity-maxlength.ftl");
 	command.setOverwrite(true);
 	command.execute();
 

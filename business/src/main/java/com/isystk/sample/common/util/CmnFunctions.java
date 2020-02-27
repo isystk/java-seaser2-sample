@@ -4,7 +4,6 @@ import org.seasar.framework.util.StringUtil;
 
 import com.isystk.sample.common.config.AppConfigNames;
 import com.isystk.sample.common.config.Config;
-import com.isystk.sample.common.image.ImageDiv;
 import com.isystk.sample.common.image.ImageManager;
 
 /**
@@ -66,18 +65,4 @@ public class CmnFunctions {
 		return HolidayUtil.getHolidayJsonStr();
 	}
 
-	/**
-	 * リサイズ画像URLの取得(ジュエリー用)
-	 *
-	 * @param imageId
-	 * @param suffix
-	 * @return 画像のURL
-	 */
-	public static String getImageUrlRing(String imageId, String suffix) {
-		if (StringUtil.isNotEmpty(imageId)) {
-			return ImageManager.getImageUrl(Integer.valueOf(imageId), suffix, ImageDiv.RING);
-		} else {
-			return getNoImageUrl(suffix);
-		}
-	}
 }

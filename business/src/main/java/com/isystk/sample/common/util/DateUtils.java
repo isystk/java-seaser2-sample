@@ -23,7 +23,7 @@ import com.isystk.sample.common.exception.SystemException;
 /**
  * 日付に関するユーティリティ。<br>
  *
- * @author kaneko
+ * @author iseyoshitaka
  */
 public final class DateUtils {
 

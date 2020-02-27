@@ -19,8 +19,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * constantsパッケージのクラスの定数を自動登録します
- * 
- * @author mnakamura
+ *
+ * @author iseyoshitaka
  */
 public class ConstantsRegister {
 
@@ -49,7 +49,7 @@ public class ConstantsRegister {
 
     /**
      * ServletContextに定数の参照を登録
-     * 
+     *
      * @param className クラス名
      */
     protected void add(String className) {
@@ -73,8 +73,7 @@ public class ConstantsRegister {
 
     /**
      * 定数登録クラス処理用ハンドラです。
-     * 
-     * @author ishida
+     *
      * @author iseyoshitaka
      */
     protected class RegisterClassHandler implements ClassHandler {

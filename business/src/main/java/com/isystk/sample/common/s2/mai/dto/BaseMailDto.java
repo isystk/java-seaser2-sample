@@ -1,7 +1,7 @@
 /**
  * MailBase.java
  * 2010/10/15 iseyoshitaka
- * (c) Copyright 2009 TEAM LAB Inc. All rights reserved.
+ * (c) Copyright 2009 isystk.com Inc. All rights reserved.
  */
 package com.isystk.sample.common.s2.mai.dto;
 

@@ -25,6 +25,8 @@ public class Format {
     public static final String DATE_YYYYMM = "yyyy/MM";
     /** 日付フォーマット MM/dd */
     public static final String DATE_MMDDE = "MM/dd(E)";
+    /** 日付フォーマット MM/dd */
+    public static final String DATE_MMDD = "MM/dd";
     /** 日付フォーマット yyyy/M/d(E) H時 */
     public static final String DATE_TIME_YYYYMDEH_JP = "yyyy年M月d日(E) H時";
     /** 日付フォーマット yyyy年M月d日 H時mm分 */

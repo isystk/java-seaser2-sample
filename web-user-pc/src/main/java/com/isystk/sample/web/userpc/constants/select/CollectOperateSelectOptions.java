@@ -5,7 +5,7 @@ import com.isystk.sample.common.util.NumberUtil;
 /**
  * マイページのまとめて操作プルダウンで使用するEnum
  * 
- * @author moriyataeko
+ * @author iseyoshitaka
  * 
  */
 public enum CollectOperateSelectOptions {

@@ -1,5 +1,5 @@
 /**
- * Copyright(c) team-lab</br>
+ * Copyright(c) isystk.com</br>
  */
 package com.isystk.sample.common.image;
 
@@ -149,8 +149,8 @@ public class ImageManager {
      * @param imageType
      * @return path (例:/thumb/93/78/)
      */
-    public static String getImageDirPath(Integer imageId, ImageDiv imageDiv) {
-	return "/" + Config.getString(AppConfigNames.IMAGE_DIR) + imageDiv.getPath() + ImageManager.getHash(imageId);
+    public static String getImageDirPath(Integer imageId) {
+	return "/" + Config.getString(AppConfigNames.IMAGE_DIR) + ImageManager.getHash(imageId);
     }
 
     /**
@@ -158,12 +158,10 @@ public class ImageManager {
      *
      * @param imageId
      * @param imageType
-     * @param imageDiv
-     * @param extension(※「.」付きで指定すること)
      * @return path (例:/thumb/93/78/727863499_sd.jpg)
      */
-    public static String getImageFilePath(Integer imageId, String suffix, ImageDiv imageDiv, String extension) {
-	return getImageDirPath(imageId, imageDiv) + imageId + suffix + extension;
+    public static String getImageFilePath(Integer imageId, String suffix) {
+	return getImageDirPath(imageId) + imageId + suffix + ".jpg";
     }
 
     /**
@@ -171,37 +169,13 @@ public class ImageManager {
      *
      * @param imageId
      * @param imageType
+     * @param extension(※「.」付きで指定すること)
      * @return 画像のURL
      */
     public static String getImageUrl(Integer imageId, String suffix) {
-	return getImageUrl(imageId, suffix, ImageDiv.ORIGINAL);
-    }
-
-    /**
-     * リサイズ画像URLの取得
-     *
-     * @param imageId
-     * @param imageType
-     * @param imageDiv
-     * @return 画像のURL
-     */
-    public static String getImageUrl(Integer imageId, String suffix, ImageDiv imageDiv) {
-	return getImageUrl(imageId, suffix, imageDiv, ".jpg");
-    }
-
-    /**
-     * リサイズ画像URLの取得
-     *
-     * @param imageId
-     * @param imageType
-     * @param imageDiv
-     * @param extension(※「.」付きで指定すること)
-     * @return 画像のURL
-     */
-    public static String getImageUrl(Integer imageId, String suffix, ImageDiv imageDiv, String extension) {
 	String protocol = "//";
 	String domain = Config.getString(AppConfigNames.IMG_DOMAIN);
-	String filepath = getImageFilePath(imageId, suffix, imageDiv, extension);
+	String filepath = getImageFilePath(imageId, suffix);
 	String result = protocol + domain + filepath;
 	return result;
     }
@@ -212,16 +186,13 @@ public class ImageManager {
      * @param imageId
      * @param suffix
      * @param protcol
-     * @param imageDiv
      * @return 画像のURL
      */
-    public static String getImageOrNoImageUrl(Integer imageId, String suffix, String noimageName, ImageDiv imageDiv) {
+    public static String getImageOrNoImageUrl(Integer imageId, String suffix, String noimageName) {
 	if (imageId == null) {
 	    return "//" + Config.getString(AppConfigNames.USERPC_DOMAIN) + "/img/" + noimageName + ".jpg";
-	} else if (imageDiv == null) {
-	    return getImageUrl(imageId, suffix);
 	} else {
-	    return getImageUrl(imageId, suffix, imageDiv);
+	    return getImageUrl(imageId, suffix);
 	}
     }
 
@@ -233,19 +204,7 @@ public class ImageManager {
      * @return 画像のURL
      */
     public static String getImageOrNoImageUrl(Integer imageId, String suffix) {
-	return getImageOrNoImageUrl(imageId, suffix, "img_noimage" + suffix, null);
-    }
-
-    /**
-     * リサイズ画像URLの取得
-     *
-     * @param imageId
-     * @param suffix
-     * @param imageDiv
-     * @return 画像のURL
-     */
-    public static String getImageOrNoImageUrl(Integer imageId, String suffix, ImageDiv imageDiv) {
-	return getImageOrNoImageUrl(imageId, suffix, "img_noimage" + suffix, imageDiv);
+	return getImageOrNoImageUrl(imageId, suffix, "img_noimage" + suffix);
     }
 
     /**
@@ -263,12 +222,11 @@ public class ImageManager {
      * @throws Exception
      */
     public static ImageInfo cropZoomImageFile(Integer imageId, Integer x1, Integer y1, Integer x2, Integer y2, Integer width, Integer height,
-	    ImageType type,
-	    ImageDiv imageDiv) {
+	    ImageType type) {
 	ImageInfo result = new ImageInfo();
 
-	File file = getLocalImage(imageId, "", imageDiv);
-	File dst = getLocalImage(imageId, type.getSuffix(), imageDiv);
+	File file = getLocalImage(imageId, "");
+	File dst = getLocalImage(imageId, type.getSuffix());
 
 	if (!file.exists()) {
 	    return result;
@@ -506,20 +464,8 @@ public class ImageManager {
      * @throws IOException
      */
     public static boolean isLongerWidth(Integer imageId) {
-	return isLongerWidth(imageId, ImageDiv.ORIGINAL);
-    }
 
-    /**
-     * 画像の縦長判定
-     *
-     * @param imageId
-     * @param imageDiv
-     * @return boolean 縦長:true 横長:false 正方形:false
-     * @throws IOException
-     */
-    public static boolean isLongerWidth(Integer imageId, ImageDiv imageDiv) {
-
-	BufferedImage image = getImageInfo(imageId, imageDiv);
+	BufferedImage image = getImageInfo(imageId);
 
 	// 画像取得できない場合は編集ボタンを表示させない
 	if (image == null) {
@@ -533,15 +479,14 @@ public class ImageManager {
      * 画像の情報を取得
      *
      * @param imageId
-     * @param imageDiv
      * @return boolean 縦長:true 横長:false
      * @throws IOException
      */
-    public static BufferedImage getImageInfo(Integer imageId, ImageDiv imageDiv) {
+    public static BufferedImage getImageInfo(Integer imageId) {
 
 	BufferedImage image = null;
 	try {
-	    File file = getLocalImage(imageId, "", imageDiv);
+	    File file = getLocalImage(imageId, "");
 	    if (!file.exists()) {
 		return null;
 	    }
@@ -560,17 +505,7 @@ public class ImageManager {
      * @return
      */
     public static File getLocalImage(Integer imageId, String suffix) {
-	return getLocalImage(imageId, suffix, ImageDiv.ORIGINAL);
-    }
-
-    /**
-     * 画像ファイル取得
-     *
-     * @param imageId 画像ID
-     * @return
-     */
-    public static File getLocalImage(Integer imageId, String suffix, ImageDiv imageDiv) {
-	String imageBaseDir = Config.getString(AppConfigNames.SYSTEM_HTDOCSDIR) + Config.getString(AppConfigNames.IMAGE_DIR) + imageDiv.getPath();
+	String imageBaseDir = Config.getString(AppConfigNames.SYSTEM_HTDOCSDIR) + Config.getString(AppConfigNames.IMAGE_DIR);
 	String path = getHash(imageId) + imageId + suffix + ".jpg";
 
 	return new File(imageBaseDir, path);

@@ -20,7 +20,4 @@ public interface Mai {
 	/** パスワードリマインド(ワンタイムURL記載メール) */
 	void passwordRemindF03(PasswordRemindMailDto mail);
 
-	/** 初回ログイン 会員登録完了メール */
-	void loginFirstF25(EntryRegistMailDto mail);
-
 }

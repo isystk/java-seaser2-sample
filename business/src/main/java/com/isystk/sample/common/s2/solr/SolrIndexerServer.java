@@ -9,8 +9,7 @@ import org.apache.solr.client.solrj.response.UpdateResponse;
 
 /**
  * SolrServer の Wrapper Class です. Solrサーバへの更新インターフェースを提供します.
- * 
- * @author iseyoshitaka
+ *
  * @author iseyoshitaka
  */
 public class SolrIndexerServer {
@@ -29,7 +28,7 @@ public class SolrIndexerServer {
 
     /**
      * 指定されたクエリに一致するインデックスデータを削除します.
-     * 
+     *
      * @param query 削除対象を絞り込むクエリ
      * @throws SolrServerException
      */
@@ -49,7 +48,7 @@ public class SolrIndexerServer {
 
     /**
      * インデックスデータを更新します.
-     * 
+     *
      * @param data 更新対象データのリスト
      */
     public void update(List<?> data) throws SolrServerException {

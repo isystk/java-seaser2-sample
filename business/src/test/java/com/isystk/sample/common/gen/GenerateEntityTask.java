@@ -1,5 +1,5 @@
 /**
- * Copyright(c) team-lab</br>
+ * Copyright(c) isystk.com</br>
  */
 package com.isystk.sample.common.gen;
 
@@ -20,7 +20,7 @@ public class GenerateEntityTask {
 	// 上書きしない場合はfalseに
 	command.setUseTemporalType(true);
 	command.setUseAccessor(true);
-	command.setEntityTemplateFileName("java/wedding-entity.ftl");
+	command.setEntityTemplateFileName("java/entity.ftl");
 	command.setOverwrite(true);
 	command.execute();
 

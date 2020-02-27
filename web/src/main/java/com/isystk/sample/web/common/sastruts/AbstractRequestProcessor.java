@@ -31,7 +31,6 @@ import org.seasar.framework.beans.factory.BeanDescFactory;
 import org.seasar.framework.container.ComponentNotFoundRuntimeException;
 import org.seasar.framework.container.SingletonS2Container;
 import org.seasar.framework.env.Env;
-import org.seasar.framework.util.tiger.AnnotationUtil;
 import org.seasar.struts.action.S2RequestProcessor;
 import org.seasar.struts.config.S2ActionMapping;
 import org.seasar.struts.config.S2ExecuteConfig;
@@ -47,7 +46,6 @@ import com.google.common.collect.Lists;
 import com.isystk.sample.common.config.AppMessageNames;
 import com.isystk.sample.common.config.Message;
 import com.isystk.sample.common.constants.Constants;
-import com.isystk.sample.common.constants.authority.BaseAuthority;
 import com.isystk.sample.common.exception.AuthorityException;
 import com.isystk.sample.common.exception.NotFoundException;
 import com.isystk.sample.common.exception.SystemException;
@@ -72,11 +70,6 @@ public abstract class AbstractRequestProcessor extends S2RequestProcessor {
     private Logger logger = LoggerFactory.getLogger(AbstractRequestProcessor.class);
 
     private static ThreadLocal<Boolean> inForward = new ThreadLocal<Boolean>();
-
-    private static final Integer randomStringLength = 10;
-
-    /** トラッキングID	 IPアドレス + "_" + 年月日時分秒(YYYYMMDDhhmmssSSS) + "_" + ランダム文字列(10文字) */
-    private static final int T_TRACKING_LOG_TRACKINGID = 44;
 
     /**
      * ログイン時に作成されるUserDtoのコンポーネント名
@@ -117,8 +110,6 @@ public abstract class AbstractRequestProcessor extends S2RequestProcessor {
 	S2ExecuteConfig executeConfig = S2ExecuteConfigUtil.getExecuteConfig();
 
 	HashSet<Annotation> annotationSet = getAnnotationSet(executeConfig);
-//
-//	processLoginRing();
 
 	for (Annotation annotation : annotationSet) {
 	    if (checkAuthority(request, response, mapping, annotation) == false) {
@@ -158,49 +149,12 @@ public abstract class AbstractRequestProcessor extends S2RequestProcessor {
 	    return checkLogin(request, response, mapping);
 	} else if (annotationName.equals("com.isystk.sample.web.common.annotation.TradeNameSelectionCheck")) {
 	    return checkTradeNameSelection(request, response, mapping);
-	} else if (annotationName.equals("com.isystk.sample.web.common.annotation.WeddingSelectionCheck")) {
-	    return checkWeddingSelection(request, response, mapping);
-//	} else if (annotationName.equals("com.isystk.sample.web.common.annotation.PremiumWeddingCheck")) {
-//	    return checkPremiumWedding(request, response, mapping);
-//	} else if (annotationName.equals("com.isystk.sample.web.common.annotation.BpAcceptedTradeNameCheck")) {
-//	    return checkBpAcceptedTradeNameCheck(request, response, mapping);
-//	} else if (annotationName.equals("com.isystk.sample.web.common.annotation.CrosssellClientCheck")) {
-//	    return checkCrosssellClientCheck(request, response, mapping);
-	} else if (annotationName.equals("com.isystk.sample.web.common.annotation.LoginVicariousCheck")) {
-	    return checkLoginVicarious(request, response, mapping);
 	} else if (annotationName.equals("com.isystk.sample.web.common.annotation.SSL")) {
 	    return checkSsl(request, response, mapping);
 	} else if (annotationName.equals("com.isystk.sample.web.common.sastruts.token.TokenCheck")) {
 	    return checkToken(request, response, mapping);
 	} else if (annotationName.equals("com.isystk.sample.web.common.annotation.NoAllowDirectAccessCheck")) {
 	    return CheckNoAllowDirectAccess(request, response, mapping);
-	} else if (annotationName.equals("com.isystk.sample.web.common.annotation.AdminAuthorityCheck")
-		|| annotationName.equals("com.isystk.sample.web.common.annotation.ClientAuthorityCheck")
-		|| annotationName.equals("com.isystk.sample.web.common.annotation.AccountAuthorityCheck")) {
-	    boolean result = checkLogin(request, response, mapping);
-	    if (result == true) {
-		Map<String, Object> props = AnnotationUtil.getProperties(annotation);
-		BaseAuthority[] chkAuthorityList = (BaseAuthority[]) props.get("value");
-
-		BaseAuthority[] loginUserAuthorityList = CmnFunctions.getCurrentUserAuthorityList();
-
-		boolean authResult = false;
-		for (BaseAuthority authority : chkAuthorityList) {
-		    if (CmnFunctions.hasAuthority(loginUserAuthorityList, authority)) {
-			authResult = true;
-			break;
-		    }
-		}
-
-		if (authResult == false) {
-		    Exception exception = new AuthorityException(AppMessageNames.ERRORS_INVALIDAUTHORITYACCESS.key);
-		    ActionForward forward = processException(request, response, exception, processActionForm(request, response, mapping), mapping);
-		    processForwardConfig(request, response, forward);
-		    return false;
-		}
-	    }
-
-	    return result;
 	}
 
 	return true;
@@ -400,187 +354,6 @@ public abstract class AbstractRequestProcessor extends S2RequestProcessor {
 	}
 
 	return selected;
-    }
-
-    /**
-     * ウェディングを選択しているかどうかをチェックし、していなければログイン画面へリダイレクトする
-     *
-     * @throws ServletException
-     * @throws IOException
-     */
-    private boolean checkWeddingSelection(HttpServletRequest request, HttpServletResponse response, ActionMapping mapping) throws IOException,
-	    ServletException {
-	// 屋号選択しているかどうか。
-	boolean selected = checkTradeNameSelection(request, response, mapping);
-	if (!selected) {
-	    return false;
-	}
-	try {
-	    Object obj = SingletonS2Container.getComponent(BaseUserDto.COMPONENT_NAME);
-
-	    BeanDesc beanDesc = BeanDescFactory.getBeanDesc(obj.getClass());
-	    selected = beanDesc.getFieldValue("weddingId", obj) != null;
-	} catch (ComponentNotFoundRuntimeException e) {
-	    // ログインしていない場合
-	    selected = false;
-	} catch (Exception e) {
-	    selected = false;
-	}
-
-	if (selected == false) {
-	    // 失敗したリクエストと先のURLは保持しておく。
-	    String backUrl = UrlUtil.getUrl();
-
-	    redirectToLogin(request, response, mapping, backUrl);
-	}
-
-	return selected;
-    }
-//
-//    /**
-//     * プレミアム会場かどうか、していなければログイン画面へリダイレクトする
-//     *
-//     * @throws ServletException
-//     * @throws IOException
-//     */
-//    private boolean checkPremiumWedding(HttpServletRequest request, HttpServletResponse response, ActionMapping mapping) throws IOException,
-//	    ServletException {
-//
-//	boolean isPremium = false;
-//	try {
-//
-//	    Object obj = SingletonS2Container.getComponent(BaseUserDto.COMPONENT_NAME);
-//
-//	    BeanDesc beanDesc = BeanDescFactory.getBeanDesc(obj.getClass());
-//	    Integer weddingId = (Integer) beanDesc.getFieldValue("weddingId", obj);
-//
-//	    Object[] args = { weddingId, true };
-//	    Object obj2 = SingletonS2Container.getComponent(TRequestService.class);
-//	    BeanDesc beanDesc2 = BeanDescFactory.getBeanDesc(obj2.getClass());
-//
-//	    isPremium = (Boolean) beanDesc2.invoke(obj2, "hasRequestByPremiumFlg", args);
-//
-//	} catch (ComponentNotFoundRuntimeException e) {
-//	    // ログインしていない場合
-//	    isPremium = false;
-//	} catch (Exception e) {
-//	    isPremium = false;
-//	}
-//
-//	if (!isPremium) {
-//	    // 失敗したリクエストと先のURLは保持しておく。
-//	    String backUrl = UrlUtil.getUrl();
-//
-//	    redirectToLogin(request, response, mapping, backUrl);
-//	}
-//
-//	return isPremium;
-//    }
-//
-//    /**
-//     * BP承認済み屋号かどうか、していなければログイン画面へリダイレクトする
-//     *
-//     * @throws ServletException
-//     * @throws IOException
-//     */
-//    private boolean checkBpAcceptedTradeNameCheck(HttpServletRequest request, HttpServletResponse response, ActionMapping mapping)
-//	    throws IOException, ServletException {
-//
-//	boolean isBpAccepted = false;
-//	try {
-//
-//	    Object o = SingletonS2Container.getComponent(BaseUserDto.COMPONENT_NAME);
-//	    BeanDesc beanDesc = BeanDescFactory.getBeanDesc(o.getClass());
-//
-//	    if (beanDesc.invoke(o, "getBpTradeName", null) != null) {
-//		Integer tradeNameId = (Integer) beanDesc.getFieldValue("tradeNameId", o);
-//
-//		Object[] args = { tradeNameId };
-//		Object obj = SingletonS2Container.getComponent(TTradeNameService.class);
-//		TTradeName tTradeName = (TTradeName) BeanDescFactory.getBeanDesc(obj.getClass()).invoke(obj, "findById", args);
-//		isBpAccepted = tTradeName.bpAcceptedStatus == BpAcceptedStatus.ACCEPT.getCode();
-//	    }
-//
-//	} catch (ComponentNotFoundRuntimeException e) {
-//	    // ログインしていない場合
-//	    isBpAccepted = false;
-//	} catch (Exception e) {
-//	    isBpAccepted = false;
-//	}
-//
-//	if (!isBpAccepted) {
-//	    // 失敗したリクエストと先のURLは保持しておく。
-//	    String backUrl = UrlUtil.getUrl();
-//
-//	    redirectToLogin(request, response, mapping, backUrl);
-//	}
-//
-//	return isBpAccepted;
-//    }
-//
-//    /**
-//     * クロスセルクライアントかどうか、していなければログイン画面へリダイレクトする
-//     *
-//     * @throws ServletException
-//     * @throws IOException
-//     */
-//    private boolean checkCrosssellClientCheck(HttpServletRequest request, HttpServletResponse response, ActionMapping mapping)
-//	    throws IOException, ServletException {
-//
-//	boolean isCrosssellClient = false;
-//	try {
-//
-//	    Object o = SingletonS2Container.getComponent(BaseUserDto.COMPONENT_NAME);
-//
-//	    BeanDesc beanDesc = BeanDescFactory.getBeanDesc(o.getClass());
-//	    Integer clientId = (Integer) beanDesc.getFieldValue("clientId", o);
-//
-//	    Object[] args = { clientId };
-//	    Object obj = SingletonS2Container.getComponent(TClientService.class);
-//	    TClient tClient = (TClient) BeanDescFactory.getBeanDesc(obj.getClass()).invoke(obj, "findById", args);
-//
-//	    isCrosssellClient = ClientDiv.CROSSELL == ClientDiv.get(tClient.clientDiv);
-//
-//	} catch (ComponentNotFoundRuntimeException e) {
-//	    // ログインしていない場合
-//	    isCrosssellClient = false;
-//	} catch (Exception e) {
-//	    isCrosssellClient = false;
-//	}
-//
-//	if (!isCrosssellClient) {
-//	    // 失敗したリクエストと先のURLは保持しておく。
-//	    String backUrl = UrlUtil.getUrl();
-//
-//	    redirectToLogin(request, response, mapping, backUrl);
-//	}
-//
-//	return isCrosssellClient;
-//
-//    }
-
-    /**
-     * 代行ログインかどうか、していなければログイン画面へリダイレクトする
-     *
-     * @throws ServletException
-     * @throws IOException
-     */
-    private boolean checkLoginVicarious(HttpServletRequest request, HttpServletResponse response, ActionMapping mapping) throws IOException,
-	    ServletException {
-
-	Object obj = SingletonS2Container.getComponent(BaseUserDto.COMPONENT_NAME);
-
-	BeanDesc beanDesc = BeanDescFactory.getBeanDesc(obj.getClass());
-	boolean isAdmin = (Boolean) beanDesc.invoke(obj, "IsAdmin", null);
-
-	if (!isAdmin) {
-	    // 失敗したリクエストと先のURLは保持しておく。
-	    String backUrl = UrlUtil.getUrl();
-
-	    redirectToLogin(request, response, mapping, backUrl);
-	}
-
-	return isAdmin;
     }
 
     /** ログイン画面へリダイレクト */
@@ -790,12 +563,6 @@ public abstract class AbstractRequestProcessor extends S2RequestProcessor {
 	    }
 	});
     }
-//
-//    /**
-//     * ジュエリー側のログイン情報を本体サイトでも引き継ぐ
-//     *
-//     */
-//    public abstract void processLoginRing();
 
     /**
      * プロパティの値を設定します。

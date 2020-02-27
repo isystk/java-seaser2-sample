@@ -1,5 +1,5 @@
 /**
- * Copyright(c) team-lab</br>
+ * Copyright(c) isystk.com</br>
  */
 package com.isystk.sample.common.file;
 
@@ -18,7 +18,7 @@ import com.isystk.sample.common.exception.SystemException;
 /**
  * ファイル管理のクラス.<br>
  * 
- * @author suzukiyohei
+ * @author iseyoshitaka
  */
 public class FileManager {
 

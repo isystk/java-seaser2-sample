@@ -291,7 +291,7 @@ public class BasicImageProcedure implements ImageProcedure {
 	 * {@inheritDoc}
 	 *
 	 * @see com.isystk.sample.common.image.procedure.ImageProcedure#supported(com.isystk.sample.common.image.ImageInfo)
-	 * @author nkawamata
+	 * @author iseyoshitaka
 	 */
 	public boolean supported(ImageInfo img) throws Exception {
 

@@ -1,5 +1,5 @@
 /**
- * Copyright(c) team-lab</br>
+ * Copyright(c) isystk.com</br>
  */
 package com.isystk.sample.solr.listener;
 
@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author nkawamata
+ * @author iseyoshitaka
  */
 public class SolrHomeConfigurationListener implements ServletContextListener {
 

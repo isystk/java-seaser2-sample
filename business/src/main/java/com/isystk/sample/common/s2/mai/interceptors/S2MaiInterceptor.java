@@ -1,7 +1,7 @@
 /**
  * S2MaiInterceptor.java
  * 2010/06/16 iseyoshitaka
- * Copyright (c) 2010 TEAM LAB Inc. All rights reserved.
+ * Copyright (c) 2010 isystk.com Inc. All rights reserved.
  */
 package com.isystk.sample.common.s2.mai.interceptors;
 

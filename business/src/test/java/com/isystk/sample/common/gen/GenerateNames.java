@@ -1,5 +1,5 @@
 /**
- * Copyright(c) team-lab</br>
+ * Copyright(c) isystk.com</br>
  */
 package com.isystk.sample.common.gen;
 
@@ -22,8 +22,8 @@ public class GenerateNames {
 	command.setNamesPackageName("entity.names");
 	command.setIgnoreEntityClassNamePattern("^(?!.*GaReportSearch)(?=.*Ga).*");
 	//command.setIgnoreEntityClassNamePattern(".*Ga.*&^(GaReportSearch)");
-	command.setNamesTemplateFileName("java/wedding-names.ftl");
-	command.setNamesAggregateTemplateFileName("java/wedding-names-aggregate.ftl");
+	command.setNamesTemplateFileName("java/names.ftl");
+	command.setNamesAggregateTemplateFileName("java/names-aggregate.ftl");
 	// 上書きしない場合はfalseに
 	command.setOverwrite(true);
 	command.execute();

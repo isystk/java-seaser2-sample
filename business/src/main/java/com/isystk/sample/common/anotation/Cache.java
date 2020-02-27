@@ -8,9 +8,9 @@ import java.lang.annotation.Target;
 
 /**
  * キャッシュが必要なメソッドに付けられるアノテーション
- * 
- * @author yamashita
- * 
+ *
+ * @author iseyoshitaka
+ *
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.TYPE, ElementType.METHOD })
