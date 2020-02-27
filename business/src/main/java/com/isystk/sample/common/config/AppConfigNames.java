@@ -92,7 +92,7 @@ public enum AppConfigNames {
     CLIENT_ALBUM_IMAGEFILE_MAXIMAGEHEIGHT_SPEDITORMAP("client_album_imagefile_maxImageHeight_spEditorMap"),
     /** 
      * ---------------------------------
-     * 投稿型先輩カップル
+     * 投稿
      * ---------------------------------
      * タグの上限数
      */
@@ -101,7 +101,7 @@ public enum AppConfigNames {
     PEOPLE_USER_CATEGORY_MAXLENGTH("people_user_category_maxlength"),
     /** カテゴリー画像の上限数 */
     PEOPLE_USER_CATEGORY_IMAGE_MAXLENGTH("people_user_category_image_maxlength"),
-    /** 投稿型先輩カップルアップロード画像 */
+    /** 投稿アップロード画像 */
     PEOPLE_USER_EXTENSION_TYPE("people_user_extension_type"),
     /** 10000000 */
     PEOPLE_USER_IMAGEFILE_MAXFILESIZE("people_user_imagefile_maxfilesize"),

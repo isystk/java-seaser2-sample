@@ -49,8 +49,10 @@ public enum Url {
 	/** ログアウト */
 	userpcLogout("/logout/"),
 	/** 会員登録 */
+	userpcEntry("/entry/"),
+	/** 会員登録 */
 	userpcEntryRegist("/entry/regist/"),
-	/** 仮会員登録用アドレス */
+	/** パスワードをお忘れの方はこちら */
 	userpcEntyRemind("/entry/remind/"),
 	/** マイページ */
 	userpcMember("/member/");

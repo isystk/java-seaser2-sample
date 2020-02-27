@@ -267,7 +267,7 @@ public class Bat100Logic {
 
 				if (!CollectionUtils.isEmpty(tPost.TPostTagList)) {
 					for (TPostTag tPostTag : tPost.TPostTagList) {
-						MPostTag mPostTag = mPostTagMap.get(tPostTag.getPostId());
+						MPostTag mPostTag = mPostTagMap.get(tPostTag.getPostTagId());
 						freewordMap.get(tPost.userId).add(mPostTag.getName());
 					}
 				}
