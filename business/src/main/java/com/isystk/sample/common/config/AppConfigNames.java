@@ -40,7 +40,7 @@ public enum AppConfigNames {
     /** false */
     IMAGE_UPLOAD_CHMOD("image.upload.chmod"),
     /** localhost */
-    USERPC_DOMAIN("userpc_domain"),
+    USERPC_DOMAIN("front_domain"),
     /** localhost */
     IMG_DOMAIN("img_domain"),
     /** 

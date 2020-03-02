@@ -14,7 +14,7 @@
 		<moduleSet>
 			<includes>
 				<include>com.isystk.sample:web-solr</include>
-				<include>com.isystk.sample:web-user-pc</include>
+				<include>com.isystk.sample:web-front</include>
 			</includes>
 			<binaries>
 				<outputFileNameMapping>${module.build.finalName}.${module.extension}</outputFileNameMapping>
@@ -62,7 +62,7 @@
 		</moduleSet>
 		<moduleSet>
 			<includes>
-				<include>com.isystk.sample:web-user-pc</include>
+				<include>com.isystk.sample:web-front</include>
 			</includes>
 			<sources>
 				<fileSets>

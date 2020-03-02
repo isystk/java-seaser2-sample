@@ -116,7 +116,7 @@
 		<module>business</module>
 		<module>batch</module>
 		<module>web</module>
-		<module>web-user-pc</module>
+		<module>web-front</module>
 		<module>web-solr</module>
 	</modules>
 
