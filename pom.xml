@@ -48,20 +48,6 @@
 						<filtering>true</filtering>
 					</resource>
 				</resources>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>wagon-maven-plugin</artifactId>
-						<version>1.0-beta-4</version>
-						<configuration>
-							<serverId>isystk@sample-dev01</serverId>
-							<url>scp://192.168.20.106/</url>
-							<fromDir>target</fromDir>
-							<includes>*.tar.gz</includes>
-							<toDir>/home/isystk/sample</toDir>
-						</configuration>
-					</plugin>
-				</plugins>
 			</build>
 			<properties>
 				<maven.test.skip>true</maven.test.skip>
@@ -85,20 +71,6 @@
 						<filtering>true</filtering>
 					</resource>
 				</resources>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>wagon-maven-plugin</artifactId>
-						<version>1.0-beta-4</version>
-						<configuration>
-							<serverId>isystk@sample-dev01</serverId>
-							<url>scp://192.168.20.106/</url>
-							<fromDir>target</fromDir>
-							<includes>*.tar.gz</includes>
-							<toDir>/home/isystk/sample</toDir>
-						</configuration>
-					</plugin>
-				</plugins>
 			</build>
 			<properties>
 				<maven.test.skip>true</maven.test.skip>
@@ -121,13 +93,6 @@
 	</modules>
 
 	<build>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-ssh</artifactId>
-				<version>1.0</version>
-			</extension>
-		</extensions>
 		<plugins>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -555,23 +520,6 @@
 				<version>1.0</version>
 				<scope>provided</scope>
 			</dependency>
-			<!-- jetty
-			<dependency>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>jetty</artifactId>
-				<version>6.1.26</version>
-			</dependency>
-			<dependency>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>jetty-plus</artifactId>
-				<version>6.1.26</version>
-			</dependency>
-			<dependency>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>jetty-naming</artifactId>
-				<version>6.1.26</version>
-			</dependency>
-			-->
 			<!-- image filter -->
 			<dependency>
 				<groupId>com.jhlabs</groupId>
