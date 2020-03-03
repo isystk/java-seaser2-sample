@@ -10,9 +10,9 @@ import org.apache.struts.upload.FormFile;
  */
 public class PostIndexForm implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    
-    /** アップロードする画像ファイル */
-    public FormFile imageFile;
+	private static final long serialVersionUID = 1L;
+
+	/** アップロードする画像ファイル */
+	public FormFile imageFile;
 
 }

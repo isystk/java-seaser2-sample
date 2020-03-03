@@ -23,6 +23,6 @@ import java.lang.annotation.Target;
 @Documented
 public @interface URLParam {
 
-    /** パラメタ名 */
-    String name() default "";
+	/** パラメタ名 */
+	String name() default "";
 }

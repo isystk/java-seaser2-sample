@@ -18,7 +18,9 @@ public class NumberUtil {
 
 	/**
 	 * 文字列をIntegerに変換します
-	 * @param str 文字列
+	 * 
+	 * @param str
+	 *            文字列
 	 * @return Integer
 	 * @see NumberUtils#toInt(String)
 	 */
@@ -28,8 +30,11 @@ public class NumberUtil {
 
 	/**
 	 * 文字列をIntegerに変換します
-	 * @param str 文字列
-	 * @param defaultValue 数値変換に失敗した場合のデフォルト値
+	 * 
+	 * @param str
+	 *            文字列
+	 * @param defaultValue
+	 *            数値変換に失敗した場合のデフォルト値
 	 * @return Integer
 	 * @see NumberUtils#toInt(String, int)
 	 */
@@ -44,49 +49,53 @@ public class NumberUtil {
 		}
 	}
 
-	    /**
-     * 文字列の配列をIntegerの配列に変換します (null の場合は値が消えてしまうので非推奨)
-     * 
-     * @param strArray 文字列の配列
-     * @return Integerの配列
-     */
+	/**
+	 * 文字列の配列をIntegerの配列に変換します (null の場合は値が消えてしまうので非推奨)
+	 * 
+	 * @param strArray
+	 *            文字列の配列
+	 * @return Integerの配列
+	 */
 	public static final Integer[] toIntegerArray(String[] strArray) {
-	if (strArray == null) {
-	    return null;
-	}
-	List<Integer> intArray = new ArrayList<Integer>();
-		for (int i = 0; i < strArray.length; i++) {
-	    Integer num = toInteger(strArray[i], null);
-	    if (num != null) {
-		intArray.add(num);
-	    }
+		if (strArray == null) {
+			return null;
 		}
-	return intArray.toArray(new Integer[intArray.size()]);
+		List<Integer> intArray = new ArrayList<Integer>();
+		for (int i = 0; i < strArray.length; i++) {
+			Integer num = toInteger(strArray[i], null);
+			if (num != null) {
+				intArray.add(num);
+			}
+		}
+		return intArray.toArray(new Integer[intArray.size()]);
 	}
 
-        /**
-         * 文字列の配列をIntegerの配列に変換します。null の場合も含みます。
-         * 
-         * @param strArray 文字列の配列
-         * @return Integerの配列
-         */
-        public static final Integer[] toIntegerArrayIncludeNull(String[] strArray) {
-    		if (strArray == null) {
-    		    return null;
-    		}
-    		List<Integer> intArray = new ArrayList<Integer>();
-    		for (int i = 0; i < strArray.length; i++) {
-    		    Integer num = toInteger(strArray[i], null);
-    		    intArray.add(num);
-    		}
-    		return intArray.toArray(new Integer[intArray.size()]);
-        }
+	/**
+	 * 文字列の配列をIntegerの配列に変換します。null の場合も含みます。
+	 * 
+	 * @param strArray
+	 *            文字列の配列
+	 * @return Integerの配列
+	 */
+	public static final Integer[] toIntegerArrayIncludeNull(String[] strArray) {
+		if (strArray == null) {
+			return null;
+		}
+		List<Integer> intArray = new ArrayList<Integer>();
+		for (int i = 0; i < strArray.length; i++) {
+			Integer num = toInteger(strArray[i], null);
+			intArray.add(num);
+		}
+		return intArray.toArray(new Integer[intArray.size()]);
+	}
 
 	/**
 	 * 文字列をIntegerに変換します
 	 * 
-	 * @param strArray 文字列の配列
-	 * @param defaultValue 数値変換に失敗した場合のデフォルト値
+	 * @param strArray
+	 *            文字列の配列
+	 * @param defaultValue
+	 *            数値変換に失敗した場合のデフォルト値
 	 * @return Integer
 	 * @see NumberUtils#toInt(String, int)
 	 */
@@ -120,7 +129,8 @@ public class NumberUtil {
 	/**
 	 * 文字列をLongに変換します
 	 * 
-	 * @param str 文字列
+	 * @param str
+	 *            文字列
 	 * @return Long
 	 * @see NumberUtils#toLong(String)
 	 */
@@ -130,8 +140,11 @@ public class NumberUtil {
 
 	/**
 	 * 文字列をLongに変換します
-	 * @param str 文字列
-	 * @param defaultValue 数値変換に失敗した場合のデフォルト値
+	 * 
+	 * @param str
+	 *            文字列
+	 * @param defaultValue
+	 *            数値変換に失敗した場合のデフォルト値
 	 * @return Long
 	 * @see NumberUtils#toLong(String, long)
 	 */
@@ -148,7 +161,9 @@ public class NumberUtil {
 
 	/**
 	 * 文字列の配列をLongの配列に変換します
-	 * @param strArray 文字列の配列
+	 * 
+	 * @param strArray
+	 *            文字列の配列
 	 * @return Longの配列
 	 */
 	public static final Long[] toLongArray(String[] strArray) {
@@ -161,7 +176,9 @@ public class NumberUtil {
 
 	/**
 	 * IntegerをBigIntegerに変換します
-	 * @param num Integer値
+	 * 
+	 * @param num
+	 *            Integer値
 	 * @return Long
 	 * @see NumberUtils#toBigInteger(Integer)
 	 */
@@ -171,8 +188,11 @@ public class NumberUtil {
 
 	/**
 	 * IntegerをBigIntegerに変換します
-	 * @param num Integer値
-	 * @param defaultValue 数値変換に失敗した場合のデフォルト値
+	 * 
+	 * @param num
+	 *            Integer値
+	 * @param defaultValue
+	 *            数値変換に失敗した場合のデフォルト値
 	 * @return Long
 	 * @see NumberUtils#toBigInteger(Integer, long)
 	 */
@@ -189,7 +209,9 @@ public class NumberUtil {
 
 	/**
 	 * 文字列をDoubleに変換します
-	 * @param str 文字列
+	 * 
+	 * @param str
+	 *            文字列
 	 * @return Double
 	 * @see NumberUtils#toDouble(String)
 	 */
@@ -199,8 +221,11 @@ public class NumberUtil {
 
 	/**
 	 * 文字列をDoubleに変換します
-	 * @param str 文字列
-	 * @param defaultValue 数値変換に失敗した場合のデフォルト値
+	 * 
+	 * @param str
+	 *            文字列
+	 * @param defaultValue
+	 *            数値変換に失敗した場合のデフォルト値
 	 * @return Double
 	 * @see NumberUtils#toDoubleString, int)
 	 */
@@ -215,101 +240,104 @@ public class NumberUtil {
 		}
 	}
 
-    /**
-     * 文字列をBigDecimalに変換します
-     * 
-     * @param str 文字列
-     * @return BigDecimal
-     * @see NumberUtils#toBigDecimal(String)
-     */
-    public static final BigDecimal toBigDecimal(String str) {
-	return toBigDecimal(str, null);
-    }
+	/**
+	 * 文字列をBigDecimalに変換します
+	 * 
+	 * @param str
+	 *            文字列
+	 * @return BigDecimal
+	 * @see NumberUtils#toBigDecimal(String)
+	 */
+	public static final BigDecimal toBigDecimal(String str) {
+		return toBigDecimal(str, null);
+	}
 
-    /**
-     * 文字列をDoubleに変換します
-     * 
-     * @param str 文字列
-     * @param defaultValue 数値変換に失敗した場合のデフォルト値
-     * @return Double
-     * @see NumberUtils#toBigDecimalString, int)
-     */
-    public static final BigDecimal toBigDecimal(String str, BigDecimal defaultValue) {
-	if (str == null) {
-	    return defaultValue;
+	/**
+	 * 文字列をDoubleに変換します
+	 * 
+	 * @param str
+	 *            文字列
+	 * @param defaultValue
+	 *            数値変換に失敗した場合のデフォルト値
+	 * @return Double
+	 * @see NumberUtils#toBigDecimalString, int)
+	 */
+	public static final BigDecimal toBigDecimal(String str, BigDecimal defaultValue) {
+		if (str == null) {
+			return defaultValue;
+		}
+		try {
+			return new BigDecimal(str);
+		} catch (NumberFormatException nfe) {
+			return defaultValue;
+		}
 	}
-	try {
-	    return new BigDecimal(str);
-	} catch (NumberFormatException nfe) {
-	    return defaultValue;
-	}
-    }
 
-    /**
-     * 1~999999999の範囲内で乱数を取得します。
-     * 
-     * @return
-     */
-    public static final Integer getRandomInteger() {
-	return Integer.valueOf((int) (Math.random() * 999999999 + 1));
-    }
+	/**
+	 * 1~999999999の範囲内で乱数を取得します。
+	 * 
+	 * @return
+	 */
+	public static final Integer getRandomInteger() {
+		return Integer.valueOf((int) (Math.random() * 999999999 + 1));
+	}
 
-    /**
-     * 対象がNULLの場合に指定したデフォルト値を返却します。
-     * 
-     * @return
-     */
-    public static Integer defaultValue(Integer target, Integer defaultValue) {
-	if (target == null) {
-	    return defaultValue;
+	/**
+	 * 対象がNULLの場合に指定したデフォルト値を返却します。
+	 * 
+	 * @return
+	 */
+	public static Integer defaultValue(Integer target, Integer defaultValue) {
+		if (target == null) {
+			return defaultValue;
+		}
+		return target;
 	}
-	return target;
-    }
 
-    /**
-     * 対象がNULLの場合に指定したデフォルト値を返却します。
-     * 
-     * @return
-     */
-    public static Long defaultValue(Long target, Long defaultValue) {
-	if (target == null) {
-	    return defaultValue;
+	/**
+	 * 対象がNULLの場合に指定したデフォルト値を返却します。
+	 * 
+	 * @return
+	 */
+	public static Long defaultValue(Long target, Long defaultValue) {
+		if (target == null) {
+			return defaultValue;
+		}
+		return target;
 	}
-	return target;
-    }
 
-    /**
-     * 引数で指定したリストの和を返却します。
-     * 
-     * @return
-     */
-    public static Double sum(List<Object> targets) {
-	if (targets == null) {
-	    return Double.valueOf(0);
+	/**
+	 * 引数で指定したリストの和を返却します。
+	 * 
+	 * @return
+	 */
+	public static Double sum(List<Object> targets) {
+		if (targets == null) {
+			return Double.valueOf(0);
+		}
+		double sum = 0;
+		for (int i = 0; i < targets.size(); i++) {
+			Double target = Double.valueOf(targets.get(i).toString());
+			sum = sum + target;
+		}
+		return sum;
 	}
-	double sum = 0;
-	for (int i=0; i<targets.size(); i++) {
-	    Double target = Double.valueOf(targets.get(i).toString());
-	    sum = sum + target;
-	}
-	return sum;
-    }
 
-    /**
-     * 引数で指定したリストの平均を返却します。
-     * 
-     * @return
-     */
-    public static Double avg(List<Object> targets) {
-	if (targets == null) {
-	    return Double.valueOf(0);
+	/**
+	 * 引数で指定したリストの平均を返却します。
+	 * 
+	 * @return
+	 */
+	public static Double avg(List<Object> targets) {
+		if (targets == null) {
+			return Double.valueOf(0);
+		}
+		double sum = 0;
+		for (int i = 0; i < targets.size(); i++) {
+			Double target = Double.valueOf(targets.get(i).toString());
+			sum = sum + target;
+		}
+		return sum / targets.size();
 	}
-	double sum = 0;
-	for (int i=0; i<targets.size(); i++) {
-	    Double target = Double.valueOf(targets.get(i).toString());
-	    sum = sum + target;
-	}
-	return sum / targets.size();
-    }
 
 }

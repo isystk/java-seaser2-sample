@@ -13,39 +13,40 @@ import com.isystk.sample.web.common.sastruts.URLParam;
  */
 public class IndexForm implements Serializable {
 
-    /** ページング向けのページNo */
-    @URLParam
-    public String pageNo;
+	/** ページング向けのページNo */
+	@URLParam
+	public String pageNo;
 
-    /** ソート向けに、ソート順を判定するキーです。 */
-    @URLParam
-    public String sortKey;
+	/** ソート向けに、ソート順を判定するキーです。 */
+	@URLParam
+	public String sortKey;
 
-    /** 最大取得件数 */
-    @URLParam
-    public String maxCount;
+	/** 最大取得件数 */
+	@URLParam
+	public String maxCount;
 
-    /** フリーワード */
-    @URLParam
-    public String freeword;
+	/** フリーワード */
+	@URLParam
+	public String freeword;
 
-    public String getFreewords() {
-	return this.freeword;
-    }
-    /**
-     * ページング向けのページNo を取得します。
-     *
-     * @return ページング向けのページNo
-     */
-    public Integer getPageNoInteger() {
-	return NumberUtil.toInteger(pageNo, 1);
-    }
-
-    public Integer getSortKeyInteger() {
-	if (!StringUtils.isBlankOrSpace(this.sortKey)) {
-	    return NumberUtil.toInteger(this.sortKey);
+	public String getFreewords() {
+		return this.freeword;
 	}
-	return null;
-    }
+
+	/**
+	 * ページング向けのページNo を取得します。
+	 *
+	 * @return ページング向けのページNo
+	 */
+	public Integer getPageNoInteger() {
+		return NumberUtil.toInteger(pageNo, 1);
+	}
+
+	public Integer getSortKeyInteger() {
+		if (!StringUtils.isBlankOrSpace(this.sortKey)) {
+			return NumberUtil.toInteger(this.sortKey);
+		}
+		return null;
+	}
 
 }

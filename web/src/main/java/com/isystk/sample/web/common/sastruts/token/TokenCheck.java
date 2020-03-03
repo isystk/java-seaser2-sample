@@ -15,6 +15,6 @@ import com.isystk.sample.common.config.AppMessageNames;
 @Target(ElementType.METHOD)
 public @interface TokenCheck {
 
-    /** 失敗したときのメッセージ */
-    AppMessageNames message() default AppMessageNames.ERRORS_TOKENINVALIDRUNTIMEEXCEPTION;
+	/** 失敗したときのメッセージ */
+	AppMessageNames message() default AppMessageNames.ERRORS_TOKENINVALIDRUNTIMEEXCEPTION;
 }

@@ -16,121 +16,121 @@ import javax.persistence.TemporalType;
  * 
  */
 @Entity
-@Generated(value = {"S2JDBC-Gen 2.4.44", "org.seasar.extension.jdbc.gen.internal.model.EntityModelFactoryImpl"})
+@Generated(value = { "S2JDBC-Gen 2.4.44", "org.seasar.extension.jdbc.gen.internal.model.EntityModelFactoryImpl" })
 public class TImage implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /** imageIdプロパティ */
-    @Id
-    @Column(precision = 10, nullable = false, unique = true)
-    public Integer imageId;
+	/** imageIdプロパティ */
+	@Id
+	@Column(precision = 10, nullable = false, unique = true)
+	public Integer imageId;
 
-    /** registTimeプロパティ */
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false, unique = false)
-    public Date registTime;
+	/** registTimeプロパティ */
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false, unique = false)
+	public Date registTime;
 
-    /** updateTimeプロパティ */
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false, unique = false)
-    public Date updateTime;
+	/** updateTimeプロパティ */
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false, unique = false)
+	public Date updateTime;
 
-    /** deleteFlgプロパティ */
-    @Column(nullable = false, unique = false)
-    public Boolean deleteFlg;
+	/** deleteFlgプロパティ */
+	@Column(nullable = false, unique = false)
+	public Boolean deleteFlg;
 
-    /** TPostImageList関連プロパティ */
-    @OneToMany(mappedBy = "TImage")
-    public List<TPostImage> TPostImageList;
+	/** TPostImageList関連プロパティ */
+	@OneToMany(mappedBy = "TImage")
+	public List<TPostImage> TPostImageList;
 
-    /**
-     * imageIdを返します。
-     * 
-     * @param imageId
-     */
-    public Integer getImageId() {
-        return imageId;
-    }
+	/**
+	 * imageIdを返します。
+	 * 
+	 * @param imageId
+	 */
+	public Integer getImageId() {
+		return imageId;
+	}
 
-    /**
-     * imageIdを設定します。
-     * 
-     * @param imageId
-     */
-    public void setImageId(Integer imageId) {
-        this.imageId = imageId;
-    }
+	/**
+	 * imageIdを設定します。
+	 * 
+	 * @param imageId
+	 */
+	public void setImageId(Integer imageId) {
+		this.imageId = imageId;
+	}
 
-    /**
-     * registTimeを返します。
-     * 
-     * @param registTime
-     */
-    public Date getRegistTime() {
-        return registTime;
-    }
+	/**
+	 * registTimeを返します。
+	 * 
+	 * @param registTime
+	 */
+	public Date getRegistTime() {
+		return registTime;
+	}
 
-    /**
-     * registTimeを設定します。
-     * 
-     * @param registTime
-     */
-    public void setRegistTime(Date registTime) {
-        this.registTime = registTime;
-    }
+	/**
+	 * registTimeを設定します。
+	 * 
+	 * @param registTime
+	 */
+	public void setRegistTime(Date registTime) {
+		this.registTime = registTime;
+	}
 
-    /**
-     * updateTimeを返します。
-     * 
-     * @param updateTime
-     */
-    public Date getUpdateTime() {
-        return updateTime;
-    }
+	/**
+	 * updateTimeを返します。
+	 * 
+	 * @param updateTime
+	 */
+	public Date getUpdateTime() {
+		return updateTime;
+	}
 
-    /**
-     * updateTimeを設定します。
-     * 
-     * @param updateTime
-     */
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
+	/**
+	 * updateTimeを設定します。
+	 * 
+	 * @param updateTime
+	 */
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
 
-    /**
-     * deleteFlgを返します。
-     * 
-     * @param deleteFlg
-     */
-    public Boolean isDeleteFlg() {
-        return deleteFlg;
-    }
+	/**
+	 * deleteFlgを返します。
+	 * 
+	 * @param deleteFlg
+	 */
+	public Boolean isDeleteFlg() {
+		return deleteFlg;
+	}
 
-    /**
-     * deleteFlgを設定します。
-     * 
-     * @param deleteFlg
-     */
-    public void setDeleteFlg(Boolean deleteFlg) {
-        this.deleteFlg = deleteFlg;
-    }
+	/**
+	 * deleteFlgを設定します。
+	 * 
+	 * @param deleteFlg
+	 */
+	public void setDeleteFlg(Boolean deleteFlg) {
+		this.deleteFlg = deleteFlg;
+	}
 
-    /**
-     * TPostImageListを返します。
-     * 
-     * @param TPostImageList
-     */
-    public List<TPostImage> getTPostImageList() {
-        return TPostImageList;
-    }
+	/**
+	 * TPostImageListを返します。
+	 * 
+	 * @param TPostImageList
+	 */
+	public List<TPostImage> getTPostImageList() {
+		return TPostImageList;
+	}
 
-    /**
-     * TPostImageListを設定します。
-     * 
-     * @param TPostImageList
-     */
-    public void setTPostImageList(List<TPostImage> TPostImageList) {
-        this.TPostImageList = TPostImageList;
-    }
+	/**
+	 * TPostImageListを設定します。
+	 * 
+	 * @param TPostImageList
+	 */
+	public void setTPostImageList(List<TPostImage> TPostImageList) {
+		this.TPostImageList = TPostImageList;
+	}
 }

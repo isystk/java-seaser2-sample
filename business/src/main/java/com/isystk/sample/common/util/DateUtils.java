@@ -316,17 +316,6 @@ public final class DateUtils {
 
 	/**
 	 * <pre>
-	 * Webコールのトークン有効期限チェック用の現在時刻を返す。
-	 * </pre>
-	 *
-	 * @return 現在の日付に指定した時差を追加したもの
-	 */
-	public static Date getNowForWebCallTokenCheck() {
-		return new Date();
-	}
-
-	/**
-	 * <pre>
 	 * もっとも過去の日付を返します.
 	 * </pre>
 	 *
@@ -710,28 +699,6 @@ public final class DateUtils {
 
 	/**
 	 * <pre>
-	 * スレッド日を取得します
-	 * </pre>
-	 *
-	 * @return スレッド日
-	 */
-	public static Date getThreadDate() {
-		return getDate(getThreadDateTime());
-	}
-
-	/**
-	 * <pre>
-	 * スレッド時刻を取得します.
-	 * </pre>
-	 *
-	 * @return スレッド時刻
-	 */
-	public static Date getThreadDateTime() {
-		return (Date) ThreadLocalUtils.getThreadLocalValue(THREAD_LOCAL_KEY);
-	}
-
-	/**
-	 * <pre>
 	 * 午前中かを判断します.
 	 * </pre>
 	 *
@@ -858,16 +825,6 @@ public final class DateUtils {
 	 */
 	public static boolean isSameYearMonthDate(final Date date1, final Date date2) {
 		return isSameYear(date1, date2) && isSameMonth(date1, date2) && isSameDate(date1, date2);
-	}
-
-	/**
-	 * 指定された日付が今日（システム年月日）かどうか
-	 *
-	 * @param model
-	 * @return
-	 */
-	public static boolean isToday(final Date date) {
-		return DateUtils.isSameYearMonthDate(date, DateUtils.getSystemDate());
 	}
 
 	/**
@@ -1018,18 +975,6 @@ public final class DateUtils {
 		cal.set(Calendar.MILLISECOND, 0);
 		cal.add(Calendar.DAY_OF_MONTH, -1);
 		return cal.getTime();
-	}
-
-	/**
-	 * <pre>
-	 * スレッド時刻を設定します.
-	 * </pre>
-	 *
-	 * @param datetime
-	 *            スレッド時刻
-	 */
-	public static void setThreadDateTime(final Date datetime) {
-		ThreadLocalUtils.setThreadLocalValue(THREAD_LOCAL_KEY, datetime);
 	}
 
 	/**
@@ -1296,28 +1241,6 @@ public final class DateUtils {
 
 		}
 
-	}
-
-	/**
-	 * 偽造日付
-	 *
-	 * @param today
-	 * @param taretDate
-	 * @return
-	 */
-	public static Date toFakeDate(final Date taretDate) {
-		return toFakeDate(getThreadDate(), taretDate);
-	}
-
-	/**
-	 * 偽造日付
-	 *
-	 * @param today
-	 * @param taretDate
-	 * @return
-	 */
-	public static Date toFakeDate(final Date today, final Date taretDate) {
-		return subDate(today, (getRestDays(today, taretDate) % 10));
 	}
 
 	/**

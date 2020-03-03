@@ -10,6 +10,7 @@ import java.lang.annotation.Target;
 
 /**
  * ユーザがログインしていることをチェックするためのアノテーション.<br>
+ * 
  * @author iseyoshitaka
  */
 @Retention(RetentionPolicy.RUNTIME)

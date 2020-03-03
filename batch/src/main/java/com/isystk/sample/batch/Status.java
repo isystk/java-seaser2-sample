@@ -7,24 +7,24 @@ package com.isystk.sample.batch;
  */
 public enum Status {
 
-    SUCCESS(0),
+	SUCCESS(0),
 
-    PARTIAL_SUCCESS(1),
+	PARTIAL_SUCCESS(1),
 
-    ERROR(2),
+	ERROR(2),
 
-    ;
+	;
 
-    private final int code_;
+	private final int code_;
 
-    private Status(int code) {
-	code_ = code;
-    }
+	private Status(int code) {
+		code_ = code;
+	}
 
-    /**
-     * @return コード値を返します.
-     */
-    public int getCode() {
-	return code_;
-    }
+	/**
+	 * @return コード値を返します.
+	 */
+	public int getCode() {
+		return code_;
+	}
 }

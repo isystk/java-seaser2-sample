@@ -25,39 +25,40 @@ import com.isystk.sample.common.util.NumberUtil;
  */
 public class GenerateMaxLengthCommand extends GenerateEntityCommand {
 
-    private static final int INTEGER_LENGTH = 9;
-    @Override
-    protected void doExecute() {
-	EntitySetDesc entitySetDesc = entitySetDescFactory.getEntitySetDesc();
-	EntityDesc result = new EntityDesc();
-	// これがファイル名となる
-	result.setName("MaxLength");
+	private static final int INTEGER_LENGTH = 9;
 
-	Pattern pattern = Pattern.compile(".*int\\(([0-9]+)\\).*");
-	for (EntityDesc desc : entitySetDesc.getEntityDescList()) {
-	    for (AttributeDesc attributeDesc : desc.getAttributeDescList()) {
-		AttributeDesc attr = new AttributeDesc();
-		attr.setName(desc.getTableName() + "_" + attributeDesc.getName());
-		attr.setLength(attributeDesc.getLength());
+	@Override
+	protected void doExecute() {
+		EntitySetDesc entitySetDesc = entitySetDescFactory.getEntitySetDesc();
+		EntityDesc result = new EntityDesc();
+		// これがファイル名となる
+		result.setName("MaxLength");
 
-		// Integer型　かつ　commentにint([0-9]+)が存在する場合は括弧内の数値をprecisionに設定します
-		if ("Integer".equals(attributeDesc.getAttributeClass().getSimpleName())) {
-		    Matcher matcher = pattern.matcher(attributeDesc.getComment());
-		    if (matcher.matches()) {
-			attr.setPrecision(NumberUtil.toInteger(matcher.group(1), INTEGER_LENGTH));
-		    } else {
-			attr.setPrecision(INTEGER_LENGTH);
-		    }
-		} else {
-		    attr.setPrecision(attributeDesc.getPrecision());
+		Pattern pattern = Pattern.compile(".*int\\(([0-9]+)\\).*");
+		for (EntityDesc desc : entitySetDesc.getEntityDescList()) {
+			for (AttributeDesc attributeDesc : desc.getAttributeDescList()) {
+				AttributeDesc attr = new AttributeDesc();
+				attr.setName(desc.getTableName() + "_" + attributeDesc.getName());
+				attr.setLength(attributeDesc.getLength());
+
+				// Integer型 かつ commentにint([0-9]+)が存在する場合は括弧内の数値をprecisionに設定します
+				if ("Integer".equals(attributeDesc.getAttributeClass().getSimpleName())) {
+					Matcher matcher = pattern.matcher(attributeDesc.getComment());
+					if (matcher.matches()) {
+						attr.setPrecision(NumberUtil.toInteger(matcher.group(1), INTEGER_LENGTH));
+					} else {
+						attr.setPrecision(INTEGER_LENGTH);
+					}
+				} else {
+					attr.setPrecision(attributeDesc.getPrecision());
+				}
+				attr.setComment(attributeDesc.getComment());
+				attr.setAttributeClass(attributeDesc.getAttributeClass());
+				attr.setColumnName(desc.getTableName() + "_" + attributeDesc.getColumnName());
+				result.addAttributeDesc(attr);
+			}
 		}
-		attr.setComment(attributeDesc.getComment());
-		attr.setAttributeClass(attributeDesc.getAttributeClass());
-		attr.setColumnName(desc.getTableName() + "_" + attributeDesc.getColumnName());
-		result.addAttributeDesc(attr);
-	    }
-	}
 
-	generateEntity(result);
-    }
+		generateEntity(result);
+	}
 }

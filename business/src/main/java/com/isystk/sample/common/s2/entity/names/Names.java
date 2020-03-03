@@ -22,78 +22,79 @@ import javax.annotation.Generated;
  * 名前クラスの集約です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.44", "org.seasar.extension.jdbc.gen.internal.model.NamesAggregateModelFactoryImpl"})
+@Generated(value = { "S2JDBC-Gen 2.4.44",
+		"org.seasar.extension.jdbc.gen.internal.model.NamesAggregateModelFactoryImpl" })
 public class Names {
 
-    /**
-     * {@link MPostTag}の名前クラスを返します。
-     * 
-     * @return MPostTagの名前クラス
-     */
-    public static _MPostTagNames mPostTag() {
-        return new _MPostTagNames();
-    }
+	/**
+	 * {@link MPostTag}の名前クラスを返します。
+	 * 
+	 * @return MPostTagの名前クラス
+	 */
+	public static _MPostTagNames mPostTag() {
+		return new _MPostTagNames();
+	}
 
-    /**
-     * {@link TImage}の名前クラスを返します。
-     * 
-     * @return TImageの名前クラス
-     */
-    public static _TImageNames tImage() {
-        return new _TImageNames();
-    }
+	/**
+	 * {@link TImage}の名前クラスを返します。
+	 * 
+	 * @return TImageの名前クラス
+	 */
+	public static _TImageNames tImage() {
+		return new _TImageNames();
+	}
 
-    /**
-     * {@link TPost}の名前クラスを返します。
-     * 
-     * @return TPostの名前クラス
-     */
-    public static _TPostNames tPost() {
-        return new _TPostNames();
-    }
+	/**
+	 * {@link TPost}の名前クラスを返します。
+	 * 
+	 * @return TPostの名前クラス
+	 */
+	public static _TPostNames tPost() {
+		return new _TPostNames();
+	}
 
-    /**
-     * {@link TPostImage}の名前クラスを返します。
-     * 
-     * @return TPostImageの名前クラス
-     */
-    public static _TPostImageNames tPostImage() {
-        return new _TPostImageNames();
-    }
+	/**
+	 * {@link TPostImage}の名前クラスを返します。
+	 * 
+	 * @return TPostImageの名前クラス
+	 */
+	public static _TPostImageNames tPostImage() {
+		return new _TPostImageNames();
+	}
 
-    /**
-     * {@link TPostTag}の名前クラスを返します。
-     * 
-     * @return TPostTagの名前クラス
-     */
-    public static _TPostTagNames tPostTag() {
-        return new _TPostTagNames();
-    }
+	/**
+	 * {@link TPostTag}の名前クラスを返します。
+	 * 
+	 * @return TPostTagの名前クラス
+	 */
+	public static _TPostTagNames tPostTag() {
+		return new _TPostTagNames();
+	}
 
-    /**
-     * {@link TUser}の名前クラスを返します。
-     * 
-     * @return TUserの名前クラス
-     */
-    public static _TUserNames tUser() {
-        return new _TUserNames();
-    }
+	/**
+	 * {@link TUser}の名前クラスを返します。
+	 * 
+	 * @return TUserの名前クラス
+	 */
+	public static _TUserNames tUser() {
+		return new _TUserNames();
+	}
 
-    /**
-     * {@link TUserOnetimePass}の名前クラスを返します。
-     * 
-     * @return TUserOnetimePassの名前クラス
-     */
-    public static _TUserOnetimePassNames tUserOnetimePass() {
-        return new _TUserOnetimePassNames();
-    }
+	/**
+	 * {@link TUserOnetimePass}の名前クラスを返します。
+	 * 
+	 * @return TUserOnetimePassの名前クラス
+	 */
+	public static _TUserOnetimePassNames tUserOnetimePass() {
+		return new _TUserOnetimePassNames();
+	}
 
-    /**
-     * {@link TUserOnetimeValid}の名前クラスを返します。
-     * 
-     * @return TUserOnetimeValidの名前クラス
-     */
-    public static _TUserOnetimeValidNames tUserOnetimeValid() {
-        return new _TUserOnetimeValidNames();
-    }
+	/**
+	 * {@link TUserOnetimeValid}の名前クラスを返します。
+	 * 
+	 * @return TUserOnetimeValidの名前クラス
+	 */
+	public static _TUserOnetimeValidNames tUserOnetimeValid() {
+		return new _TUserOnetimeValidNames();
+	}
 }

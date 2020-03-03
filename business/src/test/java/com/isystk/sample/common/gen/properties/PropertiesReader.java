@@ -30,6 +30,7 @@ public class PropertiesReader {
 	public Collection<Property> entitySet() {
 		return this.prop.values();
 	}
+
 	/**
 	 * ファイルからプロパティーを読み込む
 	 * 
@@ -90,18 +91,16 @@ public class PropertiesReader {
 			valueStart = limit;
 			hasSep = false;
 
-			//System.out.println("line=<" + new String(lineBuf, 0, limit) + ">");
+			// System.out.println("line=<" + new String(lineBuf, 0, limit) + ">");
 			precedingBackslash = false;
 			while (keyLen < limit) {
 				c = lr.lineBuf[keyLen];
-				//need check if escaped.
-				if ((c == '=' || c == ':')
-						&& !precedingBackslash) {
+				// need check if escaped.
+				if ((c == '=' || c == ':') && !precedingBackslash) {
 					valueStart = keyLen + 1;
 					hasSep = true;
 					break;
-				} else if ((c == ' ' || c == '\t' || c == '\f')
-						&& !precedingBackslash) {
+				} else if ((c == ' ' || c == '\t' || c == '\f') && !precedingBackslash) {
 					valueStart = keyLen + 1;
 					break;
 				}
@@ -123,22 +122,19 @@ public class PropertiesReader {
 				}
 				valueStart++;
 			}
-			String key = loadConvert(lr.lineBuf, 0, keyLen,
-				convtBuf);
-			String value = loadConvert(lr.lineBuf, valueStart,
-				limit - valueStart, convtBuf);
+			String key = loadConvert(lr.lineBuf, 0, keyLen, convtBuf);
+			String value = loadConvert(lr.lineBuf, valueStart, limit - valueStart, convtBuf);
 			String comment = lr.commentBuf.toString();
-			comment = loadConvert(comment.toCharArray(), 0,
-				comment.length(), convtBuf);
+			comment = loadConvert(comment.toCharArray(), 0, comment.length(), convtBuf);
 			prop.put(key, new Property(key, value, comment));
 		}
 	}
 
 	/*
-	 * read in a "logical line" from input stream, skip all comment and
-	 * blank lines and filter out those leading whitespace characters ( ,
-	 * and ) from the beginning of a "natural line". Method returns the char
-	 * length of the "logical line" and stores the line in "lineBuf".
+	 * read in a "logical line" from input stream, skip all comment and blank lines
+	 * and filter out those leading whitespace characters ( , and ) from the
+	 * beginning of a "natural line". Method returns the char length of the
+	 * "logical line" and stores the line in "lineBuf".
 	 */
 	static class LineReader {
 		public LineReader(InputStream inStream) {
@@ -176,8 +172,8 @@ public class PropertiesReader {
 						return len;
 					}
 				}
-				//The line below is equivalent to calling a 
-				//ISO8859-1 decoder.
+				// The line below is equivalent to calling a
+				// ISO8859-1 decoder.
 				c = (char) (0xff & inBuf[inOff++]);
 				if (skipLF) {
 					skipLF = false;
@@ -189,8 +185,7 @@ public class PropertiesReader {
 					if (c == ' ' || c == '\t' || c == '\f') {
 						continue;
 					}
-					if (!appendedLineBegin
-							&& (c == '\r' || c == '\n')) {
+					if (!appendedLineBegin && (c == '\r' || c == '\n')) {
 						if (!isCommentLine && isCommentNextLine) {
 							commentBuf.setLength(0);
 							isCommentNextLine = false;
@@ -217,11 +212,10 @@ public class PropertiesReader {
 							newLength = Integer.MAX_VALUE;
 						}
 						char[] buf = new char[newLength];
-						System.arraycopy(lineBuf, 0,
-							buf, 0, lineBuf.length);
+						System.arraycopy(lineBuf, 0, buf, 0, lineBuf.length);
 						lineBuf = buf;
 					}
-					//flip the preceding backslash flag
+					// flip the preceding backslash flag
 					if (c == '\\') {
 						precedingBackslash = !precedingBackslash;
 					} else {
@@ -233,9 +227,7 @@ public class PropertiesReader {
 					isCommentNextLine = isCommentLine;
 					if (isCommentLine || len == 0) {
 						if (isCommentLine) {
-							commentBuf.append(new String(
-									lineBuf,
-									0, len));
+							commentBuf.append(new String(lineBuf, 0, len));
 							commentBuf.append('\n');
 						}
 						isCommentLine = false;
@@ -254,7 +246,7 @@ public class PropertiesReader {
 					}
 					if (precedingBackslash) {
 						len -= 1;
-						//skip the leading whitespace characters in following line
+						// skip the leading whitespace characters in following line
 						skipWhiteSpace = true;
 						appendedLineBegin = true;
 						precedingBackslash = false;
@@ -270,8 +262,8 @@ public class PropertiesReader {
 	}
 
 	/*
-	 * Converts encoded &#92;uxxxx to unicode chars and changes special
-	 * saved chars to their original forms
+	 * Converts encoded &#92;uxxxx to unicode chars and changes special saved chars
+	 * to their original forms
 	 */
 	private String loadConvert(char[] in, int off, int len, char[] convtBuf) {
 		if (convtBuf.length < len) {
@@ -306,9 +298,7 @@ public class PropertiesReader {
 						case '7':
 						case '8':
 						case '9':
-							value = (value << 4)
-									+ aChar
-									- '0';
+							value = (value << 4) + aChar - '0';
 							break;
 						case 'a':
 						case 'b':
@@ -316,10 +306,7 @@ public class PropertiesReader {
 						case 'd':
 						case 'e':
 						case 'f':
-							value = (value << 4)
-									+ 10
-									+ aChar
-									- 'a';
+							value = (value << 4) + 10 + aChar - 'a';
 							break;
 						case 'A':
 						case 'B':
@@ -327,14 +314,10 @@ public class PropertiesReader {
 						case 'D':
 						case 'E':
 						case 'F':
-							value = (value << 4)
-									+ 10
-									+ aChar
-									- 'A';
+							value = (value << 4) + 10 + aChar - 'A';
 							break;
 						default:
-							throw new IllegalArgumentException(
-									"Malformed \\uxxxx encoding.");
+							throw new IllegalArgumentException("Malformed \\uxxxx encoding.");
 						}
 					}
 					out[outLen++] = (char) value;

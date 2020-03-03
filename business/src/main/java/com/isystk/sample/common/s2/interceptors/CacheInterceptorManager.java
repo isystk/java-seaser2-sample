@@ -9,48 +9,48 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * @author iseyoshitaka
  */
 public class CacheInterceptorManager {
-    public CopyOnWriteArrayList<CacheInterceptor> cacheInterceptorList = new CopyOnWriteArrayList<CacheInterceptor>();
+	public CopyOnWriteArrayList<CacheInterceptor> cacheInterceptorList = new CopyOnWriteArrayList<CacheInterceptor>();
 
-    public static CacheInterceptorManager SINGLETON = new CacheInterceptorManager();
+	public static CacheInterceptorManager SINGLETON = new CacheInterceptorManager();
 
-    public Thread thread;
+	public Thread thread;
 
-    public static CacheInterceptorManager getSingleton() {
-	return SINGLETON;
-    }
-
-    private CacheInterceptorManager() {
-	thread = new Thread("CacheInterceptorManagerThread") {
-	    @Override
-	    public void run() {
-		cacheHeartbeat();
-	    }
-
-	};
-	thread.setDaemon(true);
-	thread.setPriority(Thread.MIN_PRIORITY);
-	thread.start();
-    }
-
-    public void addCacheInterceptor(CacheInterceptor interceptor) {
-	cacheInterceptorList.add(interceptor);
-    }
-
-    private void cacheHeartbeat() {
-	while (true) { // 確実に動作させ続けるために無限ループ＆トライキャッチを実装している。
-	    try {
-		for (CacheInterceptor cacheInterceptor : cacheInterceptorList) {
-		    try {
-			cacheInterceptor.cacheHeartbeat();
-		    } catch (Throwable t2) {
-			// void
-		    }
-		}
-
-		Thread.sleep(5000);
-	    } catch (Throwable t1) {
-		// void 
-	    }
+	public static CacheInterceptorManager getSingleton() {
+		return SINGLETON;
 	}
-    }
+
+	private CacheInterceptorManager() {
+		thread = new Thread("CacheInterceptorManagerThread") {
+			@Override
+			public void run() {
+				cacheHeartbeat();
+			}
+
+		};
+		thread.setDaemon(true);
+		thread.setPriority(Thread.MIN_PRIORITY);
+		thread.start();
+	}
+
+	public void addCacheInterceptor(CacheInterceptor interceptor) {
+		cacheInterceptorList.add(interceptor);
+	}
+
+	private void cacheHeartbeat() {
+		while (true) { // 確実に動作させ続けるために無限ループ＆トライキャッチを実装している。
+			try {
+				for (CacheInterceptor cacheInterceptor : cacheInterceptorList) {
+					try {
+						cacheInterceptor.cacheHeartbeat();
+					} catch (Throwable t2) {
+						// void
+					}
+				}
+
+				Thread.sleep(5000);
+			} catch (Throwable t1) {
+				// void
+			}
+		}
+	}
 }

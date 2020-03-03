@@ -78,7 +78,7 @@ public class BasicImageProcedure implements ImageProcedure {
 	protected void chmod(File parent) {
 
 		if (!doChangemod()) {
-		    return;
+			return;
 		}
 		logger.info("## chmod " + parent.getAbsolutePath() + " start... ##");
 
@@ -91,14 +91,14 @@ public class BasicImageProcedure implements ImageProcedure {
 		logger.info("## chmod " + parent.getAbsolutePath() + " end ##");
 	}
 
-    /**
-     * chmod ?
-     *
-     * @return true chmod
-     */
-    private boolean doChangemod() {
-	return "true".equals(Config.getString(AppConfigNames.IMAGE_UPLOAD_CHMOD.key));
-    }
+	/**
+	 * chmod ?
+	 *
+	 * @return true chmod
+	 */
+	private boolean doChangemod() {
+		return "true".equals(Config.getString(AppConfigNames.IMAGE_UPLOAD_CHMOD.key));
+	}
 
 	public void crop(File file, File dst, Integer x, Integer y, Integer width, Integer height) throws IOException {
 		logger.info("x座標:" + x + ", y座標:" + y + " でトリミングします");

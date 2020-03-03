@@ -17,44 +17,44 @@ import org.slf4j.LoggerFactory;
  */
 public class SolrHomeConfigurationListener implements ServletContextListener {
 
-    private static final Logger logger = LoggerFactory.getLogger(SolrHomeConfigurationListener.class);
+	private static final Logger logger = LoggerFactory.getLogger(SolrHomeConfigurationListener.class);
 
-    public void contextInitialized(ServletContextEvent sce) {
+	public void contextInitialized(ServletContextEvent sce) {
 
-	Properties config = load();
+		Properties config = load();
 
-	settingSolrHome(config);
+		settingSolrHome(config);
 
-	settingSolrDataDir(config);
-    }
-
-    public void contextDestroyed(ServletContextEvent sce) {
-	// nop
-    }
-
-    private Properties load() {
-	Properties prop = new Properties();
-	try {
-	    prop.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("solr.properties"));
-	} catch (IOException e) {
-	    logger.error("I/O Error : " + e.getMessage(), e);
+		settingSolrDataDir(config);
 	}
-	return prop;
-    }
 
-    private void settingSolrHome(Properties prop) {
-	String sh = prop.getProperty("solr.home");
-	if (sh == null || sh.length() <= 0)
-	    return;
+	public void contextDestroyed(ServletContextEvent sce) {
+		// nop
+	}
 
-	System.setProperty("solr.solr.home", sh);
-    }
+	private Properties load() {
+		Properties prop = new Properties();
+		try {
+			prop.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("solr.properties"));
+		} catch (IOException e) {
+			logger.error("I/O Error : " + e.getMessage(), e);
+		}
+		return prop;
+	}
 
-    private void settingSolrDataDir(Properties prop) {
-	String sh = prop.getProperty("solr.data.dir");
-	if (sh == null || sh.length() <= 0)
-	    return;
+	private void settingSolrHome(Properties prop) {
+		String sh = prop.getProperty("solr.home");
+		if (sh == null || sh.length() <= 0)
+			return;
 
-	System.setProperty("solr.data.dir", sh);
-    }
+		System.setProperty("solr.solr.home", sh);
+	}
+
+	private void settingSolrDataDir(Properties prop) {
+		String sh = prop.getProperty("solr.data.dir");
+		if (sh == null || sh.length() <= 0)
+			return;
+
+		System.setProperty("solr.data.dir", sh);
+	}
 }

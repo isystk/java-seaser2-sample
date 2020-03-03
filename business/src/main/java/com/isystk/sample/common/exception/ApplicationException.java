@@ -26,30 +26,35 @@ import com.isystk.sample.common.config.Message;
  */
 public abstract class ApplicationException extends Exception {
 
-    private static final long serialVersionUID = -4092440344741440634L;
+	private static final long serialVersionUID = -4092440344741440634L;
 
-    /**
-     * @param message この例外に関する詳細な情報.
-     * @param cause 原因となった例外
-     */
-    public ApplicationException(String message, Throwable cause) {
-	super(message, cause);
-    }
+	/**
+	 * @param message
+	 *            この例外に関する詳細な情報.
+	 * @param cause
+	 *            原因となった例外
+	 */
+	public ApplicationException(String message, Throwable cause) {
+		super(message, cause);
+	}
 
-    /**
-     * @param message この例外に関する詳細な情報.
-     */
-    public ApplicationException(String message) {
-	super(message);
-    }
+	/**
+	 * @param message
+	 *            この例外に関する詳細な情報.
+	 */
+	public ApplicationException(String message) {
+		super(message);
+	}
 
-    /**
-     * プロパティーからメッセージを作成するコンストラクタ
-     * 
-     * @param key キー
-     * @param values 値の配列
-     */
-    public ApplicationException(String key, String... values) {
-	super(MessageFormat.format(Message.getString(key), values));
-    }
+	/**
+	 * プロパティーからメッセージを作成するコンストラクタ
+	 * 
+	 * @param key
+	 *            キー
+	 * @param values
+	 *            値の配列
+	 */
+	public ApplicationException(String key, String... values) {
+		super(MessageFormat.format(Message.getString(key), values));
+	}
 }

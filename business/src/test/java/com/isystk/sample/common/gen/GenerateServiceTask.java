@@ -13,18 +13,18 @@ import org.seasar.extension.jdbc.gen.internal.command.GenerateServiceCommand;
  * @author iseyoshitaka
  */
 public class GenerateServiceTask {
-    public static void main(String[] args) {
-	GenerateServiceCommand command = new GenerateServiceCommand();
-	command.setEnv("ut");
-	command.setRootPackageName("com.isystk.sample.common.s2");
-	File dir = new File("target/classes");
-	command.setClasspathDir(dir);
-	command.setNamesPackageName("entity.names");
-	command.setIgnoreEntityClassNamePattern("^(?!.*GaReportSearch)(?=.*Ga).*");
-	command.setServiceTemplateFileName("java/service.ftl");
-	// 上書きしない場合はfalseに
-	command.setOverwrite(false);
-	command.execute();
+	public static void main(String[] args) {
+		GenerateServiceCommand command = new GenerateServiceCommand();
+		command.setEnv("ut");
+		command.setRootPackageName("com.isystk.sample.common.s2");
+		File dir = new File("target/classes");
+		command.setClasspathDir(dir);
+		command.setNamesPackageName("entity.names");
+		command.setIgnoreEntityClassNamePattern("^(?!.*GaReportSearch)(?=.*Ga).*");
+		command.setServiceTemplateFileName("java/service.ftl");
+		// 上書きしない場合はfalseに
+		command.setOverwrite(false);
+		command.execute();
 
-    }
+	}
 }

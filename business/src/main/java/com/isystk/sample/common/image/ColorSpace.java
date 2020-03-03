@@ -11,16 +11,16 @@ package com.isystk.sample.common.image;
  * @author iseyoshitaka
  */
 public enum ColorSpace {
-    sRGB, others, Uncalibrated;
+	sRGB, others, Uncalibrated;
 
-    public static ColorSpace valueOf(int c) {
-	switch (c) {
-	case 1:
-	    return sRGB;
-	case 65535:
-	    return Uncalibrated;
-	default:
-	    return others;
+	public static ColorSpace valueOf(int c) {
+		switch (c) {
+		case 1:
+			return sRGB;
+		case 65535:
+			return Uncalibrated;
+		default:
+			return others;
+		}
 	}
-    }
 }

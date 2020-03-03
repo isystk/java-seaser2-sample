@@ -10,81 +10,83 @@ import org.slf4j.LoggerFactory;
 
 public final class Config {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Config.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Config.class);
 
-    private static Properties properties;
+	private static Properties properties;
 
-    static {
+	static {
 
-	Properties props = new Properties();
-	Properties serverProps = new Properties();
-	InputStream conf = Thread.currentThread().getContextClassLoader().getResourceAsStream("application-config.properties");
-	InputStream serverConf = Thread.currentThread().getContextClassLoader().getResourceAsStream("application-server-config.properties");
+		Properties props = new Properties();
+		Properties serverProps = new Properties();
+		InputStream conf = Thread.currentThread().getContextClassLoader()
+				.getResourceAsStream("application-config.properties");
+		InputStream serverConf = Thread.currentThread().getContextClassLoader()
+				.getResourceAsStream("application-server-config.properties");
 
-	if (conf == null) {
-	    LOGGER.warn("not exists `classpath:application-config.properties`");
-	} else {
-	    try {
-		props.load(conf);
-	    } catch (IOException e) {
-		LOGGER.error("read failed `classpath:application-config.properties`", e);
-	    }
+		if (conf == null) {
+			LOGGER.warn("not exists `classpath:application-config.properties`");
+		} else {
+			try {
+				props.load(conf);
+			} catch (IOException e) {
+				LOGGER.error("read failed `classpath:application-config.properties`", e);
+			}
+		}
+
+		if (serverConf == null) {
+			LOGGER.warn("not exists `classpath:application-server-config.properties`");
+		} else {
+			try {
+				serverProps.load(serverConf);
+			} catch (IOException e) {
+				LOGGER.error("read failed `classpath:application-server-config.properties`", e);
+			}
+		}
+
+		for (Entry<Object, Object> serverEntry : serverProps.entrySet()) {
+			props.put(serverEntry.getKey(), serverEntry.getValue());
+		}
+		properties = props;
 	}
 
-	if (serverConf == null) {
-	    LOGGER.warn("not exists `classpath:application-server-config.properties`");
-	} else {
-	    try {
-		serverProps.load(serverConf);
-	    } catch (IOException e) {
-		LOGGER.error("read failed `classpath:application-server-config.properties`", e);
-	    }
+	private Config() {
 	}
 
-	for (Entry < Object, Object > serverEntry : serverProps.entrySet()) {
-		props.put(serverEntry.getKey(), serverEntry.getValue());
+	public static String getString(AppConfigNames config) {
+		return getString(config.key);
 	}
-	properties = props;
-    }
 
-    private Config() {
-    }
+	public static String getString(String key) {
+		return properties.getProperty(key);
+	}
 
-    public static String getString(AppConfigNames config) {
-	return getString(config.key);
-    }
+	// FIXME iseyoshitaka 例外処理する
+	public static Integer getInteger(AppConfigNames config) {
+		return getInteger(config.key);
+	}
 
-    public static String getString(String key) {
-	return properties.getProperty(key);
-    }
+	public static Integer getInteger(String key) {
+		return Integer.parseInt(properties.getProperty(key));
+	}
 
-    // FIXME iseyoshitaka 例外処理する
-    public static Integer getInteger(AppConfigNames config) {
-	return getInteger(config.key);
-    }
+	public static String[] getStringArray(AppConfigNames config) {
+		return getStringArray(config.key);
+	}
 
-    public static Integer getInteger(String key) {
-	return Integer.parseInt(properties.getProperty(key));
-    }
+	public static String[] getStringArray(String key) {
+		return getString(key).split(",");
+	}
 
-    public static String[] getStringArray(AppConfigNames config) {
-	return getStringArray(config.key);
-    }
+	// FIXME iseyoshitaka 例外処理する
+	public static Boolean getBoolean(AppConfigNames config) {
+		return getBoolean(config.key);
+	}
 
-    public static String[] getStringArray(String key) {
-	return getString(key).split(",");
-    }
+	public static Boolean getBoolean(String key) {
+		return Boolean.parseBoolean(properties.getProperty(key));
+	}
 
-    // FIXME iseyoshitaka 例外処理する
-    public static Boolean getBoolean(AppConfigNames config) {
-	return getBoolean(config.key);
-    }
-
-    public static Boolean getBoolean(String key) {
-	return Boolean.parseBoolean(properties.getProperty(key));
-    }
-
-    public static InputStream getInputStream(String resource) {
-	return Thread.currentThread().getContextClassLoader().getResourceAsStream(resource);
-    }
+	public static InputStream getInputStream(String resource) {
+		return Thread.currentThread().getContextClassLoader().getResourceAsStream(resource);
+	}
 }

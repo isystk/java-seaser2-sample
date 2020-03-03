@@ -15,31 +15,33 @@ import org.seasar.extension.jdbc.exception.SOptimisticLockException;
  * 
  */
 public class SQLDeadLockException extends SOptimisticLockException {
-    private String message;
-    private Throwable cause;
+	private String message;
+	private Throwable cause;
 
-    private static final long serialVersionUID = -1018353601958087212L;
+	private static final long serialVersionUID = -1018353601958087212L;
 
-    /**
-     * コンストラクタ。
-     * 
-     * @param message メッセージ
-     * @param cause 元の例外
-     */
-    public SQLDeadLockException(String message, Throwable cause) {
-	super();
-	this.message = message;
-	this.cause = cause;
-    }
+	/**
+	 * コンストラクタ。
+	 * 
+	 * @param message
+	 *            メッセージ
+	 * @param cause
+	 *            元の例外
+	 */
+	public SQLDeadLockException(String message, Throwable cause) {
+		super();
+		this.message = message;
+		this.cause = cause;
+	}
 
-    @Override
-    public Throwable getCause() {
-	return cause;
-    }
+	@Override
+	public Throwable getCause() {
+		return cause;
+	}
 
-    @Override
-    public String getMessage() {
-	return message;
-    }
+	@Override
+	public String getMessage() {
+		return message;
+	}
 
 }

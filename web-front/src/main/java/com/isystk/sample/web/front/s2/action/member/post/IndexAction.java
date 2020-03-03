@@ -278,10 +278,10 @@ public class IndexAction {
 		for (String selectTag : selectTagList) {
 			PostUserTagDto dto = new PostUserTagDto();
 			dto.name = selectTag;
-		    Integer tagId = allTagMap.get(selectTag);
-		    if (tagId == null) {
-		    	tagId = appendTagMap.get(selectTag);
-		    }
+			Integer tagId = allTagMap.get(selectTag);
+			if (tagId == null) {
+				tagId = appendTagMap.get(selectTag);
+			}
 			if (tagId == null) {
 				tagId = appendTagMap.get(selectTag);
 			}

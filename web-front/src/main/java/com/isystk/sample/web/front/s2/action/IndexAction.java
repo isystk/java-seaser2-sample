@@ -29,20 +29,20 @@ import com.isystk.sample.web.front.s2.form.IndexForm;
  */
 public class IndexAction {
 
-    /** 検索結果 式場 アクションフォーム */
-    @Resource
-    @ActionForm
-    public IndexForm indexForm;
+	/** 検索結果 式場 アクションフォーム */
+	@Resource
+	@ActionForm
+	public IndexForm indexForm;
 
-    /** ページングを行うためのオブジェクト */
-    public Pager pager;
+	/** ページングを行うためのオブジェクト */
+	public Pager pager;
 
-    /** 投稿のインデクス検索ロジック */
-    @Resource
-    protected PostSearcherLogic postSearcherLogic;
+	/** 投稿のインデクス検索ロジック */
+	@Resource
+	protected PostSearcherLogic postSearcherLogic;
 
-    /** 検索結果 */
-    public List<SearchPostResultDto> searchResultDtoList;
+	/** 検索結果 */
+	public List<SearchPostResultDto> searchResultDtoList;
 
 	/**
 	 * 初期表示
@@ -54,85 +54,87 @@ public class IndexAction {
 
 	}
 
-    /**
-     * 検索処理
-     *
-     * @return 遷移先
-     */
-    private String search() {
+	/**
+	 * 検索処理
+	 *
+	 * @return 遷移先
+	 */
+	private String search() {
 
-	    // フォームの情報を検索用のDTOに転送します。
-	    Searcher searcher = transferPostSearchDto();
+		// フォームの情報を検索用のDTOに転送します。
+		Searcher searcher = transferPostSearchDto();
 
-	    int count = postSearcherLogic.count(searcher);
-	    int current = searcher.page;
+		int count = postSearcherLogic.count(searcher);
+		int current = searcher.page;
 
-	    pager = new Pager(count, current, searcher.rows);
+		pager = new Pager(count, current, searcher.rows);
 
-	    List<PostSearchDto> postSearchDtoList = null;
-	    if (pager.isCountToDisplay()) {
-		// 検索条件から検索結果を取得する。
-	    	postSearchDtoList = postSearcherLogic.search(searcher);
-	    } else {
-	    	postSearchDtoList = Lists.newArrayList();
-	    }
+		List<PostSearchDto> postSearchDtoList = null;
+		if (pager.isCountToDisplay()) {
+			// 検索条件から検索結果を取得する。
+			postSearchDtoList = postSearcherLogic.search(searcher);
+		} else {
+			postSearchDtoList = Lists.newArrayList();
+		}
 
-	    searchResultDtoList = Lists.newArrayList();
+		searchResultDtoList = Lists.newArrayList();
 		for (PostSearchDto postSearchDto : postSearchDtoList) {
-			SearchPostResultDto searchPostResultDto = BeanCopyUtil.createAndCopy(SearchPostResultDto.class, postSearchDto).execute();
+			SearchPostResultDto searchPostResultDto = BeanCopyUtil
+					.createAndCopy(SearchPostResultDto.class, postSearchDto).execute();
 			searchResultDtoList.add(searchPostResultDto);
 		}
 
 		return showIndex();
 	}
 
-    /**
-     * フォームの情報を検索用のDTOに転送します。
-     *
-     * @return 検索用のDTO
-     */
-    private Searcher transferPostSearchDto() {
-	PostSearchDto.Searcher postSearcherDto = new PostSearchDto.Searcher();
+	/**
+	 * フォームの情報を検索用のDTOに転送します。
+	 *
+	 * @return 検索用のDTO
+	 */
+	private Searcher transferPostSearchDto() {
+		PostSearchDto.Searcher postSearcherDto = new PostSearchDto.Searcher();
 
-	// ページ
-	postSearcherDto.page = indexForm.getPageNoInteger();
+		// ページ
+		postSearcherDto.page = indexForm.getPageNoInteger();
 
-	// 最大取得件数
-	Integer maxCount = NumberUtil.toInteger(indexForm.maxCount);
-	if (maxCount == null) {
-	    maxCount = CookieUtil.getValueInteger(Pager.COOKIE_KEY);
-	    indexForm.maxCount = String.valueOf(maxCount);
+		// 最大取得件数
+		Integer maxCount = NumberUtil.toInteger(indexForm.maxCount);
+		if (maxCount == null) {
+			maxCount = CookieUtil.getValueInteger(Pager.COOKIE_KEY);
+			indexForm.maxCount = String.valueOf(maxCount);
+		}
+		if (maxCount == null) {
+			maxCount = PagingLimitSelectOption.C20.getCode();
+			indexForm.maxCount = String.valueOf(maxCount);
+		}
+		postSearcherDto.rows = maxCount;
+
+		// フリーワード
+		if (!StringUtils.isBlankOrSpace(indexForm.freeword)) {
+			String[] freewords = StringUtils.splitSpace(indexForm.freeword);
+			List<String> freewordAndList = new ArrayList<String>();
+			for (String freeword : freewords) {
+				freewordAndList.add("*" + freeword + "*");
+			}
+			postSearcherDto.freewordAndList = freewordAndList;
+		}
+
+		// ソート
+		postSearcherDto.sort = indexForm.getSortKeyInteger();
+		if (postSearcherDto.sort == null) {
+			if (!StringUtils.isBlankOrSpace(indexForm.getFreewords())) {
+				// フリーワード検索時は、スコアでソートする
+				postSearcherDto.sort = PostSortBuilder.SortOption.DEFAULT.getCode();
+				// } else if (WeddingDiv.get(indexForm.weddingDiv) == WeddingDiv.PARTY) {
+				// // パーティ婚の場合はオプション掲載枠数でソートする
+				// postSearcherDto.sort =
+				// StockSortBuilder.SortOption.OPTION_REQUEST_CNT.getCode();
+			}
+		}
+
+		return postSearcherDto;
 	}
-	if (maxCount == null) {
-	    maxCount = PagingLimitSelectOption.C20.getCode();
-	    indexForm.maxCount = String.valueOf(maxCount);
-	}
-	postSearcherDto.rows = maxCount;
-
-	// フリーワード
-	if (!StringUtils.isBlankOrSpace(indexForm.freeword)) {
-	    String[] freewords = StringUtils.splitSpace(indexForm.freeword);
-	    List<String> freewordAndList = new ArrayList<String>();
-	    for (String freeword : freewords) {
-		freewordAndList.add("*" + freeword + "*");
-	    }
-	    postSearcherDto.freewordAndList = freewordAndList;
-	}
-
-	// ソート
-	postSearcherDto.sort = indexForm.getSortKeyInteger();
-	if (postSearcherDto.sort == null) {
-	    if (!StringUtils.isBlankOrSpace(indexForm.getFreewords())) {
-		// フリーワード検索時は、スコアでソートする
-		postSearcherDto.sort = PostSortBuilder.SortOption.DEFAULT.getCode();
-//	    } else if (WeddingDiv.get(indexForm.weddingDiv) == WeddingDiv.PARTY) {
-//		// パーティ婚の場合はオプション掲載枠数でソートする
-//		postSearcherDto.sort = StockSortBuilder.SortOption.OPTION_REQUEST_CNT.getCode();
-	    }
-	}
-
-	return postSearcherDto;
-    }
 
 	/**
 	 * サイトトップ

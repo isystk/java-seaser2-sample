@@ -12,18 +12,18 @@ import org.slf4j.LoggerFactory;
  */
 public class ServiceCountForDebugServiceInterceptor extends AbstractInterceptor {
 
-    public static ThreadLocal<Integer> countThreadLocal = new ThreadLocal<Integer>();
+	public static ThreadLocal<Integer> countThreadLocal = new ThreadLocal<Integer>();
 
-    private static final long serialVersionUID = 3943321039873243655L;
-    private static final Logger logger = LoggerFactory.getLogger(ServiceCountForDebugServiceInterceptor.class);
+	private static final long serialVersionUID = 3943321039873243655L;
+	private static final Logger logger = LoggerFactory.getLogger(ServiceCountForDebugServiceInterceptor.class);
 
-    public Object invoke(MethodInvocation invocation) throws Throwable {
-	Integer count = ServiceCountForDebugServiceInterceptor.countThreadLocal.get();
-	if (count != null) {
-	    ServiceCountForDebugServiceInterceptor.countThreadLocal.set(count + 1);
+	public Object invoke(MethodInvocation invocation) throws Throwable {
+		Integer count = ServiceCountForDebugServiceInterceptor.countThreadLocal.get();
+		if (count != null) {
+			ServiceCountForDebugServiceInterceptor.countThreadLocal.set(count + 1);
+		}
+
+		Object proceed = invocation.proceed();
+		return proceed;
 	}
-
-	Object proceed = invocation.proceed();
-	return proceed;
-    }
 }

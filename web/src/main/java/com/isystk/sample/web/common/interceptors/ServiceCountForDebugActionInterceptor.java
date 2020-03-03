@@ -13,40 +13,40 @@ import org.slf4j.LoggerFactory;
  */
 public class ServiceCountForDebugActionInterceptor extends AbstractInterceptor {
 
-    private static final long serialVersionUID = 3943321039873243655L;
-    private static final Logger logger = LoggerFactory.getLogger(ServiceCountForDebugActionInterceptor.class);
+	private static final long serialVersionUID = 3943321039873243655L;
+	private static final Logger logger = LoggerFactory.getLogger(ServiceCountForDebugActionInterceptor.class);
 
-    public static final String COUNT = ServiceCountForDebugActionInterceptor.class.getSimpleName() + "_COUNT";
-    public static final String TIME = ServiceCountForDebugActionInterceptor.class.getSimpleName() + "_TIME";
+	public static final String COUNT = ServiceCountForDebugActionInterceptor.class.getSimpleName() + "_COUNT";
+	public static final String TIME = ServiceCountForDebugActionInterceptor.class.getSimpleName() + "_TIME";
 
-    public Object invoke(MethodInvocation invocation) throws Throwable {
+	public Object invoke(MethodInvocation invocation) throws Throwable {
 
-	Integer isFirst = ServiceCountForDebugServiceInterceptor.countThreadLocal.get();
-	if (isFirst == null) { // 初めてのActionメソッド呼び出しかどうか
-	    long starttime = System.currentTimeMillis();
+		Integer isFirst = ServiceCountForDebugServiceInterceptor.countThreadLocal.get();
+		if (isFirst == null) { // 初めてのActionメソッド呼び出しかどうか
+			long starttime = System.currentTimeMillis();
 
-	    try {
-		ServiceCountForDebugServiceInterceptor.countThreadLocal.set(0); // ゼロクリア
+			try {
+				ServiceCountForDebugServiceInterceptor.countThreadLocal.set(0); // ゼロクリア
 
-		Object proceed = invocation.proceed();
+				Object proceed = invocation.proceed();
 
-		// リクエストに呼び出し回数をセット
-		Integer count = ServiceCountForDebugServiceInterceptor.countThreadLocal.get();
-		RequestUtil.getRequest().setAttribute(COUNT, count);
+				// リクエストに呼び出し回数をセット
+				Integer count = ServiceCountForDebugServiceInterceptor.countThreadLocal.get();
+				RequestUtil.getRequest().setAttribute(COUNT, count);
 
-		// 実行時間をセット
-		RequestUtil.getRequest().setAttribute(TIME, System.currentTimeMillis() - starttime);
+				// 実行時間をセット
+				RequestUtil.getRequest().setAttribute(TIME, System.currentTimeMillis() - starttime);
 
-		return proceed;
+				return proceed;
 
-	    } finally {
-		ServiceCountForDebugServiceInterceptor.countThreadLocal.set(null); // 初期化しておく
-	    }
+			} finally {
+				ServiceCountForDebugServiceInterceptor.countThreadLocal.set(null); // 初期化しておく
+			}
 
-	} else {
-	    Object proceed = invocation.proceed();
-	    return proceed;
+		} else {
+			Object proceed = invocation.proceed();
+			return proceed;
+		}
+
 	}
-
-    }
 }

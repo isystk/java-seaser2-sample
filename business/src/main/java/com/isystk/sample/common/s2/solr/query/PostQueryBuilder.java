@@ -10,10 +10,10 @@ import com.isystk.sample.common.s2.solr.dto.PostSearchDto;
  */
 public class PostQueryBuilder extends PostQueryBuilderBase {
 
-    public static String queryBuild(PostSearchDto.Searcher searcherDto) {
+	public static String queryBuild(PostSearchDto.Searcher searcherDto) {
 
-	QueryBuilder qb = queryBuildBase(searcherDto);
+		QueryBuilder qb = queryBuildBase(searcherDto);
 
-	return qb.toString();
-    }
+		return qb.toString();
+	}
 }

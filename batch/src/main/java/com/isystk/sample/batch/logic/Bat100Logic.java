@@ -274,7 +274,8 @@ public class Bat100Logic {
 			}
 		}
 
-		postList = postIndexerLogic.getIndexDtoList(tUserList, tPostMap, mPostTagMap, mPrefectureMap, freewordMap, batchExecDate);
+		postList = postIndexerLogic.getIndexDtoList(tUserList, tPostMap, mPostTagMap, mPrefectureMap, freewordMap,
+				batchExecDate);
 
 	}
 

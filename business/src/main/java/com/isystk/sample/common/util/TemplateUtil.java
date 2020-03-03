@@ -22,51 +22,53 @@ import freemarker.template.Template;
  */
 public final class TemplateUtil {
 
-    private static Configuration config = null;
+	private static Configuration config = null;
 
-    /**
-     * テンプレートから文字列を取得する
-     * 
-     * @param templateName テンプレートファイル名
-     * @param data テンプレートに埋め込むデータ
-     * @return
-     */
-    public static String process(String templateName, SimpleHash data) {
-	if (config == null) {
-	    config = new Configuration();
-	    config.setTemplateLoader(new ClassTemplateLoader(TemplateUtil.class, "/template"));
-	    config.setObjectWrapper(new DefaultObjectWrapper());
-	    config.setEncoding(Locale.JAPANESE, "UTF-8");
+	/**
+	 * テンプレートから文字列を取得する
+	 * 
+	 * @param templateName
+	 *            テンプレートファイル名
+	 * @param data
+	 *            テンプレートに埋め込むデータ
+	 * @return
+	 */
+	public static String process(String templateName, SimpleHash data) {
+		if (config == null) {
+			config = new Configuration();
+			config.setTemplateLoader(new ClassTemplateLoader(TemplateUtil.class, "/template"));
+			config.setObjectWrapper(new DefaultObjectWrapper());
+			config.setEncoding(Locale.JAPANESE, "UTF-8");
+		}
+
+		Template temp;
+
+		try {
+			temp = config.getTemplate(templateName);
+		} catch (Exception e) {
+			throw new SystemException("テンプレートの取得に失敗しました。", e);
+		}
+
+		StringWriter sw = new StringWriter();
+
+		try {
+			temp.process(data, sw);
+		} catch (Exception e) {
+			throw new SystemException("テンプレートの生成に失敗しました。", e);
+		}
+
+		return sw.toString();
 	}
 
-	Template temp;
+	// サンプル
+	public static void main(String[] args) throws Exception {
+		SimpleHash data = new SimpleHash();
+		data.put("user", "Big Joe");
+		data.put("url", "google");
+		data.put("name", "test");
 
-	try {
-	    temp = config.getTemplate(templateName);
-	} catch (Exception e) {
-	    throw new SystemException("テンプレートの取得に失敗しました。", e);
+		String test = TemplateUtil.process("test.ftl", data);
+
 	}
-
-	StringWriter sw = new StringWriter();
-
-	try {
-	    temp.process(data, sw);
-	} catch (Exception e) {
-	    throw new SystemException("テンプレートの生成に失敗しました。", e);
-	}
-
-	return sw.toString();
-    }
-
-    // サンプル
-    public static void main(String[] args) throws Exception {
-	SimpleHash data = new SimpleHash();
-	data.put("user", "Big Joe");
-	data.put("url", "google");
-	data.put("name", "test");
-
-	String test = TemplateUtil.process("test.ftl", data);
-
-    }
 
 }

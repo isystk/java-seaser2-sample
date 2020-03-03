@@ -14,9 +14,9 @@ import java.util.Date;
  */
 public class ExifInfo {
 
-    public String cameraName = "";
-    public String lensName = "";
-    public Date shootingDate;
-    public boolean isSRGB;
-    public boolean isAdobeRGB;
+	public String cameraName = "";
+	public String lensName = "";
+	public Date shootingDate;
+	public boolean isSRGB;
+	public boolean isAdobeRGB;
 }

@@ -66,8 +66,7 @@ public class ImageThumbTag extends SimpleTagSupport {
 		String osrc_str = "";
 		String src = CmnFunctions.getImageUrl(String.valueOf(imageId), imageType.getSuffix());
 
-		out.print("<img src='" + src + "' " + osrc_str + id + "class='" + class_str + "' " + alt_str + width
-				+ "/>");
+		out.print("<img src='" + src + "' " + osrc_str + id + "class='" + class_str + "' " + alt_str + width + "/>");
 
 	}
 

@@ -13,17 +13,17 @@ import static org.junit.Assert.*;
  * 
  */
 @RunWith(Seasar2.class)
-@Generated(value = {"S2JDBC-Gen 2.4.44", "org.seasar.extension.jdbc.gen.internal.model.ServiceTestModelFactoryImpl"})
+@Generated(value = { "S2JDBC-Gen 2.4.44", "org.seasar.extension.jdbc.gen.internal.model.ServiceTestModelFactoryImpl" })
 public class TUserOnetimeValidServiceTest {
 
-    private TUserOnetimeValidService tUserOnetimeValidService;
+	private TUserOnetimeValidService tUserOnetimeValidService;
 
-    /**
-     * {@link #tUserOnetimeValidService}が利用可能であることをテストします。
-     * 
-     * @throws Exception
-     */
-    public void testAvailable() throws Exception {
-        assertNotNull(tUserOnetimeValidService);
-    }
+	/**
+	 * {@link #tUserOnetimeValidService}が利用可能であることをテストします。
+	 * 
+	 * @throws Exception
+	 */
+	public void testAvailable() throws Exception {
+		assertNotNull(tUserOnetimeValidService);
+	}
 }

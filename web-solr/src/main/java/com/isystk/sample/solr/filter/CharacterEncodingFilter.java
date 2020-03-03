@@ -14,41 +14,46 @@ import javax.servlet.ServletResponse;
 
 public class CharacterEncodingFilter implements Filter {
 
-    /**
-     * {@inheritDoc}
-     * @see javax.servlet.Filter#destroy()
-     * @author iseyoshitaka
-     */
-    public void destroy() {
-        // nop
-    }
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see javax.servlet.Filter#destroy()
+	 * @author iseyoshitaka
+	 */
+	public void destroy() {
+		// nop
+	}
 
-    /** 文字コード */
-    private String charset;
+	/** 文字コード */
+	private String charset;
 
-    /**
-     * {@inheritDoc}
-     * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
-     * @author iseyoshitaka
-     */
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest,
+	 *      javax.servlet.ServletResponse, javax.servlet.FilterChain)
+	 * @author iseyoshitaka
+	 */
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
 
-        if (charset == null || charset.length() <= 0) {
-            chain.doFilter(request, response);
-            return;
-        }
+		if (charset == null || charset.length() <= 0) {
+			chain.doFilter(request, response);
+			return;
+		}
 
-        request.setCharacterEncoding(charset);
-        chain.doFilter(request, response);
-    }
+		request.setCharacterEncoding(charset);
+		chain.doFilter(request, response);
+	}
 
-    /**
-     * {@inheritDoc}
-     * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
-     * @author iseyoshitaka
-     */
-    public void init(FilterConfig filterConfig) throws ServletException {
-        charset = filterConfig.getInitParameter("charset");
-    }
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
+	 * @author iseyoshitaka
+	 */
+	public void init(FilterConfig filterConfig) throws ServletException {
+		charset = filterConfig.getInitParameter("charset");
+	}
 
 }

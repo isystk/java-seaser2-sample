@@ -17,8 +17,10 @@ public class RuntimeSolrServerException extends RuntimeException {
 	/**
 	 * Contructor.
 	 * 
-	 * @param message Error message.
-	 * @param cause cause.
+	 * @param message
+	 *            Error message.
+	 * @param cause
+	 *            cause.
 	 */
 	public RuntimeSolrServerException(String message, Throwable cause) {
 		super(message, cause);
@@ -27,7 +29,8 @@ public class RuntimeSolrServerException extends RuntimeException {
 	/**
 	 * Contructor.
 	 * 
-	 * @param message Error message.
+	 * @param message
+	 *            Error message.
 	 */
 	public RuntimeSolrServerException(String message) {
 		super(message);
@@ -36,7 +39,8 @@ public class RuntimeSolrServerException extends RuntimeException {
 	/**
 	 * Contructor.
 	 * 
-	 * @param cause cause.
+	 * @param cause
+	 *            cause.
 	 */
 	public RuntimeSolrServerException(Throwable cause) {
 		super(cause);

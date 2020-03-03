@@ -16,22 +16,22 @@ import com.isystk.sample.common.exception.SQLDeadLockException;
  */
 public class DeadLockInterceptor extends AbstractInterceptor {
 
-    private static final long serialVersionUID = -1294862873149224434L;
+	private static final long serialVersionUID = -1294862873149224434L;
 
-    private static final Logger logger = LoggerFactory.getLogger(DeadLockInterceptor.class);
+	private static final Logger logger = LoggerFactory.getLogger(DeadLockInterceptor.class);
 
-    public Object invoke(MethodInvocation invocation) throws Throwable {
-	try {
-	    return invocation.proceed();
-	} catch (SQLRuntimeException e) {
-	    if (e.getCause() instanceof SSQLException) {
-		int errorCode = ((SSQLException) e.getCause()).getErrorCode();
-		if (errorCode == 1213) { //1213　MySQL デッドロックコード
-		    throw new SQLDeadLockException(e.getLocalizedMessage(), e);
+	public Object invoke(MethodInvocation invocation) throws Throwable {
+		try {
+			return invocation.proceed();
+		} catch (SQLRuntimeException e) {
+			if (e.getCause() instanceof SSQLException) {
+				int errorCode = ((SSQLException) e.getCause()).getErrorCode();
+				if (errorCode == 1213) { // 1213 MySQL デッドロックコード
+					throw new SQLDeadLockException(e.getLocalizedMessage(), e);
+				}
+			}
+
+			throw e;
 		}
-	    }
-
-	    throw e;
 	}
-    }
 }

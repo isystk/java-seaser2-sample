@@ -116,13 +116,13 @@ public class RegistAction {
 		return "regist_confirm.jsp";
 	}
 
-    /**
-     * 「前の画面へ戻る」ボタン押下時
-     */
-    @Execute(validator = false)
-    public String backFrom() {
-	    return showInput();
-    }
+	/**
+	 * 「前の画面へ戻る」ボタン押下時
+	 */
+	@Execute(validator = false)
+	public String backFrom() {
+		return showInput();
+	}
 
 	/**
 	 * 確認画面から「投稿する」ボタン押下時
@@ -221,33 +221,34 @@ public class RegistAction {
 		return detailDto;
 	}
 
-    /**
-     * テキストボックスの入力値をリアルタイムにチェックする(Ajaxトリガーで実行)
-     *
-     * @return null
-     */
-    @SSL
-    @Execute(validator = false)
-    public String callRealtimeCheck() {
+	/**
+	 * テキストボックスの入力値をリアルタイムにチェックする(Ajaxトリガーで実行)
+	 *
+	 * @return null
+	 */
+	@SSL
+	@Execute(validator = false)
+	public String callRealtimeCheck() {
 
-	String propertyName = StringUtils.defaultValue((String) RequestUtil.getRequest().getParameter("propertyName"), "");
-	postRegistForm.targetName = propertyName;
+		String propertyName = StringUtils.defaultValue((String) RequestUtil.getRequest().getParameter("propertyName"),
+				"");
+		postRegistForm.targetName = propertyName;
 
-	// JSONオブジェクトを生成する
-	JSONObject json = new JSONObject();
+		// JSONオブジェクトを生成する
+		JSONObject json = new JSONObject();
 
-	// validateチェック
-	ActionMessages messages = postRegistForm.validateInput();
+		// validateチェック
+		ActionMessages messages = postRegistForm.validateInput();
 
-	// ハッシュコード値よりメッセージ内容を取得
-	List<String> messageList = ValidateUtil.getMessageStrings(messages);
+		// ハッシュコード値よりメッセージ内容を取得
+		List<String> messageList = ValidateUtil.getMessageStrings(messages);
 
-	json.element("message", messageList);
-	json.element("result", (0 != messageList.size()));
+		json.element("message", messageList);
+		json.element("result", (0 != messageList.size()));
 
-	ResponseUtil.write(json.toString(), "application/json");
-	return null;
+		ResponseUtil.write(json.toString(), "application/json");
+		return null;
 
-    }
+	}
 
 }

@@ -14,21 +14,19 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Struts1,Struts2 &lt;a href="http://www.ipa.go.jp/security/ciadr/vul/20140417-struts.html" target="blank"&gt;CVE-2014-0094&lt;/a&gt;
+ * Struts1,Struts2 &lt;a
+ * href="http://www.ipa.go.jp/security/ciadr/vul/20140417-struts.html"
+ * target="blank"&gt;CVE-2014-0094&lt;/a&gt;
  *
- * web.xml
- * &lt;filter&gt;
- *   &lt;filter-name&gt;CVE-2014-0094&lt;/filter-name&gt;
- *   &lt;filter-class&gt;com.tamlab.javalib.cve.CVE20140094ServletFilter&lt;/filter-class&gt;
+ * web.xml &lt;filter&gt; &lt;filter-name&gt;CVE-2014-0094&lt;/filter-name&gt;
+ * &lt;filter-class&gt;com.tamlab.javalib.cve.CVE20140094ServletFilter&lt;/filter-class&gt;
  * &lt;/filter&gt;
  *
- * &lt;filter-mapping&gt;
- *   &lt;filter-name&gt;CVE-2014-0094&lt;/filter-name&gt;
- *   &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
- * &lt;/filter-mapping&gt;
+ * &lt;filter-mapping&gt; &lt;filter-name&gt;CVE-2014-0094&lt;/filter-name&gt;
+ * &lt;url-pattern&gt;/*&lt;/url-pattern&gt; &lt;/filter-mapping&gt;
  *
- * @author cawa
- * origin:&lt;a href="http://www.mbsd.jp/img/testFilter.java" target="blank"&gt;http://www.mbsd.jp/img/testFilter.java&lt;/a&gt;
+ * @author cawa origin:&lt;a href="http://www.mbsd.jp/img/testFilter.java"
+ *         target="blank"&gt;http://www.mbsd.jp/img/testFilter.java&lt;/a&gt;
  *
  */
 public class CVE20140094ServletFilter implements Filter {
@@ -40,9 +38,9 @@ public class CVE20140094ServletFilter implements Filter {
 	}
 
 	@Override
-	public void doFilter(ServletRequest req, ServletResponse res,
-			FilterChain filter) throws IOException, ServletException {
-		HttpServletRequest httpreq = (HttpServletRequest)req;
+	public void doFilter(ServletRequest req, ServletResponse res, FilterChain filter)
+			throws IOException, ServletException {
+		HttpServletRequest httpreq = (HttpServletRequest) req;
 		Enumeration<?> params = httpreq.getParameterNames();
 		while (params.hasMoreElements()) {
 			String paramName = (String) params.nextElement();
@@ -52,7 +50,7 @@ public class CVE20140094ServletFilter implements Filter {
 		}
 		Cookie cookies[] = httpreq.getCookies();
 		if (cookies != null) {
-			for  (Cookie c : cookies) {
+			for (Cookie c : cookies) {
 				String cookieName = c.getName();
 				if (isAttack(cookieName)) {
 					throw new IllegalArgumentException("Attack: " + cookieName);
@@ -67,5 +65,6 @@ public class CVE20140094ServletFilter implements Filter {
 	}
 
 	@Override
-	public void init(FilterConfig arg0) throws ServletException {}
+	public void init(FilterConfig arg0) throws ServletException {
+	}
 }

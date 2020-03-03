@@ -44,24 +44,24 @@ public class PostCommonLogic {
 		return result;
 	}
 
-    /**
-     *
-     * タグIDリストを元にタグのマップを取得します。
-     *
-     * @param tagIdList
-     * @return
-     */
-    public Map<Integer, MPostTag> getPostTagIdMap(List<Integer> tagIdList) {
+	/**
+	 *
+	 * タグIDリストを元にタグのマップを取得します。
+	 *
+	 * @param tagIdList
+	 * @return
+	 */
+	public Map<Integer, MPostTag> getPostTagIdMap(List<Integer> tagIdList) {
 
-	Map<Integer, MPostTag> result = Maps.newHashMap();
+		Map<Integer, MPostTag> result = Maps.newHashMap();
 
-	List<MPostTag> mPostTagList = mPostTagService.findByIdList(tagIdList);
-	for (MPostTag mPostTag : mPostTagList) {
-	    result.put(mPostTag.getPostTagId(), mPostTag);
+		List<MPostTag> mPostTagList = mPostTagService.findByIdList(tagIdList);
+		for (MPostTag mPostTag : mPostTagList) {
+			result.put(mPostTag.getPostTagId(), mPostTag);
+		}
+
+		return result;
 	}
-
-	return result;
-    }
 
 	/**
 	 * タグIDリストを元にタグのマップを取得します。

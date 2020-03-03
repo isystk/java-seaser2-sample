@@ -1,6 +1,5 @@
 package com.isystk.sample.web.front.s2.dto.member.post;
 
-
 import java.util.List;
 
 /**
@@ -9,27 +8,27 @@ import java.util.List;
  */
 public class PostUserCategoryDto {
 
-    /** 先輩カップル(投稿型)カテゴリーID */
-    public Integer peopleUserCategoryId;
+	/** 先輩カップル(投稿型)カテゴリーID */
+	public Integer peopleUserCategoryId;
 
-    /** カテゴリーID */
-    public Integer peopleCategoryId;
+	/** カテゴリーID */
+	public Integer peopleCategoryId;
 
-    /** カテゴリー(その他) */
-    public String peopleCategoryOther;
-    
-    /** カテゴリー名称 */
-    public String peopleCategoryName;
+	/** カテゴリー(その他) */
+	public String peopleCategoryOther;
 
-    /** カテゴリー画像ID */
-    public List<Integer> categoryImageIdList;
+	/** カテゴリー名称 */
+	public String peopleCategoryName;
 
-    /** 本文 */
-    public String categoryText;
+	/** カテゴリー画像ID */
+	public List<Integer> categoryImageIdList;
 
-    /** 並び順 */
-    public Integer sort;
+	/** 本文 */
+	public String categoryText;
 
-    /** タグのリスト */
-    public List<PostUserTagDto> categoryTagList;
+	/** 並び順 */
+	public Integer sort;
+
+	/** タグのリスト */
+	public List<PostUserTagDto> categoryTagList;
 }

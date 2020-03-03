@@ -7,16 +7,16 @@ import java.io.Serializable;
  *
  * @author iseyoshitaka
  */
-public class SelectBoxDto implements Serializable  {
+public class SelectBoxDto implements Serializable {
 
-    private static final long serialVersionUID = 6083497996213396744L;
+	private static final long serialVersionUID = 6083497996213396744L;
 
-    /** id */
-    public String id;
+	/** id */
+	public String id;
 
-    /** value */
-    public String value;
+	/** value */
+	public String value;
 
-    /** default */
-    public Boolean isDefault;
+	/** default */
+	public Boolean isDefault;
 }

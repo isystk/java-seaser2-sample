@@ -14,34 +14,34 @@ import org.apache.commons.lang.StringUtils;
  * 
  */
 public class FormatPriceTag extends SimpleTagSupport {
-    private String value;
+	private String value;
 
-    /**
-     * フォーマット対象の値を設定する
-     * 
-     * @param value
-     */
-    public void setValue(String value) {
-	this.value = value;
-    }
-
-    /**
-     * タグの出力処理を行う
-     */
-    public void doTag() throws JspException, IOException {
-	JspWriter out = this.getJspContext().getOut();
-
-	String result = value;
-	try {
-	    result = String.format("%1$,3d", Integer.parseInt(value.replace(",", "")));
-	} catch (Exception e) {
-	    // void
+	/**
+	 * フォーマット対象の値を設定する
+	 * 
+	 * @param value
+	 */
+	public void setValue(String value) {
+		this.value = value;
 	}
 
-	if (StringUtils.isEmpty(result) == false) {
-	    out.print(result + "円");
-	}
+	/**
+	 * タグの出力処理を行う
+	 */
+	public void doTag() throws JspException, IOException {
+		JspWriter out = this.getJspContext().getOut();
 
-    }
+		String result = value;
+		try {
+			result = String.format("%1$,3d", Integer.parseInt(value.replace(",", "")));
+		} catch (Exception e) {
+			// void
+		}
+
+		if (StringUtils.isEmpty(result) == false) {
+			out.print(result + "円");
+		}
+
+	}
 
 }

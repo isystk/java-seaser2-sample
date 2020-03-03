@@ -8,31 +8,31 @@ import org.apache.struts.action.ActionMessages;
 
 public class LoginForm {
 
-    public String loginUserName;
+	public String loginUserName;
 
-    public String loginUserPassword;
+	public String loginUserPassword;
 
-    @URLParam
-    public String backUrl;
+	@URLParam
+	public String backUrl;
 
-    public ActionMessages validateLogin() {
-	ActionMessages messages = new ActionMessages();
+	public ActionMessages validateLogin() {
+		ActionMessages messages = new ActionMessages();
 
-	ValidateUtil.requiredChk("loginUserName", loginUserName, messages, "メールアドレス");
-	ValidateUtil.maxLengthChk("loginUserName", loginUserName, MaxLength.T_USER_MAIL, messages, "メールアドレス");
-	ValidateUtil.requiredChk("loginUserPassword", loginUserPassword, messages, "パスワード");
-	ValidateUtil.maxLengthChk("loginUserPassword", loginUserPassword, MaxLength.T_USER_PASSWORD, messages, "パスワード");
+		ValidateUtil.requiredChk("loginUserName", loginUserName, messages, "メールアドレス");
+		ValidateUtil.maxLengthChk("loginUserName", loginUserName, MaxLength.T_USER_MAIL, messages, "メールアドレス");
+		ValidateUtil.requiredChk("loginUserPassword", loginUserPassword, messages, "パスワード");
+		ValidateUtil.maxLengthChk("loginUserPassword", loginUserPassword, MaxLength.T_USER_PASSWORD, messages, "パスワード");
 
-	return messages;
-    }
+		return messages;
+	}
 
-    public ActionMessages validateMypoBindAuthentication() {
-	ActionMessages messages = new ActionMessages();
+	public ActionMessages validateMypoBindAuthentication() {
+		ActionMessages messages = new ActionMessages();
 
-	ValidateUtil.requiredChk("loginUserPassword", loginUserPassword, messages, "パスワード");
-	ValidateUtil.maxLengthChk("loginUserPassword", loginUserPassword, MaxLength.T_USER_PASSWORD, messages, "パスワード");
+		ValidateUtil.requiredChk("loginUserPassword", loginUserPassword, messages, "パスワード");
+		ValidateUtil.maxLengthChk("loginUserPassword", loginUserPassword, MaxLength.T_USER_PASSWORD, messages, "パスワード");
 
-	return messages;
-    }
+		return messages;
+	}
 
 }

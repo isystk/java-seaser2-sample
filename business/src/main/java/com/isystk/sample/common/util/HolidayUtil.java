@@ -17,75 +17,76 @@ import net.sf.json.JSONObject;
  * 
  */
 public class HolidayUtil {
-    private static Set<Date> holidaySet = null;
-    private static String holidayJsonStr = null;
+	private static Set<Date> holidaySet = null;
+	private static String holidayJsonStr = null;
 
-    /**
-     * 休日のSetを取得する
-     * 
-     * @return 休日のSet
-     */
-    public static Set<Date> getHolidaySet() {
-	if (holidaySet == null) {
-	    holidaySet = createHolidaySet();
-	}
-
-	return holidaySet;
-    }
-
-    /**
-     * 休日SetのJSON形式文字列を取得する
-     * 
-     * @return 休日SetのJSON形式文字列
-     */
-    public static String getHolidayJsonStr() {
-	if (holidayJsonStr == null) {
-	    holidayJsonStr = createHolidayJsonStr();
-	    }
-	
-	return holidayJsonStr;
-    }
-
-    /**
-     * 休日のSetを作成する
-     * 
-     * @return 休日のSet
-     */
-    private static Set<Date> createHolidaySet() {
-	Set<Date> result = new HashSet<Date>();
-
-	BufferedReader reader = new BufferedReader(new InputStreamReader(HolidayUtil.class.getClassLoader().getResourceAsStream("holiday.dat")));
-
-	try {
-	    while (reader.ready()) {
-		String holiday = reader.readLine().trim();
-		if (!StringUtils.isNullOrEmpty(holiday)) {
-		    result.add(DateUtils.toDateSlash(holiday));
+	/**
+	 * 休日のSetを取得する
+	 * 
+	 * @return 休日のSet
+	 */
+	public static Set<Date> getHolidaySet() {
+		if (holidaySet == null) {
+			holidaySet = createHolidaySet();
 		}
-	    }
-	} catch (Exception e) {
-	    throw new SystemException("休日ファイル(holiday.dat)の読み込みに失敗しました", e);
+
+		return holidaySet;
 	}
 
-	return result;
-    }
+	/**
+	 * 休日SetのJSON形式文字列を取得する
+	 * 
+	 * @return 休日SetのJSON形式文字列
+	 */
+	public static String getHolidayJsonStr() {
+		if (holidayJsonStr == null) {
+			holidayJsonStr = createHolidayJsonStr();
+		}
 
-    /**
-     * 休日SetのJSON形式文字列を作成する
-     * 
-     * @return 休日SetのJSON形式文字列
-     */
-    private static String createHolidayJsonStr() {
-	JSONObject json = new JSONObject();
-
-	Set<String> holidaySetStr = new HashSet<String>();
-	for (Date holiday : getHolidaySet()) {
-	    holidaySetStr.add(DateUtils.toDateFormat(holiday));
+		return holidayJsonStr;
 	}
 
-	json.element("holidays", holidaySetStr);
+	/**
+	 * 休日のSetを作成する
+	 * 
+	 * @return 休日のSet
+	 */
+	private static Set<Date> createHolidaySet() {
+		Set<Date> result = new HashSet<Date>();
 
-	return json.toString();
-    }
+		BufferedReader reader = new BufferedReader(
+				new InputStreamReader(HolidayUtil.class.getClassLoader().getResourceAsStream("holiday.dat")));
+
+		try {
+			while (reader.ready()) {
+				String holiday = reader.readLine().trim();
+				if (!StringUtils.isNullOrEmpty(holiday)) {
+					result.add(DateUtils.toDateSlash(holiday));
+				}
+			}
+		} catch (Exception e) {
+			throw new SystemException("休日ファイル(holiday.dat)の読み込みに失敗しました", e);
+		}
+
+		return result;
+	}
+
+	/**
+	 * 休日SetのJSON形式文字列を作成する
+	 * 
+	 * @return 休日SetのJSON形式文字列
+	 */
+	private static String createHolidayJsonStr() {
+		JSONObject json = new JSONObject();
+
+		Set<String> holidaySetStr = new HashSet<String>();
+		for (Date holiday : getHolidaySet()) {
+			holidaySetStr.add(DateUtils.toDateFormat(holiday));
+		}
+
+		json.element("holidays", holidaySetStr);
+
+		return json.toString();
+	}
 
 }

@@ -1,6 +1,5 @@
 package com.isystk.sample.web.front.s2.dto;
 
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -12,25 +11,25 @@ import java.util.List;
  */
 public class SearchPostResultDto implements Serializable {
 
-    /** シリアルバージョンID */
-    private static final long serialVersionUID = -3996244721417234712L;
+	/** シリアルバージョンID */
+	private static final long serialVersionUID = -3996244721417234712L;
 
-    /** 投稿ID */
-    public Integer postId;
+	/** 投稿ID */
+	public Integer postId;
 
-    /** タイトル */
-    public String title;
+	/** タイトル */
+	public String title;
 
-    /** 本文 */
-    public String text;
+	/** 本文 */
+	public String text;
 
-    /** 画像IDリスト */
-    public List<Integer> postImageIdList;
+	/** 画像IDリスト */
+	public List<Integer> postImageIdList;
 
-    /** タグID名リスト */
-    public List<String> postTagNameList;
+	/** タグID名リスト */
+	public List<String> postTagNameList;
 
-    /** 投稿日 */
-    public Date registTime;
+	/** 投稿日 */
+	public Date registTime;
 
 }

@@ -11,26 +11,26 @@ import org.seasar.framework.env.Env;
  */
 public final class WebConstants {
 
-    public static final class SelectOption {
-	/** プルダウンで空の場合に表示する値 */
-	public static final String VOID_VALUE = "----";
+	public static final class SelectOption {
+		/** プルダウンで空の場合に表示する値 */
+		public static final String VOID_VALUE = "----";
 
-    }
+	}
 
-    /**
-     * 環境
-     */
-    public static final class ENV {
+	/**
+	 * 環境
+	 */
+	public static final class ENV {
 
-	public static final boolean PRODUCT = Env.PRODUCT.equals(Env.getValue());
+		public static final boolean PRODUCT = Env.PRODUCT.equals(Env.getValue());
 
-    }
+	}
 
-    /**
-     * クッキー
-     */
-    public static final class Cookie {
+	/**
+	 * クッキー
+	 */
+	public static final class Cookie {
 
-    }
+	}
 
 }

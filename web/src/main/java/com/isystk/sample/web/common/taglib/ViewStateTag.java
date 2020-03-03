@@ -18,8 +18,7 @@ import com.isystk.sample.web.common.util.UrlUtil;
  * ViewStateの機能を有効にする。formの中に配置され、hiddenタグを生成しアクションフォームの内容を埋め込む。
  * アクションフォーム内容を疑似的に維持することが可能となるため、セッションを使わないようにすることができる。
  * 
- * １．cmn:viewStateタグをフォーム内に配置することで、 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
- * ２．アクションフォームの内容がフォーム内にシリアライズされ、
+ * １．cmn:viewStateタグをフォーム内に配置することで、 ２．アクションフォームの内容がフォーム内にシリアライズされ、
  * ３．フォームの送信時には、ViewStateでの内容が自動的にアクションフォームに展開されて、
  * ４．その後その他のURLパラメータがアクションフォームに展開されることになる。
  * 
@@ -37,40 +36,39 @@ import com.isystk.sample.web.common.util.UrlUtil;
  */
 public class ViewStateTag extends SimpleTagSupport {
 
+	private boolean likeAsAdditionalUrlParameter = false;
 
-    private boolean likeAsAdditionalUrlParameter = false;
-
-    public void setLikeAsAdditionalUrlParameter(boolean likeAsAdditionalUrlParameter) {
-	this.likeAsAdditionalUrlParameter = likeAsAdditionalUrlParameter;
-    }
-
-    public void doTag() throws JspException, IOException {
-
-	super.doTag();
-
-	ActionMapping mapping = (ActionMapping) RequestUtil.getRequest().getAttribute(Globals.MAPPING_KEY);
-
-	int scope = PageContext.SESSION_SCOPE;
-	if ("request".equalsIgnoreCase(mapping.getScope())) {
-	    scope = PageContext.REQUEST_SCOPE;
+	public void setLikeAsAdditionalUrlParameter(boolean likeAsAdditionalUrlParameter) {
+		this.likeAsAdditionalUrlParameter = likeAsAdditionalUrlParameter;
 	}
 
-	Object bean = getJspContext().getAttribute(mapping.getName(), scope);
-	String serializeParam = UrlUtil.getURLFromObject("", bean);
-	if (serializeParam != null && serializeParam.length() > 0) { // ?が頭につくので除いておく
-	    serializeParam = serializeParam.substring(1);
-	}
+	public void doTag() throws JspException, IOException {
 
-	HiddenTag hiddenTag = new HiddenTag();
-	hiddenTag.setPageContext((PageContext) getJspContext());
-	if (likeAsAdditionalUrlParameter) {
-	    hiddenTag.setProperty(AbstractRequestProcessor.VIEW_STATE_IKEAS_ADDITIONAL_URL_PARAMETER_KEY);
-	} else {
-	    hiddenTag.setProperty(AbstractRequestProcessor.VIEW_STATE_LIKEAS_SESSIONFORM_KEY);
-	}
-	hiddenTag.setValue(serializeParam);
-	hiddenTag.doStartTag(); // これで出力される
+		super.doTag();
 
-    }
+		ActionMapping mapping = (ActionMapping) RequestUtil.getRequest().getAttribute(Globals.MAPPING_KEY);
+
+		int scope = PageContext.SESSION_SCOPE;
+		if ("request".equalsIgnoreCase(mapping.getScope())) {
+			scope = PageContext.REQUEST_SCOPE;
+		}
+
+		Object bean = getJspContext().getAttribute(mapping.getName(), scope);
+		String serializeParam = UrlUtil.getURLFromObject("", bean);
+		if (serializeParam != null && serializeParam.length() > 0) { // ?が頭につくので除いておく
+			serializeParam = serializeParam.substring(1);
+		}
+
+		HiddenTag hiddenTag = new HiddenTag();
+		hiddenTag.setPageContext((PageContext) getJspContext());
+		if (likeAsAdditionalUrlParameter) {
+			hiddenTag.setProperty(AbstractRequestProcessor.VIEW_STATE_IKEAS_ADDITIONAL_URL_PARAMETER_KEY);
+		} else {
+			hiddenTag.setProperty(AbstractRequestProcessor.VIEW_STATE_LIKEAS_SESSIONFORM_KEY);
+		}
+		hiddenTag.setValue(serializeParam);
+		hiddenTag.doStartTag(); // これで出力される
+
+	}
 
 }

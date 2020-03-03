@@ -27,77 +27,73 @@ import com.isystk.sample.common.s2.solr.dto.PostSearchDto;
  */
 public class PostIndexerLogic {
 
-    protected final Logger logger = LoggerFactory.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
-    /**
-     * インデクス更新データのリストを取得します。
-     *
-     * @param tUserList
-     * @param tPostMap
-     * @param mPostTagMap
-     * @param mPrefectureMap
-     * @param freewordMap
-     * @param batchExecDate
-     * @return インデクス更新データのリスト
-     */
-    public List<PostSearchDto> getIndexDtoList(List<TUser> tUserList, Map<Integer, List<TPost>> tPostMap,
-    		final Map<Integer, MPostTag> mPostTagMap,
-        	Map<Integer, Prefecture> mPrefectureMap,
-        	Map<Integer, List<String>> freewordMap,
-	    Date batchExecDate) {
-	List<PostSearchDto> list = CollectionsUtil.newArrayList();
+	/**
+	 * インデクス更新データのリストを取得します。
+	 *
+	 * @param tUserList
+	 * @param tPostMap
+	 * @param mPostTagMap
+	 * @param mPrefectureMap
+	 * @param freewordMap
+	 * @param batchExecDate
+	 * @return インデクス更新データのリスト
+	 */
+	public List<PostSearchDto> getIndexDtoList(List<TUser> tUserList, Map<Integer, List<TPost>> tPostMap,
+			final Map<Integer, MPostTag> mPostTagMap, Map<Integer, Prefecture> mPrefectureMap,
+			Map<Integer, List<String>> freewordMap, Date batchExecDate) {
+		List<PostSearchDto> list = CollectionsUtil.newArrayList();
 
-	for (TUser tUser : tUserList) {
-	    // 投稿
-	    if (tPostMap.get(tUser.userId) == null || tPostMap.get(tUser.userId).size() <= 0) {
-		// ユーザーは存在するが、投稿が存在しないので生成不要
-		continue;
-	    }
+		for (TUser tUser : tUserList) {
+			// 投稿
+			if (tPostMap.get(tUser.userId) == null || tPostMap.get(tUser.userId).size() <= 0) {
+				// ユーザーは存在するが、投稿が存在しないので生成不要
+				continue;
+			}
 
-	    for (TPost tPost : tPostMap.get(tUser.userId)) {
+			for (TPost tPost : tPostMap.get(tUser.userId)) {
 
-		PostSearchDto dto = new PostSearchDto();
+				PostSearchDto dto = new PostSearchDto();
 
-		// 共通
-		dto.id = String.valueOf(tPost.postId);
+				// 共通
+				dto.id = String.valueOf(tPost.postId);
 
-		dto.postId = tPost.postId;
-		dto.userId = tPost.userId;
-		dto.title = tPost.title;
-		dto.text = tPost.text;
+				dto.postId = tPost.postId;
+				dto.userId = tPost.userId;
+				dto.title = tPost.title;
+				dto.text = tPost.text;
 
-		dto.postImageIdList = Lists.newArrayList(CollectionUtils.collect(
-				tPost.TPostImageList, new Transformer() {
-					public Object transform(Object o) {
-						return ((TPostImage) o).imageId;
-					}
-				}));
+				dto.postImageIdList = Lists
+						.newArrayList(CollectionUtils.collect(tPost.TPostImageList, new Transformer() {
+							public Object transform(Object o) {
+								return ((TPostImage) o).imageId;
+							}
+						}));
 
-		dto.postTagIdList = Lists.newArrayList(CollectionUtils.collect(
-				tPost.TPostTagList, new Transformer() {
+				dto.postTagIdList = Lists.newArrayList(CollectionUtils.collect(tPost.TPostTagList, new Transformer() {
 					public Object transform(Object o) {
 						return ((TPostTag) o).postTagId;
 					}
 				}));
 
-		dto.postTagNameList = Lists.newArrayList(CollectionUtils.collect(
-				tPost.TPostTagList, new Transformer() {
+				dto.postTagNameList = Lists.newArrayList(CollectionUtils.collect(tPost.TPostTagList, new Transformer() {
 					public Object transform(Object o) {
 						return mPostTagMap.get(((TPostTag) o).postTagId).name;
 					}
 				}));
 
-		// ソート用
-		dto.registTime = tPost.registTime;
+				// ソート用
+				dto.registTime = tPost.registTime;
 
-		// その他
-		dto.indexUpdateTime = batchExecDate;
+				// その他
+				dto.indexUpdateTime = batchExecDate;
 
-		list.add(dto);
-	    }
+				list.add(dto);
+			}
+		}
+		return list;
+
 	}
-	return list;
-
-    }
 
 }
