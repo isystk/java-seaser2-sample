@@ -21,13 +21,13 @@ import com.sun.media.jai.codec.MemoryCacheSeekableStream;
 
 /**
  * @author iseyoshitaka
- * 
+ *
  */
 public class FileUtil {
 
 	/**
 	 * ファイルの拡張子をチェックします。
-	 * 
+	 *
 	 * @param file
 	 *            ファイル
 	 * @param extensions
@@ -53,7 +53,7 @@ public class FileUtil {
 
 	/**
 	 * ファイルの拡張子を取得します。
-	 * 
+	 *
 	 * @param file
 	 *            ファイル
 	 */
@@ -67,7 +67,7 @@ public class FileUtil {
 
 	/**
 	 * ファイルサイズをチェックします。
-	 * 
+	 *
 	 * @param file
 	 *            ファイル
 	 * @param maxSize
@@ -86,7 +86,7 @@ public class FileUtil {
 
 	/**
 	 * 画像ファイルかどうかをチェックします。
-	 * 
+	 *
 	 * @param imageFile
 	 *            画像ファイル
 	 * @return true / false
@@ -116,7 +116,7 @@ public class FileUtil {
 
 	/**
 	 * BufferedImage を取得する
-	 * 
+	 *
 	 * @param stream
 	 * @return BufferedImage
 	 * @throws IOException

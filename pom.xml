@@ -162,36 +162,12 @@
 			<name>The Seasar Foundation Maven2 Repository</name>
 			<url>http://maven.seasar.org/maven2-snapshot</url>
 		</pluginRepository>
-		<pluginRepository>
-            <name>oss.sonatype.org</name>
-            <id>oss.sonatype.org</id>
-            <url>http://oss.sonatype.org/content/groups/public</url>
-        </pluginRepository>
 	</pluginRepositories>
 	<repositories>
 		<repository>
 			<id>maven.seasar.org</id>
 			<name>The Seasar Foundation Maven2 Repository</name>
 			<url>http://maven.seasar.org/maven2</url>
-		</repository>
-		<repository>
-            <id>oauth</id>
-            <name>OAuth Repository</name>
-            <url>http://oauth.googlecode.com/svn/code/maven</url>
-        </repository>
-		<repository>
-			<id>maven-us.nuxeo</id>
-			<url>http://maven-us.nuxeo.org/nexus/content/groups/public/</url>
-		</repository>
-		<repository>
-			<id>orangesignal</id>
-			<url>http://orangesignal.sourceforge.jp/maven2</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
 		</repository>
 	</repositories>
 	<dependencyManagement>
@@ -331,12 +307,6 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>5.1.15</version>
 			</dependency>
-			<!-- Postgresql Connector -->
-			<dependency>
-				<groupId>postgresql</groupId>
-				<artifactId>postgresql</artifactId>
-				<version>9.1-901-1.jdbc4</version>
-			</dependency>
 			<!-- seaser -->
 			<dependency>
 				<groupId>org.seasar.container</groupId>
@@ -403,16 +373,6 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-			<dependency>
-				<groupId>velocity</groupId>
-				<artifactId>velocity</artifactId>
-				<version>1.5</version>
-			</dependency>
-			<dependency>
-				<groupId>velocity-tools</groupId>
-				<artifactId>velocity-tools-generic</artifactId>
-				<version>1.2</version>
-			</dependency>
 			<!-- SAStruts -->
 			<dependency>
 				<groupId>struts</groupId>
@@ -430,28 +390,7 @@
 				<artifactId>sa-struts</artifactId>
 				<version>1.0.4-sp9</version>
 			</dependency>
-			<!-- Solr -->
-			<dependency>
-				<groupId>org.apache.solr</groupId>
-				<artifactId>solr-solrj</artifactId>
-				<version>3.6.0</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.solr</groupId>
-				<artifactId>solr-core</artifactId>
-				<version>3.6.0</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.slf4j</groupId>
-						<artifactId>slf4j-jdk14</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.solr</groupId>
-				<artifactId>solr-analysis-extras</artifactId>
-				<version>3.6.0</version>
-			</dependency>
+			
 			<!-- Http -->
 			<dependency>
 				<groupId>org.apache.httpcomponents</groupId>
@@ -474,11 +413,40 @@
 				<artifactId>httpcore</artifactId>
 				<version>4.2</version>
 			</dependency>
+			
+			<!-- Solr -->
+			<dependency>
+				<groupId>org.apache.solr</groupId>
+				<artifactId>solr-solrj</artifactId>
+				<version>3.6.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.solr</groupId>
+				<artifactId>solr-core</artifactId>
+				<version>3.6.0</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-jdk14</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.solr</groupId>
+				<artifactId>solr-analysis-extras</artifactId>
+				<version>3.6.0</version>
+			</dependency>
+
 			<!-- Guava -->
 			<dependency>
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
 				<version>19.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.inject</groupId>
+				<artifactId>guice</artifactId>
+				<version>4.0</version>
 			</dependency>
 
 			<!-- Geronimo -->
@@ -526,28 +494,10 @@
 				<artifactId>filters</artifactId>
 				<version>2.0.235</version>
 			</dependency>
-			<!-- OpenID -->
 			<dependency>
-				<groupId>org.openid4java</groupId>
-				<artifactId>openid4java-consumer</artifactId>
-				<version>0.9.6</version>
-				<type>pom</type>
-			</dependency>
-			<!-- OAuth -->
-			<dependency>
-				<groupId>net.oauth.core</groupId>
-				<artifactId>oauth</artifactId>
-				<version>20100527</version>
-			</dependency>
-			<dependency>
-				<groupId>net.oauth.core</groupId>
-				<artifactId>oauth-consumer</artifactId>
-				<version>20100527</version>
-			</dependency>
-			<dependency>
-				<groupId>net.oauth.core</groupId>
-				<artifactId>oauth-httpclient4</artifactId>
-				<version>20090913</version>
+				<groupId>org.ccil.cowan.tagsoup</groupId>
+				<artifactId>tagsoup</artifactId>
+				<version>1.2.1</version>
 			</dependency>
 			<dependency>
 				<groupId>net.coobird</groupId>
@@ -564,21 +514,6 @@
 				<artifactId>json-lib</artifactId>
 				<version>2.4</version>
 				<classifier>jdk15</classifier>
-			</dependency>
-			<dependency>
-				<groupId>com.jcraft</groupId>
-				<artifactId>jsch</artifactId>
-				<version>0.1.48</version>
-			</dependency>
-			<dependency>
-				<groupId>net.lingala.zip4j</groupId>
-				<artifactId>zip4j</artifactId>
-				<version>1.3.1</version>
-			</dependency>
-			<dependency>
-				<groupId>jp.sf.orangesignal</groupId>
-				<artifactId>orangesignal-csv</artifactId>
-				<version>1.3.0</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ccil.cowan.tagsoup</groupId>
@@ -604,79 +539,15 @@
 				<artifactId>dbunit</artifactId>
 				<version>2.4.8</version>
 			</dependency>
-			<dependency>
-				<groupId>xalan</groupId>
-				<artifactId>xalan</artifactId>
-				<version>2.5.1</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>xml-apis</groupId>
-				<artifactId>xml-apis</artifactId>
-				<version>1.0.b2</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.poi</groupId>
-				<artifactId>poi</artifactId>
-				<version>3.9</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.poi</groupId>
-				<artifactId>poi-ooxml</artifactId>
-				<version>3.9</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.poi</groupId>
-				<artifactId>poi-ooxml-schemas</artifactId>
-				<version>3.9</version>
-			</dependency>
-			<dependency>
-				<groupId>dom4j</groupId>
-				<artifactId>dom4j</artifactId>
-				<version>1.6.1</version>
-			</dependency>
-			<dependency>
-				<groupId>stax</groupId>
-				<artifactId>stax-api</artifactId>
-				<version>1.0.1</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.xmlbeans</groupId>
-				<artifactId>xmlbeans</artifactId>
-				<version>2.4.0</version>
-			</dependency>
-
-			<!-- Google Analytics -->
-			<dependency>
-				<groupId>com.google.http-client</groupId>
-				<artifactId>google-http-client-gson</artifactId>
-				<version>1.20.0</version>
-			</dependency>
-			<dependency>
-				<groupId>com.google.apis</groupId>
-				<artifactId>google-api-services-analytics</artifactId>
-				<version>v3-rev116-1.20.0</version>
-			</dependency>
-
-			<!-- Amazon SDK -->
-			<dependency>
-				<groupId>com.amazonaws</groupId>
-				<artifactId>aws-java-sdk</artifactId>
-				<version>1.7.1</version>
-			</dependency>
-
-			<!-- JODConverter -->
-			<dependency>
-				<groupId>com.artofsolving</groupId>
-				<artifactId>jodconverter</artifactId>
-				<version>2.2.2</version>
-			</dependency>
-
 			<!-- JAI -->
 			<dependency>
 				<groupId>javax.media.jai</groupId>
 				<artifactId>com.springsource.javax.media.jai.core</artifactId>
+				<version>1.1.3</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.media.jai</groupId>
+				<artifactId>com.springsource.javax.media.jai.codec</artifactId>
 				<version>1.1.3</version>
 			</dependency>
 			<dependency>
@@ -685,57 +556,11 @@
 				<version>0.97-incubator</version>
 			</dependency>
 			<dependency>
-			  <groupId>com.squareup.okhttp3</groupId>
-			  <artifactId>okhttp</artifactId>
-		 	 <version>3.7.0</version>
+				<groupId>xalan</groupId>
+				<artifactId>xalan</artifactId>
+				<version>2.5.1</version>
+				<scope>provided</scope>
 			</dependency>
-
-            <!-- Axis2 -->
-<dependency>
-	<groupId>org.apache.axis2</groupId>
-	<artifactId>axis2-adb</artifactId>
-	<version>1.7.1</version>
-</dependency>
-			<dependency>
-				<groupId>org.apache.ws.commons.axiom</groupId>
-				<artifactId>axiom-api</artifactId>
-				<version>1.2.18</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.ws.commons.axiom</groupId>
-				<artifactId>axiom-impl</artifactId>
-				<version>1.2.18</version>
-			</dependency>
-			<dependency>
-				<groupId>axis</groupId>
-				<artifactId>axis-wsdl4j</artifactId>
-				<version>1.5.1</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.ws.commons.schema</groupId>
-				<artifactId>XmlSchema</artifactId>
-				<version>1.4.7</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.neethi</groupId>
-				<artifactId>neethi</artifactId>
-				<version>3.0.3</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.axis2</groupId>
-				<artifactId>axis2-transport-local</artifactId>
-				<version>1.7.1</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.axis2</groupId>
-				<artifactId>axis2-transport-http</artifactId>
-				<version>1.7.1</version>
-			</dependency>
-<dependency>
-	<groupId>org.apache.axis2</groupId>
-	<artifactId>axis2-jaxws</artifactId>
-	<version>1.7.1</version>
-</dependency>
 		</dependencies>
 	</dependencyManagement>
 

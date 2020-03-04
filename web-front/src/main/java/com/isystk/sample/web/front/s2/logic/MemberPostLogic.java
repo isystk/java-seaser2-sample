@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.Transformer;
 
-import com.google.inject.internal.Lists;
+import com.google.common.collect.Lists;
 import com.isystk.sample.common.constants.Flg;
 import com.isystk.sample.common.exception.SystemException;
 import com.isystk.sample.common.s2.entity.MPostTag;

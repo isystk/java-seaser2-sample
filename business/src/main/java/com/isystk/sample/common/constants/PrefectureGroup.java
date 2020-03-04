@@ -2,14 +2,14 @@ package com.isystk.sample.common.constants;
 
 import java.util.List;
 
-import com.google.inject.internal.Lists;
+import com.google.common.collect.Lists;
 import com.isystk.sample.common.util.NumberUtil;
 
 /**
  * 都道府県グループ
- * 
+ *
  * @author iseyoshitaka
- * 
+ *
  */
 public enum PrefectureGroup {
 
@@ -42,7 +42,7 @@ public enum PrefectureGroup {
 
 	/**
 	 * 紐づく都道府県を取得する。
-	 * 
+	 *
 	 * @return
 	 */
 	public List<Prefecture> getPrefectureList() {

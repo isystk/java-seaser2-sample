@@ -14,8 +14,8 @@ import org.seasar.framework.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.google.inject.internal.Lists;
 import com.isystk.sample.common.config.AppConfigNames;
 import com.isystk.sample.common.config.Config;
 import com.isystk.sample.common.constants.Prefecture;

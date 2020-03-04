@@ -7,8 +7,8 @@ import javax.annotation.Resource;
 
 import org.seasar.framework.container.annotation.tiger.Component;
 
-import com.google.inject.internal.Lists;
-import com.google.inject.internal.Maps;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.isystk.sample.common.s2.entity.MPostTag;
 import com.isystk.sample.common.s2.service.MPostTagService;
 import com.isystk.sample.common.util.BeanCopyUtil;

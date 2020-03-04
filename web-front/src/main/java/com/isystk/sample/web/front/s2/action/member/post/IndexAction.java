@@ -21,8 +21,8 @@ import org.seasar.struts.util.ResponseUtil;
 import org.seasar.struts.util.S2ActionMappingUtil;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import com.google.inject.internal.Maps;
 import com.isystk.sample.common.config.AppConfigNames;
 import com.isystk.sample.common.config.AppMessageNames;
 import com.isystk.sample.common.config.Config;

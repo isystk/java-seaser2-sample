@@ -71,6 +71,23 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 		</dependency>
+		<dependency>
+		  <groupId>javax.media.jai</groupId>
+		  <artifactId>com.springsource.javax.media.jai.core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.media.jai</groupId>
+			<artifactId>com.springsource.javax.media.jai.codec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.sanselan</groupId>
+		    <artifactId>sanselan</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+
 		<!-- Geronimo -->
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
@@ -84,32 +101,11 @@
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jta_1.1_spec</artifactId>
 		</dependency>
-
 		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
+			<groupId>jp.sourceforge.spring-ext</groupId>
+			<artifactId>ozacc-mail</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml-schemas</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>dom4j</groupId>
-			<artifactId>dom4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>stax</groupId>
-			<artifactId>stax-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.xmlbeans</groupId>
-			<artifactId>xmlbeans</artifactId>
-		</dependency>
-
+		
 		<!-- seaser -->
 		<dependency>
 			<groupId>org.seasar.container</groupId>
@@ -131,18 +127,6 @@
 			<groupId>org.seasar.mai</groupId>
 			<artifactId>s2mai-tiger</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>velocity</groupId>
-			<artifactId>velocity</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>velocity-tools</groupId>
-			<artifactId>velocity-tools-generic</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>jp.sourceforge.spring-ext</groupId>
-			<artifactId>ozacc-mail</artifactId>
-		</dependency>
 		
 		<!-- Solr -->
 		<dependency>
@@ -153,6 +137,7 @@
 			<groupId>org.apache.solr</groupId>
 			<artifactId>solr-core</artifactId>
 		</dependency>
+		
 		<!-- Http -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
@@ -166,10 +151,15 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
 		</dependency>
+		
 		<!-- Guava -->
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
 		</dependency>
 
 		<!-- MySQL Connector -->
@@ -178,33 +168,6 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
-		<!-- Postgresql Connector -->
-		<dependency>
-			<groupId>postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-		</dependency>
-
-		<!--  OpenID -->
-		<dependency>
-			<groupId>org.openid4java</groupId>
-        	<artifactId>openid4java-consumer</artifactId>
-        	<type>pom</type>
-		</dependency>
-		
-		<!-- OAuth -->
-		<dependency>
-			<groupId>net.oauth.core</groupId>
-			<artifactId>oauth</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.oauth.core</groupId>
-			<artifactId>oauth-consumer</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.oauth.core</groupId>
-			<artifactId>oauth-httpclient4</artifactId>
-		</dependency>
-		
 		<dependency>
 			<groupId>net.coobird</groupId>
 			<artifactId>thumbnailator</artifactId>
@@ -213,7 +176,6 @@
 			<groupId>com.drewnoakes</groupId>
 			<artifactId>metadata-extractor</artifactId>
 		</dependency>
-		
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
@@ -229,72 +191,5 @@
 			<groupId>org.easymock</groupId>
 			<artifactId>easymock</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>xalan</groupId>
-			<artifactId>xalan</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>xml-apis</groupId>
-			<artifactId>xml-apis</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>jp.sf.orangesignal</groupId>
-			<artifactId>orangesignal-csv</artifactId>
-		</dependency>
-		<dependency>
-		  <groupId>javax.media.jai</groupId>
-		  <artifactId>com.springsource.javax.media.jai.core</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.sanselan</groupId>
-		    <artifactId>sanselan</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-		</dependency>
-		<dependency>
-		  <groupId>com.squareup.okhttp3</groupId>
-		  <artifactId>okhttp</artifactId>
-		</dependency>
-
-		<!-- Axis2 -->
-<dependency>
-	<groupId>org.apache.axis2</groupId>
-	<artifactId>axis2-adb</artifactId>
-</dependency>
- 		<dependency>
-			<groupId>org.apache.ws.commons.axiom</groupId>
-			<artifactId>axiom-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.ws.commons.axiom</groupId>
-			<artifactId>axiom-impl</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>axis</groupId>
-			<artifactId>axis-wsdl4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.ws.commons.schema</groupId>
-			<artifactId>XmlSchema</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.neethi</groupId>
-			<artifactId>neethi</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.axis2</groupId>
-			<artifactId>axis2-transport-local</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.axis2</groupId>
-			<artifactId>axis2-transport-http</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.axis2</groupId>
-			<artifactId>axis2-jaxws</artifactId>
-		</dependency>
-
 	</dependencies>
 </project>
