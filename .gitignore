@@ -3,5 +3,3 @@
 /bin
 .classpath
 .settings/
-
-*gradle*
