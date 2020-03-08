@@ -1,7 +1,7 @@
 @echo off
 
 set PJT_HOME=%~dp0\..
-set JAVA_HOME=%PJT_HOME%\tools\java
+set JAVA_HOME=%PJT_HOME%\tools\java\8
 set MAVEN_HOME=%PJT_HOME%\tools\maven
 
 set PATH=%JAVA_HOME%\bin;%PATH%
