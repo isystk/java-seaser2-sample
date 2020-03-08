@@ -109,7 +109,17 @@ public class IndexAction {
 			session.invalidate();
 		}
 
-		return Url.frontLogin.getAbsolute() + "?redirect=true";
+		String returnUrl = loginForm.backUrl;
+
+		if (StringUtils.isEmpty(loginForm.backUrl)) {
+			returnUrl = Url.frontTop.getAbsolute();
+		}
+
+		if (returnUrl != null && StringUtils.isNotEmpty(returnUrl)) {
+			return returnUrl + "?redirect=true";
+		} else {
+			return Url.frontTop.getAbsolute() + "?redirect=true";
+		}
 	}
 
 }

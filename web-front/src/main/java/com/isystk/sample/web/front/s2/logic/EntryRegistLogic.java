@@ -315,7 +315,7 @@ public class EntryRegistLogic {
 		// 受付No
 		mailDto.setUserId(String.valueOf(entity.userId));
 		// ドメイン
-		mailDto.setDomain(Config.getString(AppConfigNames.USERPC_DOMAIN));
+		mailDto.setDomain(Config.getString(AppConfigNames.FRONT_DOMAIN));
 
 		return mailDto;
 

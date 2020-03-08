@@ -194,7 +194,7 @@ public class ImageManager {
 	 */
 	public static String getImageOrNoImageUrl(Integer imageId, String suffix, String noimageName) {
 		if (imageId == null) {
-			return "//" + Config.getString(AppConfigNames.USERPC_DOMAIN) + "/img/" + noimageName + ".jpg";
+			return "//" + Config.getString(AppConfigNames.FRONT_DOMAIN) + "/img/" + noimageName + ".jpg";
 		} else {
 			return getImageUrl(imageId, suffix);
 		}

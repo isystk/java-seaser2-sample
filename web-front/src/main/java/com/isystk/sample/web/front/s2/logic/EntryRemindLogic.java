@@ -176,7 +176,7 @@ public class EntryRemindLogic {
 		// FROM（システム）
 		mailDto.setFrom(new MailAddress(mailLogic.getSystemMailInAdminSite()));
 		// ドメイン
-		mailDto.setDomain(Config.getString(AppConfigNames.USERPC_DOMAIN));
+		mailDto.setDomain(Config.getString(AppConfigNames.FRONT_DOMAIN));
 		// エラーメール送信先
 		mailDto.setReturnPath(mailLogic.getErrorsMail01());
 		// 本文記載内容

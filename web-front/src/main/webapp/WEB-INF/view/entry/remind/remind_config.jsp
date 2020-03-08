@@ -22,7 +22,8 @@
 
 				<%-- ▼入力フォーム▼ --%>
 				<s:form method="post">
-           			<table class="formTable">
+           			<html:hidden property="onetimeKey" value="${f:h(onetimeKey)}"/>
+					<table class="formTable">
 						<tbody>
 							<tr>
 								<th>
@@ -54,7 +55,7 @@
 					<p><span class="sub">※ パスワードは完了画面に表示されませんので、ご自身で控えていただくようお願いいたします。</span></p>
 
       				<p class="btnArea">
-      					<input type="complete" name="returnInput" value="上記の内容で登録する">
+      					<input type="submit" name="complete" value="上記の内容で登録する">
       				</p>
 
 				</s:form>

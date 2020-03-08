@@ -36,7 +36,7 @@ import com.isystk.sample.web.common.util.UrlUtil;
 public enum Url {
 
 	/** ドメイン */
-	frontDomain(Config.getString(AppConfigNames.USERPC_DOMAIN)),
+	frontDomain(Config.getString(AppConfigNames.FRONT_DOMAIN)),
 
 	/** トップ */
 	frontTop("/"),
@@ -51,7 +51,7 @@ public enum Url {
 	/** ログイン */
 	frontLogin("/login/"),
 	/** ログアウト */
-	frontLogout("/logout/"),
+	frontLogout("/login/?logout=smt"),
 	/** 会員登録 */
 	frontEntry("/entry/"),
 	/** 会員登録 */
@@ -170,7 +170,7 @@ public enum Url {
 		HttpServletRequest request = RequestUtil.getRequest();
 		if (request != null) {
 			String scheme = AbstractRequestProcessor.isHttpsRequest(request) ? PROTOCOL_HTTPS : PROTOCOL_HTTP;
-			return scheme + Config.getString(AppConfigNames.USERPC_DOMAIN) + path;
+			return scheme + Config.getString(AppConfigNames.FRONT_DOMAIN) + path;
 		} else {
 			return "";
 		}

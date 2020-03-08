@@ -124,7 +124,8 @@ public class RemindAction {
 			session.invalidate();
 		}
 
-		return Url.frontTop.getAbsolute() + "&redirect=true";
+		return Url.frontLogout.getAbsolute() + "?backUrl=" + Url.frontEntyRemind.getAbsolute()
+				+ "showConfig/?onetimeKey=" + entryRemindForm.onetimeKey + "&redirect=true";
 
 	}
 

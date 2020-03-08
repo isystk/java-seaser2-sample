@@ -264,7 +264,7 @@ public class URLFunctions {
 		HttpServletRequest request = RequestUtil.getRequest();
 		if (request != null) {
 			String scheme = AbstractRequestProcessor.isHttpsRequest(request) ? PROTOCOL_HTTPS : PROTOCOL_HTTP;
-			return scheme + Config.getString(AppConfigNames.USERPC_DOMAIN) + url;
+			return scheme + Config.getString(AppConfigNames.FRONT_DOMAIN) + url;
 		} else {
 			return "";
 		}
